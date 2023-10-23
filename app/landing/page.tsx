@@ -1,4 +1,4 @@
-import styles from './login.module.css';
+import styles from './landing.module.css';
 import Link from 'next/link';
 
 const LoginPage = () => {
@@ -10,6 +10,7 @@ const LoginPage = () => {
           from-black/90
           fixed
           flex
+          flex-row
           flex-wrap
           gap-2
           items-center
@@ -28,16 +29,33 @@ const LoginPage = () => {
         </span>
 
         <div className='flex items-center gap-2 md:gap-6'>
-          <select className='bg-black/80 border-white/40 border-[0.2px] rounded-md px-3 text-base py-1.5'>
-            {/* <Image
+          <div
+            className='
+              bg-black/80
+              border-[0.2px]
+              border-white/40
+              rounded-md
+              text-base
+              relative
+            '
+          >
+            <img
               src='/translate.png'
-              width={50}
-              height={50}
+              className='h-4 absolute top-1/2 left-3 transform -translate-y-1/2'
               alt='Translate'
-            /> */}
-            <option>English</option>
-            <option>Español</option>
-          </select>
+            />
+            <select className='bg-transparent py-1.5 px-9 appearance-none'>
+              <option className='bg-black'>English</option>
+              <option className='bg-black'>Español</option>
+            </select>
+
+            <img
+              src='/arrow.svg'
+              className='h-2 absolute top-1/2 right-3 transform -translate-y-1/2'
+              alt='Translate'
+            />
+          </div>
+
           <Link
             href='/login'
             className='
