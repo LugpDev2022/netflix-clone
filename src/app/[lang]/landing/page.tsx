@@ -1,7 +1,10 @@
+import { MdNavigateNext } from 'react-icons/md';
+
 import { Locale } from '@/src/types';
 import { getDictionary } from '../dictionaries';
 import Navbar from './components/Navbar';
 import styles from './landing.module.css';
+import RegisterForm from './components/RegisterForm';
 
 interface Props {
   params: {
@@ -22,12 +25,14 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
             {dict.landing.title}
           </h1>
 
-          <p>Watch anywhere. Cancel anytime</p>
+          <p className='text-lg mt-4'>Watch anywhere. Cancel anytime</p>
 
-          <h3>
+          <h3 className='text-lg mt-6'>
             Ready to watch? Enter your email to create or restart your
             membership.
           </h3>
+
+          <RegisterForm />
         </div>
       </section>
 
