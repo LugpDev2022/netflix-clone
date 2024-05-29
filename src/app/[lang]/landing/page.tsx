@@ -1,16 +1,24 @@
+import { Locale } from '@/src/types';
+import { getDictionary } from '../dictionaries';
 import Navbar from './components/Navbar';
 import styles from './landing.module.css';
 
-const LandingPage = () => {
+interface Props {
+  params: {
+    lang: Locale;
+  };
+}
+
+const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
+  const dict = await getDictionary(lang);
+  console.log(dict);
+
   return (
     <div className='bg-gray-700'>
       <section className={`${styles.background} px-6`}>
         <Navbar />
 
-        <h1>
-          The biggest local and international hits. The best stories. All
-          streaming here.
-        </h1>
+        <h1>{dict.landing.title}</h1>
 
         <p>Watch anywhere. Cancel anytime</p>
 

@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import { Locale } from '../types';
 
 export const metadata: Metadata = {
   title: 'Netflix | LugpDev2022',
-  description: 'A clone of netflix created to practice my programming skills',
+  description: 'A clone of netflix created by LugpDev2022',
 };
 
 const NetflixSans = localFont({
@@ -18,13 +19,21 @@ const NetflixSans = localFont({
   display: 'swap',
 });
 
+export async function generateStaticParams() {
+  return [{ lang: 'en-US' }, { lang: 'de' }];
+}
+
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: {
+    lang: Locale;
+  };
 }) {
   return (
-    <html lang='en'>
+    <html lang={params.lang}>
       <body className={`w-screen h-screen text-white ${NetflixSans.className}`}>
         {children}
       </body>
