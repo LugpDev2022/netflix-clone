@@ -30,7 +30,7 @@ const Navbar: React.FC<Props> = async ({ lang }) => {
           src='/logo.svg'
           width={89}
           height={24}
-          className='w-[89px] md:w-36'
+          className='w-[89px]'
           alt='Netflix'
         />
       </span>
