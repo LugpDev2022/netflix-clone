@@ -2,8 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import LangSelector from '@/src/app/[lang]/landing/components/LangSelector';
+import { Locale } from '@/src/types';
 
-const Navbar = async () => {
+interface Props {
+  lang: Locale;
+}
+
+const Navbar: React.FC<Props> = async ({ lang }) => {
   return (
     <header
       className='
@@ -46,7 +51,7 @@ const Navbar = async () => {
             height={16}
           />
 
-          <LangSelector />
+          <LangSelector lang={lang} />
 
           <Image
             src='/arrow.svg'

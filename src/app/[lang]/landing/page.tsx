@@ -16,7 +16,7 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
     <div className='bg-gray-700'>
       <section className={`${styles.background}`}>
         <div className='z-20 bg-black/25 px-6'>
-          <Navbar />
+          <Navbar lang={lang} />
 
           <h1>{dict.landing.title}</h1>
 
