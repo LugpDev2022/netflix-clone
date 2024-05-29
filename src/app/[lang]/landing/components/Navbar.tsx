@@ -28,9 +28,9 @@ const Navbar: React.FC<Props> = async ({ lang }) => {
       <span className='shrink-0'>
         <Image
           src='/logo.svg'
-          width={96}
-          height={26}
-          className='w-24 md:w-36'
+          width={89}
+          height={24}
+          className='w-[89px] md:w-36'
           alt='Netflix'
         />
       </span>

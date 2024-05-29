@@ -26,13 +26,13 @@ const LangSelector: React.FC<Props> = ({ lang }) => {
     <>
       <div
         className='
-              bg-black/80
-              border-[0.2px]
-              border-white/40
-              rounded-md
-              text-base
-              relative
-            '
+          bg-black/80
+          border-[0.2px]
+          border-white/40
+          rounded-md
+          text-base
+          relative
+        '
       >
         <Image
           src='/translate.png'
@@ -43,7 +43,7 @@ const LangSelector: React.FC<Props> = ({ lang }) => {
         />
 
         <select
-          className='bg-transparent py-1.5 px-9 appearance-none w-0.5 sm:w-auto'
+          className='bg-transparent py-1 px-9 appearance-none w-0.5 sm:w-auto'
           onChange={handleLangChange}
           defaultValue={lang}
         >
