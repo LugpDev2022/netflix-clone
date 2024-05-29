@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
-const Navbar = () => {
+import LangSelector from '@/src/app/[lang]/landing/components/LangSelector';
+
+const Navbar = async () => {
   return (
     <header
       className='
@@ -15,7 +18,13 @@ const Navbar = () => {
         '
     >
       <span className='shrink-0'>
-        <img src='/logo.svg' className='w-24 md:w-36' alt='Netflix' />
+        <Image
+          src='/logo.svg'
+          width={96}
+          height={26}
+          className='w-24 md:w-36'
+          alt='Netflix'
+        />
       </span>
 
       <div className='flex items-center gap-2 md:gap-6'>
@@ -29,20 +38,22 @@ const Navbar = () => {
               relative
             '
         >
-          <img
+          <Image
             src='/translate.png'
             className='h-4 absolute top-1/2 left-3 transform -translate-y-1/2'
             alt='Translate'
+            width={16}
+            height={16}
           />
-          <select className='bg-transparent py-1.5 px-9 appearance-none w-0.5 sm:w-auto'>
-            <option className='bg-black'>English</option>
-            <option className='bg-black'>Español</option>
-          </select>
 
-          <img
+          <LangSelector />
+
+          <Image
             src='/arrow.svg'
             className='h-2 absolute top-1/2 right-3 transform -translate-y-1/2'
-            alt='Translate'
+            alt='Arrow'
+            width={8}
+            height={8}
           />
         </div>
 
