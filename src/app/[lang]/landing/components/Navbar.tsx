@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 
 import LangSelector from '@/src/app/[lang]/landing/components/LangSelector';
@@ -37,35 +36,7 @@ const Navbar: React.FC<Props> = async ({ lang }) => {
       </span>
 
       <div className='flex items-center gap-2 md:gap-6'>
-        <div
-          className='
-              bg-black/80
-              border-[0.2px]
-              border-white/40
-              rounded-md
-              text-base
-              relative
-            '
-        >
-          <Image
-            src='/translate.png'
-            className='h-4 absolute top-1/2 left-3 transform -translate-y-1/2'
-            alt='Translate'
-            width={16}
-            height={16}
-          />
-
-          <LangSelector lang={lang} />
-
-          <Image
-            src='/arrow.svg'
-            className='h-2 absolute top-1/2 right-3 transform -translate-y-1/2'
-            alt='Arrow'
-            width={8}
-            height={8}
-          />
-        </div>
-
+        <LangSelector lang={lang} />
         <SignInLink>{dict.landing.signIn}</SignInLink>
       </div>
     </header>
