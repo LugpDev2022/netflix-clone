@@ -1,5 +1,3 @@
-import { MdNavigateNext } from 'react-icons/md';
-
 import { Locale } from '@/src/types';
 import { getDictionary } from '../dictionaries';
 import Navbar from './components/Navbar';
