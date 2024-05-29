@@ -43,7 +43,7 @@ const LangSelector: React.FC<Props> = ({ lang }) => {
         />
 
         <select
-          className='bg-transparent py-1 px-9 appearance-none w-0.5 sm:w-auto'
+          className='bg-transparent py-1 px-8 appearance-none w-0.5 sm:w-auto sm:px-9'
           onChange={handleLangChange}
           defaultValue={lang}
         >
