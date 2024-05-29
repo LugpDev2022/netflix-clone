@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const NetflixSans = localFont({
   src: [
     {
-      path: './fonts/netflix-sans.otf',
+      path: '../fonts/netflix-sans.otf',
       weight: '400',
       style: 'normal',
     },
