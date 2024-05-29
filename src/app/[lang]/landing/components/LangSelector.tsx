@@ -14,7 +14,6 @@ const LangSelector: React.FC<Props> = ({ lang }) => {
 
   const handleLangChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
     event.preventDefault();
-
     const { value } = event.target;
 
     if (lang === value) return;

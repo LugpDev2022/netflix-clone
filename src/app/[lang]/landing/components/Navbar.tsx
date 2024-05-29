@@ -3,12 +3,16 @@ import Image from 'next/image';
 
 import LangSelector from '@/src/app/[lang]/landing/components/LangSelector';
 import { Locale } from '@/src/types';
+import { getDictionary } from '../../dictionaries';
+import SignInLink from './SignInLink';
 
 interface Props {
   lang: Locale;
 }
 
 const Navbar: React.FC<Props> = async ({ lang }) => {
+  const dict = await getDictionary(lang);
+
   return (
     <header
       className='
@@ -62,22 +66,7 @@ const Navbar: React.FC<Props> = async ({ lang }) => {
           />
         </div>
 
-        <Link
-          href='/login'
-          className='
-              bg-red-600
-              hover:bg-red-700
-              px-3 
-              py-1.5
-              rounded-md
-              text-sm
-              tracking-wider
-              transition
-              duration-200
-            '
-        >
-          Sign In
-        </Link>
+        <SignInLink>{dict.landing.signIn}</SignInLink>
       </div>
     </header>
   );
