@@ -26,11 +26,12 @@ const LangSelector: React.FC<Props> = ({ lang }) => {
     <select
       className='bg-transparent py-1.5 px-9 appearance-none w-0.5 sm:w-auto'
       onChange={handleLangChange}
+      defaultValue={lang}
     >
-      <option className='bg-black' selected={lang === 'en'} value='en'>
+      <option className='bg-black' value='en'>
         English
       </option>
-      <option className='bg-black' selected={lang === 'es'} value='es'>
+      <option className='bg-black' value='es'>
         Español
       </option>
     </select>
