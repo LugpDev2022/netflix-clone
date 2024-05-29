@@ -18,6 +18,7 @@ const SignInLink: React.FC<Props> = ({ children }) => {
         tracking-wider
         transition
         duration-200
+        font-medium
       '
     >
       {children}
