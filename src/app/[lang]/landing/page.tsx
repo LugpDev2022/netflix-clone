@@ -11,20 +11,22 @@ interface Props {
 
 const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
   const dict = await getDictionary(lang);
-  console.log(dict);
 
   return (
     <div className='bg-gray-700'>
-      <section className={`${styles.background} px-6`}>
-        <Navbar />
+      <section className={`${styles.background}`}>
+        <div className='z-20 bg-black/25 px-6'>
+          <Navbar />
 
-        <h1>{dict.landing.title}</h1>
+          <h1>{dict.landing.title}</h1>
 
-        <p>Watch anywhere. Cancel anytime</p>
+          <p>Watch anywhere. Cancel anytime</p>
 
-        <h3>
-          Ready to watch? Enter your email to create or restart your membership.
-        </h3>
+          <h3>
+            Ready to watch? Enter your email to create or restart your
+            membership.
+          </h3>
+        </div>
       </section>
 
       <section className='bg-black mt-2'>
