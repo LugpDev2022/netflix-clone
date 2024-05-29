@@ -4,8 +4,6 @@ const Navbar = () => {
   return (
     <header
       className='
-          bg-gradient-to-b
-          from-black/90
           flex
           flex-row
           flex-wrap

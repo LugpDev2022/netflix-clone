@@ -1,28 +1,33 @@
 import Navbar from './components/Navbar';
 import styles from './landing.module.css';
 
-const LoginPage = () => {
+const LandingPage = () => {
   return (
-    <div
-      className={`${styles.background} relative 
-        px-6
-        sm:px-10
-        lg:px-40
-        md:px-20
-      `}
-    >
-      <Navbar />
+    <div className='bg-gray-700'>
+      <section className={`${styles.background} px-6`}>
+        <Navbar />
 
-      <main className='h-full w-full pt-20'>
-        <div className='w-[95%] h-full flex justify-center items-center mx-auto'>
-          <h1 className='text-4xl font-bold text-center'>
-            The biggest local and international hits. The best stories. All
-            streaming here.
-          </h1>
-        </div>
-      </main>
+        <h1>
+          The biggest local and international hits. The best stories. All
+          streaming here.
+        </h1>
+
+        <p>Watch anywhere. Cancel anytime</p>
+
+        <h3>
+          Ready to watch? Enter your email to create or restart your membership.
+        </h3>
+      </section>
+
+      <section className='bg-black mt-2'>
+        <h2>Enjoy on your TV</h2>
+        <p>
+          Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray
+          players, and more.
+        </p>
+      </section>
     </div>
   );
 };
 
-export default LoginPage;
+export default LandingPage;
