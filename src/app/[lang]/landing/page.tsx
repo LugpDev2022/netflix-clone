@@ -25,12 +25,14 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
 
           <p className='text-lg mt-4'>Watch anywhere. Cancel anytime</p>
 
-          <h3 className='text-lg mt-6'>
-            Ready to watch? Enter your email to create or restart your
-            membership.
-          </h3>
+          <div className='px-6 pb-10'>
+            <h3 className='text-lg mt-6'>
+              Ready to watch? Enter your email to create or restart your
+              membership.
+            </h3>
 
-          <RegisterForm />
+            <RegisterForm />
+          </div>
         </div>
       </section>
 
