@@ -7,8 +7,67 @@
   width: 100%;
 }
 
+.landing-section-container {
+  background-color: black;
+}
+
+.landing-section {
+  padding: 72px 24px;
+  text-align: center;
+
+  margin: auto;
+  max-width: 1024px;
+
+  h2 {
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .landing-img-container {
+    position: relative;
+    max-width: 530px;
+    margin: 24px auto;
+
+    img {
+      position: relative;
+      z-index: 10;
+    }
+
+    video {
+      position: absolute;
+      z-index: 1;
+      aspect-ratio: 16/9;
+    }
+  }
+}
+
 @media (min-width: 1024px) {
   .landing-bg-image {
     height: 100vh;
+  }
+
+  .landing-section {
+    padding: 72px 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    text-align: left;
+
+    h2 {
+      font-size: 48px;
+      font-weight: 900;
+    }
+
+    p {
+      font-size: 24px;
+    }
+
+    .landing-img-container {
+      margin: auto;
+    }
   }
 }

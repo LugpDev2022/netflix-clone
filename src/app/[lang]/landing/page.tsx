@@ -39,14 +39,28 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
         </div>
       </section>
 
-      <section className='bg-black'>
-        <h2>Enjoy on your TV</h2>
-        <p>
-          Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray
-          players, and more.
-        </p>
+      <section className='landing-section-container'>
+        <div className='landing-section'>
+          <div>
+            <h2>Enjoy on your TV</h2>
+            <p>
+              Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV,
+              Blu-ray players, and more.
+            </p>
+          </div>
 
-        <Image src='/tv.png' alt='TV' width={530} height={400} />
+          <div className='landing-img-container'>
+            <Image src='/tv.png' alt='TV' width={530} height={400} />
+            <video
+              src='/video-tv.m4v'
+              className='top-[20%] w-3/4 left-1/2 -translate-x-1/2'
+              loop
+              autoPlay
+              playsInline
+              muted
+            ></video>
+          </div>
+        </div>
       </section>
     </div>
   );
