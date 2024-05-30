@@ -29,9 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang={params.lang}>
-      <body className={`w-screen h-screen text-white ${inter.className}`}>
-        {children}
-      </body>
+      <body className={`text-white ${inter.className}`}>{children}</body>
     </html>
   );
 }
