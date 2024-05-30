@@ -27,7 +27,6 @@ export default function RootLayout({
     lang: Locale;
   };
 }) {
-  console.log(params.lang);
   return (
     <html lang={params.lang}>
       <body className={`text-white ${inter.className}`}>{children}</body>

@@ -6,16 +6,15 @@ interface Props {
   lang: Locale;
 }
 
-const ThirdSection: React.FC<Props> = ({ lang }) => {
+const ThirdSection: React.FC<Props> = async ({ lang }) => {
+  const dict = await getDictionary(lang);
+
   return (
     <section className='landing-section-container'>
       <div className='landing-section'>
         <div className='lg:order-1'>
-          <h2>Watch everywhere</h2>
-          <p>
-            Stream unlimited movies and TV shows on your phone, tablet, laptop,
-            and TV.
-          </p>
+          <h2>{dict.landing.section3.title}</h2>
+          <p>{dict.landing.section3.subtitle}</p>
         </div>
 
         <div className='landing-img-container'>
