@@ -20,7 +20,7 @@ const NetflixSans = localFont({
 });
 
 export async function generateStaticParams() {
-  return [{ lang: 'en-US' }, { lang: 'de' }];
+  return [{ lang: 'en' }, { lang: 'es' }];
 }
 
 export default function RootLayout({
