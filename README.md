@@ -51,6 +51,12 @@ To build the project for production, use:
 npm run build
 ```
 
+To start a server with the production build, run:
+
+```sh
+npm run start
+```
+
 ## Technologies
 
 ## Demo
