@@ -24,17 +24,14 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
               {dict.landing.title}
             </h1>
 
-            <p className='text-lg mt-4 lg:text-2xl'>
-              Watch anywhere. Cancel anytime
-            </p>
+            <p className='text-lg mt-4 lg:text-2xl'>{dict.landing.slogan}</p>
 
             <div className='px-6 pb-10'>
               <h3 className='text-lg mt-6 lg:text-xl'>
-                Ready to watch? Enter your email to create or restart your
-                membership.
+                {dict.landing.registerSubtitle}
               </h3>
 
-              <RegisterForm />
+              <RegisterForm dictionary={dict} />
             </div>
           </div>
         </div>

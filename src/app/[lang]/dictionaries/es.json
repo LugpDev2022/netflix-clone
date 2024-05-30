@@ -1,6 +1,9 @@
 {
   "landing": {
     "title": "Los títulos mexicanos e internacionales de mayor éxito. Las mejores historias. Todo en Netflix.",
-    "signIn": "Iniciar Sesión"
+    "signIn": "Iniciar Sesión",
+    "slogan": "Ve Netflix donde quieras. Cancela cuando quieras.",
+    "registerSubtitle": "¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o reiniciar tu membresía de Netflix.",
+    "registerButton": "Comenzar"
   }
 }

@@ -1,6 +1,9 @@
 {
   "landing": {
     "title": "The biggest local and international hits. The best stories. All streaming here.",
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "slogan": "Watch anywhere. Cancel anytime.",
+    "registerSubtitle": "Ready to watch? Enter your email to create or restart your membership.",
+    "registerButton": "Get Started"
   }
 }
