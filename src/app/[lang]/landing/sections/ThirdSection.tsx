@@ -18,7 +18,12 @@ const ThirdSection: React.FC<Props> = async ({ lang }) => {
         </div>
 
         <div className='landing-img-container'>
-          <Image src='/device-pile.png' alt='TV' width={530} height={400} />
+          <Image
+            src='/device-pile.png'
+            alt='devices'
+            width={530}
+            height={400}
+          />
           <video
             src='/video-devices.m4v'
             className='top-[7%] w-[62%] left-1/2 -translate-x-1/2'

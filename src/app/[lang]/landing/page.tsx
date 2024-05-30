@@ -1,6 +1,7 @@
 import FirstSection from '@/src/app/[lang]/landing/sections/FirstSection';
 import SecondSection from '@/src/app/[lang]/landing/sections/SecondSection';
 import ThirdSection from '@/src/app/[lang]/landing/sections/ThirdSection';
+import FourthSection from '@/src/app/[lang]/landing/sections/FourthSection';
 import { Locale } from '@/src/types';
 import './landing.css';
 
@@ -16,6 +17,7 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
       <FirstSection lang={lang} />
       <SecondSection lang={lang} />
       <ThirdSection lang={lang} />
+      <FourthSection lang={lang} />
     </div>
   );
 };
