@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import { Locale } from '../types';
-import './globals.css';
+import { Locale } from '@/src/types';
+import '@/src/app/globals.css';
 
 export const metadata: Metadata = {
   title: 'Netflix | LugpDev2022',
@@ -27,6 +27,7 @@ export default function RootLayout({
     lang: Locale;
   };
 }) {
+  console.log(params.lang);
   return (
     <html lang={params.lang}>
       <body className={`text-white ${inter.className}`}>{children}</body>
