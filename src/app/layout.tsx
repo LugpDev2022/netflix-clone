@@ -1,21 +1,16 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
-import './globals.css';
+import { Inter } from 'next/font/google';
+
 import { Locale } from '../types';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Netflix | LugpDev2022',
   description: 'A clone of netflix created by LugpDev2022',
 };
 
-const NetflixSans = localFont({
-  src: [
-    {
-      path: './fonts/netflix-sans.otf',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
+const inter = Inter({
+  subsets: ['latin'],
   display: 'swap',
 });
 
@@ -34,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang={params.lang}>
-      <body className={`w-screen h-screen text-white ${NetflixSans.className}`}>
+      <body className={`w-screen h-screen text-white ${inter.className}`}>
         {children}
       </body>
     </html>
