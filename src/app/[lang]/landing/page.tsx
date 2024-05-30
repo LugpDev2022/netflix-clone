@@ -16,7 +16,7 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
   return (
     <div className='bg-gray-700'>
       <section className={`${styles.background}`}>
-        <div className='z-20 bg-gradient-to-b from-black/80 to-black/50 px-6 text-center'>
+        <div className='z-20 bg-gradient-to-b from-black/80 to-black/50 px-6 text-center h-full'>
           <Navbar lang={lang} />
 
           <h1 className='text-[32px] leading-tight text-muted font-bold mt-[30px] text-pretty'>
