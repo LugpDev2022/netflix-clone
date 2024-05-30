@@ -4,6 +4,10 @@
     "signIn": "Sign In",
     "slogan": "Watch anywhere. Cancel anytime.",
     "registerSubtitle": "Ready to watch? Enter your email to create or restart your membership.",
-    "registerButton": "Get Started"
+    "registerButton": "Get Started",
+    "section2": {
+      "title": "Enjoy on your TV",
+      "subtitle": "Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more."
+    }
   }
 }

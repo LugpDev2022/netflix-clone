@@ -4,6 +4,10 @@
     "signIn": "Iniciar Sesión",
     "slogan": "Ve Netflix donde quieras. Cancela cuando quieras.",
     "registerSubtitle": "¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o reiniciar tu membresía de Netflix.",
-    "registerButton": "Comenzar"
+    "registerButton": "Comenzar",
+    "section2": {
+      "title": "Disfruta en tu TV",
+      "subtitle": "Ve en smart TV, PlayStation, Xbox, Chromecast, Apple TV, reproductores de Blu-ray y más."
+    }
   }
 }

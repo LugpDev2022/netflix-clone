@@ -42,11 +42,8 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
       <section className='landing-section-container'>
         <div className='landing-section'>
           <div>
-            <h2>Enjoy on your TV</h2>
-            <p>
-              Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV,
-              Blu-ray players, and more.
-            </p>
+            <h2>{dict.landing.section2.title}</h2>
+            <p>{dict.landing.section2.subtitle}</p>
           </div>
 
           <div className='landing-img-container'>
