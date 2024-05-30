@@ -1,8 +1,10 @@
+import Image from 'next/image';
+
 import { Locale } from '@/src/types';
 import { getDictionary } from '../dictionaries';
 import Navbar from './components/Navbar';
-import styles from './landing.module.css';
 import RegisterForm from './components/RegisterForm';
+import './landing.css';
 
 interface Props {
   params: {
@@ -15,7 +17,7 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
 
   return (
     <div className='bg-gray-700'>
-      <section className={`${styles.background}`}>
+      <section className='landing-bg-image'>
         <div className='z-20 bg-gradient-to-b from-black/80 to-black/50 px-6 text-center h-full'>
           <div className='max-w-screen-lg mx-auto'>
             <Navbar lang={lang} />
@@ -37,12 +39,14 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
         </div>
       </section>
 
-      <section className='bg-black mt-2'>
+      <section className='bg-black'>
         <h2>Enjoy on your TV</h2>
         <p>
           Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray
           players, and more.
         </p>
+
+        <Image src='/tv.png' alt='TV' width={530} height={400} />
       </section>
     </div>
   );

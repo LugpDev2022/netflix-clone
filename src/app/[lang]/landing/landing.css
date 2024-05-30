@@ -1,14 +1,14 @@
-.background {
-  width: 100%;
-  height: 100%;
-  background-image: url('/login-bg.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+.landing-bg-image {
   background-color: #fff;
+  background-image: url('/login-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
-  .background {
+  .landing-bg-image {
     height: 100vh;
   }
 }
