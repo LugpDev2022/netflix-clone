@@ -7,19 +7,24 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.register-form-input {
+.register-form-input,
+.register-form-input-error {
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.7);
   outline: none;
   border-radius: 4px;
   padding: 20px 16px 4px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.register-form-input-error {
+  border: 1px solid #eb3942 !important;
 }
 
 .register-form-input:focus + .register-form-label,
 .register-form-input:not(:placeholder-shown) + .register-form-label,
 .register-form-input:valid + .register-form-label {
-  font-size: 12px !important;
+  font-size: 12px;
   top: 7px;
   transform: translateY(0);
 }

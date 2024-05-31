@@ -29,7 +29,9 @@ const RegisterForm: React.FC<Props> = ({ dictionary }) => {
               type='email'
               name='email'
               id='email'
-              className='register-form-input'
+              className={`register-form-input ${
+                errors ? 'register-form-input-error' : ''
+              }`}
               placeholder=' '
               required
             />
