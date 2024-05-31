@@ -1,8 +1,13 @@
-import { FaGithub, FaLinkedin, FaSquareXTwitter } from 'react-icons/fa6';
+import {
+  FaGithub,
+  FaLinkedin,
+  FaSquareXTwitter,
+  FaLink,
+} from 'react-icons/fa6';
 
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
-import LangSelector from './LangSelector';
+
 interface Props {
   lang: Locale;
 }
@@ -49,6 +54,16 @@ const Footer: React.FC<Props> = async ({ lang }) => {
               rel='noopener noreferrer'
             >
               @LugpDev2022
+            </a>
+          </li>
+          <li>
+            <FaLink />
+            <a
+              href='https://luiscerv.tech/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              luiscerv.tech
             </a>
           </li>
         </ul>
