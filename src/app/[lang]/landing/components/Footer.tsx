@@ -13,20 +13,21 @@ interface Props {
 }
 
 const Footer: React.FC<Props> = async ({ lang }) => {
+  // TODO: Add translations
   const dict = await getDictionary(lang);
 
   return (
-    <footer className='bg-black text-left py-3'>
+    <footer className='landing-footer-container'>
       <div className='max-w-screen-lg mx-auto'>
-        <h4>Important Information</h4>
-        <p>
+        <h4 className='landing-footer-subtitle'>Important Information</h4>
+        <p className='text-pretty'>
           This website is not the official Netflix site. It was created by Luis
           Cervantes for programming practice.
         </p>
 
-        <h4>Contact</h4>
-        <ul>
-          <li>
+        <h4 className='landing-footer-subtitle mt-6'>Contact Links</h4>
+        <ul className='mt-4 grid grid-cols-1 justify-center sm:grid-cols-2 md:grid-cols-4 gap-4'>
+          <li className='landing-contact-list-item'>
             <FaGithub />
             <a
               href='https://github.com/LugpDev2022'
@@ -36,7 +37,7 @@ const Footer: React.FC<Props> = async ({ lang }) => {
               @LugpDev2022
             </a>
           </li>
-          <li>
+          <li className='landing-contact-list-item'>
             <FaLinkedin />
             <a
               href='https://www.linkedin.com/in/luiscerv/'
@@ -46,7 +47,7 @@ const Footer: React.FC<Props> = async ({ lang }) => {
               in/luiscerv
             </a>
           </li>
-          <li>
+          <li className='landing-contact-list-item'>
             <FaSquareXTwitter />
             <a
               href='https://twitter.com/LugpDev2022'
@@ -56,7 +57,7 @@ const Footer: React.FC<Props> = async ({ lang }) => {
               @LugpDev2022
             </a>
           </li>
-          <li>
+          <li className='landing-contact-list-item'>
             <FaLink />
             <a
               href='https://luiscerv.tech/'

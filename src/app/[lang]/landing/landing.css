@@ -46,6 +46,33 @@
   }
 }
 
+.landing-footer-container {
+  background-color: black;
+  text-align: center;
+  padding: 24px;
+}
+
+.landing-footer-subtitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.landing-contact-list-item {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  a:hover {
+    @apply text-red-600;
+    transition: 300ms;
+  }
+}
+
 @media (min-width: 1024px) {
   .landing-bg-image {
     height: 100vh;
@@ -70,5 +97,13 @@
     .landing-img-container {
       margin: auto;
     }
+  }
+
+  .landing-footer-container {
+    text-align: left;
+  }
+
+  .landing-contact-list-item {
+    justify-content: left;
   }
 }
