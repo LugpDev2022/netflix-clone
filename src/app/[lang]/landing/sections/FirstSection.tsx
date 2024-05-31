@@ -12,7 +12,7 @@ const FirstSection: React.FC<Props> = async ({ lang }) => {
 
   return (
     <section className='landing-bg-image'>
-      <div className='z-20 bg-gradient-to-b from-black/80 to-black/50 px-6 text-center h-full'>
+      <div className='z-20 bg-gradient-to-b from-black/80 via-black/50 to-black/80 px-6 text-center h-full'>
         <div className='max-w-screen-lg mx-auto'>
           <Navbar lang={lang} />
 
