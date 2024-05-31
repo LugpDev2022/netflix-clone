@@ -19,7 +19,7 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
       <SecondSection lang={lang} />
       <ThirdSection lang={lang} />
       <FourthSection lang={lang} />
-      <Footer />
+      <Footer lang={lang} />
     </div>
   );
 };
