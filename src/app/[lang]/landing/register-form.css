@@ -1,3 +1,14 @@
+.register-form {
+  margin: auto;
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  max-width: 600px;
+  position: relative;
+}
+
 .register-form-label {
   position: absolute;
   top: 50%;
@@ -27,4 +38,26 @@
   font-size: 12px;
   top: 7px;
   transform: translateY(0);
+}
+
+.register-form-error-message {
+  width: 100%;
+  text-align: left;
+  color: #eb3942;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  position: absolute;
+  top: 52px;
+}
+
+.register-form-submit-btn {
+  @apply bg-red-600 hover:bg-red-700 sm:text-2xl;
+  display: flex;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 4px;
 }
