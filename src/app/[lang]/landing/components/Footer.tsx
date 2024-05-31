@@ -13,19 +13,19 @@ interface Props {
 }
 
 const Footer: React.FC<Props> = async ({ lang }) => {
-  // TODO: Add translations
   const dict = await getDictionary(lang);
 
   return (
     <footer className='landing-footer-container'>
       <div className='max-w-screen-lg mx-auto'>
-        <h4 className='landing-footer-subtitle'>Important Information</h4>
-        <p className='text-pretty'>
-          This website is not the official Netflix site. It was created by Luis
-          Cervantes for programming practice.
-        </p>
+        <h4 className='landing-footer-subtitle'>
+          {dict.landing.footer.subtitle1}
+        </h4>
+        <p className='text-pretty'>{dict.landing.footer.information}</p>
 
-        <h4 className='landing-footer-subtitle mt-6'>Contact Links</h4>
+        <h4 className='landing-footer-subtitle mt-6'>
+          {dict.landing.footer.subtitle2}
+        </h4>
         <ul className='mt-4 grid grid-cols-1 justify-center sm:grid-cols-2 md:grid-cols-4 gap-4'>
           <li className='landing-contact-list-item'>
             <FaGithub />
@@ -40,7 +40,9 @@ const Footer: React.FC<Props> = async ({ lang }) => {
           <li className='landing-contact-list-item'>
             <FaLinkedin />
             <a
-              href='https://www.linkedin.com/in/luiscerv/'
+              href={`https://www.linkedin.com/in/luiscerv${
+                lang === 'en' ? '/en' : '/'
+              }`}
               target='_blank'
               rel='noopener noreferrer'
             >
@@ -60,7 +62,7 @@ const Footer: React.FC<Props> = async ({ lang }) => {
           <li className='landing-contact-list-item'>
             <FaLink />
             <a
-              href='https://luiscerv.tech/'
+              href={`https://luiscerv.tech${lang === 'en' ? '/' : '/es'}`}
               target='_blank'
               rel='noopener noreferrer'
             >

@@ -16,6 +16,11 @@
     "section4": {
       "title": "Create profiles for kids",
       "subtitle": "Send kids on adventures with their favorite characters in a space made just for them—free with your membership."
+    },
+    "footer": {
+      "subtitle1": "Important Information",
+      "information": "This website is not the official Netflix site. It was created by Luis Cervantes for programming practice.",
+      "subtitle2": "Contact Links"
     }
   }
 }
