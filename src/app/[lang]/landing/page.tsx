@@ -14,7 +14,7 @@ interface Props {
 
 const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
   return (
-    <div className='bg-[#232323]'>
+    <div className='bg-[#232323] text-white '>
       <FirstSection lang={lang} />
       <SecondSection lang={lang} />
       <ThirdSection lang={lang} />
