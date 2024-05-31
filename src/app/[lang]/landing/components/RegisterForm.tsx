@@ -3,29 +3,32 @@
 import { Field, Form, Formik } from 'formik';
 import { GrNext } from 'react-icons/gr';
 import { RxCrossCircled } from 'react-icons/rx';
-import * as Yup from 'yup';
 
+import { registerSchema } from '../lib/registerSchema';
+import { Locale } from '@/src/types';
 import '../register-form.css';
+import { useRouter } from 'next/navigation';
 
 interface Props {
   dictionary: any;
+  lang: Locale;
 }
 
-const registerSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid Email').required('Email is required'),
-});
+const RegisterForm: React.FC<Props> = ({ dictionary, lang }) => {
+  const router = useRouter();
+  const schema = registerSchema(lang);
 
-//TODO: Finish register form
-const RegisterForm: React.FC<Props> = ({ dictionary }) => {
   return (
     <Formik
       initialValues={{
         email: '',
       }}
-      validationSchema={registerSchema}
+      validationSchema={schema}
       validateOnBlur
       validateOnChange
-      onSubmit={() => {}}
+      onSubmit={() => {
+        router.push(`/${lang}/signup`);
+      }}
     >
       {({ errors }) => (
         <Form className='register-form'>

@@ -27,7 +27,7 @@ const FirstSection: React.FC<Props> = async ({ lang }) => {
               {dict.landing.registerSubtitle}
             </h3>
 
-            <RegisterForm dictionary={dict} />
+            <RegisterForm dictionary={dict} lang={lang} />
           </div>
         </div>
       </div>
