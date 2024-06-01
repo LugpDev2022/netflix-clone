@@ -19,11 +19,12 @@ const PlanSelector: React.FC<Props> = ({ lang, dict }) => {
   return (
     <>
       <div className='grid grid-cols-3 gap-2 lg:gap-3'>
-        {/* TODO: Add background radiants */}
         <button
           onClick={() => setPlan('premium')}
           className={
-            plan === 'premium' ? 'plan-card-selected bg-blue-600' : 'plan-card'
+            plan === 'premium'
+              ? 'plan-card-selected premium-gradient'
+              : 'plan-card'
           }
         >
           <h2>{dict.signUp.step2.plans.premium}</h2>
@@ -34,7 +35,9 @@ const PlanSelector: React.FC<Props> = ({ lang, dict }) => {
         <button
           onClick={() => setPlan('standard')}
           className={
-            plan === 'standard' ? 'plan-card-selected bg-blue-600' : 'plan-card'
+            plan === 'standard'
+              ? 'plan-card-selected standard-gradient'
+              : 'plan-card'
           }
         >
           <h2>{dict.signUp.step2.plans.standard}</h2>
@@ -46,7 +49,7 @@ const PlanSelector: React.FC<Props> = ({ lang, dict }) => {
           onClick={() => setPlan('standard_with_ads')}
           className={
             plan === 'standard_with_ads'
-              ? 'plan-card-selected bg-blue-600'
+              ? 'plan-card-selected standard-ads-gradient'
               : 'plan-card'
           }
         >

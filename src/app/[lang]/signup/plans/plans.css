@@ -8,7 +8,6 @@
   flex-direction: column;
   align-items: start;
   gap: 10px;
-  transition: all 300ms;
 
   h2 {
     font-size: 14px;
@@ -83,4 +82,16 @@
   transition: 300ms;
   margin-top: 24px;
   font-weight: 500;
+}
+
+.premium-gradient {
+  background: linear-gradient(to right bottom, #1c509b, #da0d1e);
+}
+
+.standard-gradient {
+  background: linear-gradient(to right bottom, #1c509b, #a339d7);
+}
+
+.standard-ads-gradient {
+  background: linear-gradient(to right bottom, #1c509b, #6f3cdf);
 }
