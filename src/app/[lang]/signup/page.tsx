@@ -1,8 +1,14 @@
 import SignUpForm from './components/SignUpForm';
+import { Locale } from '@/src/types';
 import './sign-up.css';
-// import '../landing/register-form.css';
 
-const SignUpPage = () => {
+interface Props {
+  params: {
+    lang: Locale;
+  };
+}
+
+const SignUpPage: React.FC<Props> = ({ params: { lang } }) => {
   return (
     <>
       <span className='step-indicator'>
@@ -12,7 +18,7 @@ const SignUpPage = () => {
       <p className='step-paragraph'>Just a few more steps and you're done!</p>
       <p className='step-paragraph'>We hate paperwork, too.</p>
 
-      <SignUpForm />
+      <SignUpForm lang={lang} />
     </>
   );
 };

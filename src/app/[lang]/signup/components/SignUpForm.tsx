@@ -4,14 +4,22 @@ import { Field, Form, Formik } from 'formik';
 import { RxCrossCircled } from 'react-icons/rx';
 
 import { Locale } from '@/src/types';
+import { signUpSchema } from '../lib/signUpSchema';
 
-const SignUpForm = () => {
+interface Props {
+  lang: Locale;
+}
+
+const SignUpForm: React.FC<Props> = ({ lang }) => {
+  const schema = signUpSchema(lang);
+
   return (
     <Formik
       initialValues={{
         email: '',
         password: '',
       }}
+      validationSchema={schema}
       validateOnBlur
       validateOnChange
       onSubmit={() => {}}
