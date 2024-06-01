@@ -2,6 +2,7 @@ import { FaCheckCircle } from 'react-icons/fa';
 
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
+import data from './plans.json';
 import './plans.css';
 
 interface Props {
@@ -45,14 +46,12 @@ const PlansPage: React.FC<Props> = async ({ params: { lang } }) => {
       </div>
 
       <ul className='plan-feature-list'>
-        <li>
-          <h3>Monthly Price</h3>
-          <p>$299</p>
-        </li>
-        <li>
-          <h3>Video and sound quality </h3>
-          <p>Best</p>
-        </li>
+        {data[lang].standard_with_ads.map(({ label, value }) => (
+          <li key={label}>
+            <h3>{label}</h3>
+            <p>{value}</p>
+          </li>
+        ))}
       </ul>
 
       <button className='plans-next-btn'>Next</button>

@@ -55,11 +55,14 @@
     h3 {
       color: #676767;
       font-size: 12px;
+      max-width: 50%;
     }
 
     p {
       color: rgba(0, 0, 0, 0.7);
       font-size: 16px;
+      max-width: 50%;
+      text-align: right;
     }
   }
 }
