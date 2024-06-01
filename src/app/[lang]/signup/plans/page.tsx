@@ -10,6 +10,7 @@ interface Props {
   };
 }
 
+// https://www.netflix.com/signup/planform
 const PlansPage: React.FC<Props> = async ({ params: { lang } }) => {
   const dict = await getDictionary(lang);
 
@@ -43,10 +44,14 @@ const PlansPage: React.FC<Props> = async ({ params: { lang } }) => {
         </div>
       </div>
 
-      <ul>
+      <ul className='plan-feature-list'>
         <li>
           <h3>Monthly Price</h3>
-          <p>MX$299</p>
+          <p>$299</p>
+        </li>
+        <li>
+          <h3>Video and sound quality </h3>
+          <p>Best</p>
         </li>
       </ul>
     </main>
