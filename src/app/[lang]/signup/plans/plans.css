@@ -1,8 +1,8 @@
-.plan-card {
+.plan-card,
+.plan-card-selected {
   padding: 12px;
   border-radius: 10px;
   min-height: 100px;
-  border: 1px solid rgba(128, 128, 128, 0.4);
 
   h2 {
     font-size: 14px;
@@ -12,6 +12,31 @@
   sub {
     font-size: 10px;
     font-weight: 500;
+  }
+}
+
+.plan-card {
+  border: 1px solid rgba(128, 128, 128, 0.4);
+
+  sub {
     color: #676767;
+  }
+
+  svg {
+    display: none;
+  }
+}
+
+.plan-card-selected {
+  border: 1px solid white;
+  color: white;
+  position: relative;
+
+  svg {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    width: 16px;
+    height: 16px;
   }
 }
