@@ -1,0 +1,17 @@
+.plan-card {
+  padding: 12px;
+  border-radius: 10px;
+  min-height: 100px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+
+  h2 {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  sub {
+    font-size: 10px;
+    font-weight: 500;
+    color: #676767;
+  }
+}
