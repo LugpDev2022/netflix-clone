@@ -22,5 +22,16 @@
       "information": "This website is not the official Netflix site. It was created by Luis Cervantes for programming practice.",
       "subtitle2": "Contact Links"
     }
+  },
+  "signUp": {
+    "step": "step",
+    "of": "of",
+    "step1": {
+      "title": "Create a password to start your membership",
+      "paragraph1": "Just a few more steps and you're done!",
+      "paragraph2": "We hate paperwork, too.",
+      "passwordLabel": "Password",
+      "submitBtn": "Next"
+    }
   }
 }

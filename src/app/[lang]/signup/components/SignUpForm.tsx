@@ -9,9 +9,10 @@ import { signUpSchema } from '../lib/signUpSchema';
 interface Props {
   lang: Locale;
   email: string;
+  dict: any;
 }
 
-const SignUpForm: React.FC<Props> = ({ lang, email }) => {
+const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
   const schema = signUpSchema(lang);
 
   return (
@@ -66,7 +67,7 @@ const SignUpForm: React.FC<Props> = ({ lang, email }) => {
             />
 
             <label htmlFor='email' className='sign-up-form-label'>
-              Password
+              {dict.signUp.step1.passwordLabel}
             </label>
           </div>
 
@@ -80,8 +81,7 @@ const SignUpForm: React.FC<Props> = ({ lang, email }) => {
           )}
 
           <button type='submit' className='sign-up-form-submit-btn'>
-            Next
-            {/* {dictionary.landing.registerButton} <GrNext size={22} /> */}
+            {dict.signUp.step1.submitBtn}
           </button>
         </Form>
       )}

@@ -22,5 +22,16 @@
       "information": "Esta página web no es el sitio oficial de Netflix. Fue creada por Luis Cervantes con el fin de practicar habilidades de programación.",
       "subtitle2": "Enlaces de contacto"
     }
+  },
+  "signUp": {
+    "step": "paso",
+    "of": "de",
+    "step1": {
+      "title": "Crea una contraseña para que comiences tu membresía",
+      "paragraph1": "¡Unos pasos más y listo!",
+      "paragraph2": "Tampoco nos gustan los trámites.",
+      "passwordLabel": "Contraseña",
+      "submitBtn": "Siguiente"
+    }
   }
 }

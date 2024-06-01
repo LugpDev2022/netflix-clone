@@ -1,6 +1,7 @@
 .step-indicator {
   color: #333333;
   font-size: 12px;
+  text-transform: uppercase;
 }
 
 .step-title {
