@@ -32,6 +32,15 @@
       "paragraph2": "We hate paperwork, too.",
       "passwordLabel": "Password",
       "submitBtn": "Next"
+    },
+    "step2": {
+      "title": "Choose the plan that’s right for you",
+      "plans": {
+        "premium": "Premium",
+        "standard": "Standard",
+        "standard_with_ads": "Standard with ads"
+      },
+      "nextBtn": "Next"
     }
   }
 }

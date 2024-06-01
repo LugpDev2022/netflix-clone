@@ -32,6 +32,15 @@
       "paragraph2": "Tampoco nos gustan los trámites.",
       "passwordLabel": "Contraseña",
       "submitBtn": "Siguiente"
+    },
+    "step2": {
+      "title": "Selecciona el plan ideal para ti",
+      "plans": {
+        "premium": "Premium",
+        "standard": "Estándar",
+        "standard_with_ads": "Estándar con anuncios"
+      },
+      "nextBtn": "Siguiente"
     }
   }
 }

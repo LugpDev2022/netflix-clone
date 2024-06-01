@@ -8,11 +8,12 @@ import { useState } from 'react';
 
 interface Props {
   lang: Locale;
+  dict: any;
 }
 
 type Plan = 'premium' | 'standard' | 'standard_with_ads';
 
-const PlanSelector: React.FC<Props> = ({ lang }) => {
+const PlanSelector: React.FC<Props> = ({ lang, dict }) => {
   const [plan, setPlan] = useState<Plan>('premium');
 
   return (
@@ -25,7 +26,7 @@ const PlanSelector: React.FC<Props> = ({ lang }) => {
             plan === 'premium' ? 'plan-card-selected bg-blue-600' : 'plan-card'
           }
         >
-          <h2>Premium</h2>
+          <h2>{dict.signUp.step2.plans.premium}</h2>
           <sub>4k + HDR</sub>
 
           <FaCheckCircle />
@@ -36,7 +37,7 @@ const PlanSelector: React.FC<Props> = ({ lang }) => {
             plan === 'standard' ? 'plan-card-selected bg-blue-600' : 'plan-card'
           }
         >
-          <h2>Standard</h2>
+          <h2>{dict.signUp.step2.plans.standard}</h2>
           <sub>1080p</sub>
 
           <FaCheckCircle />
@@ -49,7 +50,7 @@ const PlanSelector: React.FC<Props> = ({ lang }) => {
               : 'plan-card'
           }
         >
-          <h2>Standard with ads</h2>
+          <h2>{dict.signUp.step2.plans.standard_with_ads}</h2>
           <sub>1080p</sub>
 
           <FaCheckCircle />
