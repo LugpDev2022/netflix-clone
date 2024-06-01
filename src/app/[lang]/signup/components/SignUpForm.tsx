@@ -8,15 +8,16 @@ import { signUpSchema } from '../lib/signUpSchema';
 
 interface Props {
   lang: Locale;
+  email: string;
 }
 
-const SignUpForm: React.FC<Props> = ({ lang }) => {
+const SignUpForm: React.FC<Props> = ({ lang, email }) => {
   const schema = signUpSchema(lang);
 
   return (
     <Formik
       initialValues={{
-        email: '',
+        email,
         password: '',
       }}
       validationSchema={schema}

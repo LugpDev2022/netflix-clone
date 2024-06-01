@@ -6,9 +6,15 @@ interface Props {
   params: {
     lang: Locale;
   };
+  searchParams: {
+    email: string;
+  };
 }
 
-const SignUpPage: React.FC<Props> = ({ params: { lang } }) => {
+const SignUpPage: React.FC<Props> = ({
+  params: { lang },
+  searchParams: { email },
+}) => {
   return (
     <>
       <span className='step-indicator'>
@@ -18,7 +24,7 @@ const SignUpPage: React.FC<Props> = ({ params: { lang } }) => {
       <p className='step-paragraph'>Just a few more steps and you're done!</p>
       <p className='step-paragraph'>We hate paperwork, too.</p>
 
-      <SignUpForm lang={lang} />
+      <SignUpForm lang={lang} email={email ? email : ''} />
     </>
   );
 };
