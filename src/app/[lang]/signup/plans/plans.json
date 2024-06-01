@@ -1,0 +1,194 @@
+{
+  "en": {
+    "premium": [
+      {
+        "label": "Monthly price",
+        "value": "MXN 299"
+      },
+      {
+        "label": "Video and sound quality",
+        "value": "Best"
+      },
+      {
+        "label": "Resolution",
+        "value": "4k (ultra hd) + hdr"
+      },
+      {
+        "label": "Spatial audio (immersive sound)",
+        "value": "Included"
+      },
+      {
+        "label": "Supported devices",
+        "value": "TV, computer, mobile phone, tablet"
+      },
+      {
+        "label": "Devices your household can watch at the same time",
+        "value": "4"
+      },
+      {
+        "label": "Download devices",
+        "value": "6"
+      },
+      {
+        "label": "Ads",
+        "value": "No ads"
+      }
+    ],
+    "standard": [
+      {
+        "label": "Monthly price",
+        "value": "MXN 219"
+      },
+      {
+        "label": "Video and sound quality",
+        "value": "Good"
+      },
+      {
+        "label": "Resolution",
+        "value": "1080p (full hd)"
+      },
+      {
+        "label": "Supported devices",
+        "value": "TV, computer, mobile phone, tablet"
+      },
+      {
+        "label": "Devices your household can watch at the same time",
+        "value": "2"
+      },
+      {
+        "label": "Download devices",
+        "value": "2"
+      },
+      {
+        "label": "Ads",
+        "value": "No ads"
+      }
+    ],
+    "standard_with_ads": [
+      {
+        "label": "Monthly price",
+        "value": "MXN 99"
+      },
+      {
+        "label": "Video and sound quality",
+        "value": "Good"
+      },
+      {
+        "label": "Resolution",
+        "value": "1080p (full hd)"
+      },
+      {
+        "label": "Supported devices",
+        "value": "TV, computer, mobile phone, tablet"
+      },
+      {
+        "label": "Devices your household can watch at the same time",
+        "value": "2"
+      },
+      {
+        "label": "Download devices",
+        "value": "2"
+      },
+      {
+        "label": "Ads",
+        "value": "A few ad breaks"
+      }
+    ]
+  },
+  "es": {
+    "premium": [
+      {
+        "label": "Precio mensual",
+        "value": "MXN 299"
+      },
+      {
+        "label": "Calidad de audio y video",
+        "value": "Óptima"
+      },
+      {
+        "label": "Resolución",
+        "value": "4k (ultra hd) + hdr"
+      },
+      {
+        "label": "Audio espacial (sonido inmersivo)",
+        "value": "Incluido"
+      },
+      {
+        "label": "Dispositivos compatibles",
+        "value": "TV, computadora, teléfono móvil, tableta"
+      },
+      {
+        "label": "Dispositivos que su hogar puede ver al mismo tiempo",
+        "value": "4"
+      },
+      {
+        "label": "Dispositivos de descarga",
+        "value": "6"
+      },
+      {
+        "label": "Anuncios",
+        "value": "Sin anuncios"
+      }
+    ],
+    "standard": [
+      {
+        "label": "Precio mensual",
+        "value": "MXN 219"
+      },
+      {
+        "label": "Calidad de audio y video",
+        "value": "Buena"
+      },
+      {
+        "label": "Resolución",
+        "value": "1080p (full hd)"
+      },
+      {
+        "label": "Dispositivos compatibles",
+        "value": "TV, computadora, teléfono móvil, tableta"
+      },
+      {
+        "label": "Dispositivos que su hogar puede ver al mismo tiempo",
+        "value": "2"
+      },
+      {
+        "label": "Dispositivos de descarga",
+        "value": "2"
+      },
+      {
+        "label": "Anuncios",
+        "value": "Sin anuncios"
+      }
+    ],
+    "standard_with_ads": [
+      {
+        "label": "Precio mensual",
+        "value": "MXN 99"
+      },
+      {
+        "label": "Calidad de audio y video",
+        "value": "Buena"
+      },
+      {
+        "label": "Resolución",
+        "value": "1080p (full hd)"
+      },
+      {
+        "label": "Dispositivos compatibles",
+        "value": "TV, computadora, teléfono móvil, tableta"
+      },
+      {
+        "label": "Dispositivos que su hogar puede ver al mismo tiempo",
+        "value": "2"
+      },
+      {
+        "label": "Dispositivos de descarga",
+        "value": "2"
+      },
+      {
+        "label": "Anuncios",
+        "value": "Algunas pausas publicitarias"
+      }
+    ]
+  }
+}
