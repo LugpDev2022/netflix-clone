@@ -1,0 +1,16 @@
+.step-indicator {
+  color: #333333;
+  font-size: 12px;
+}
+
+.step-title {
+  color: #333333;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.step-paragraph {
+  color: #333333;
+  font-size: 18px;
+}

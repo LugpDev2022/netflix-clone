@@ -1,9 +1,14 @@
+import './sign-up.css';
+
 const SignUpPage = () => {
   return (
     <>
-      <h2>STEP 1 OF 3</h2>
-      <h1>Create a password to start your membership</h1>
-      <p>Just a few more steps and you're done! We hate paperwork, too.</p>
+      <span className='step-indicator'>
+        STEP <strong>1</strong> OF <strong>3</strong>
+      </span>
+      <h1 className='step-title'>Create a password to start your membership</h1>
+      <p className='step-paragraph'>Just a few more steps and you're done!</p>
+      <p className='step-paragraph'>We hate paperwork, too.</p>
 
       <form action=''>
         <input type='email' />
