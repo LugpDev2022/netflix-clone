@@ -27,6 +27,7 @@ const RegisterForm: React.FC<Props> = ({ dictionary, lang }) => {
       validateOnBlur
       validateOnChange
       onSubmit={() => {
+        // TODO: Check if email exists on db
         router.push(`/${lang}/signup`);
       }}
     >
