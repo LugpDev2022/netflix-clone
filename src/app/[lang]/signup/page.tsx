@@ -1,7 +1,6 @@
 import SignUpForm from './components/SignUpForm';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
-import './sign-up.css';
 
 interface Props {
   params: {
@@ -19,7 +18,7 @@ const SignUpPage: React.FC<Props> = async ({
   const dict = await getDictionary(lang);
 
   return (
-    <>
+    <main className='sign-up-main max-w-[550px]'>
       <span className='step-indicator'>
         {dict.signUp.step} <strong>1</strong> {dict.signUp.of}{' '}
         <strong>3</strong>
@@ -29,7 +28,7 @@ const SignUpPage: React.FC<Props> = async ({
       <p className='step-paragraph'>{dict.signUp.step1.paragraph2}</p>
 
       <SignUpForm lang={lang} email={email ? email : ''} dict={dict} />
-    </>
+    </main>
   );
 };
 
