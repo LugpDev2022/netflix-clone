@@ -54,6 +54,8 @@ const PlansPage: React.FC<Props> = async ({ params: { lang } }) => {
           <p>Best</p>
         </li>
       </ul>
+
+      <button className='plans-next-btn'>Next</button>
     </main>
   );
 };

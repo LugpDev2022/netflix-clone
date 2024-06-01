@@ -47,6 +47,7 @@
   li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid rgba(128, 128, 128, 0.4);
     padding: 12px 0;
     font-weight: 500;
@@ -61,4 +62,16 @@
       font-size: 16px;
     }
   }
+}
+
+.plans-next-btn {
+  @apply bg-red-600 hover:bg-red-700 sm:text-2xl;
+  width: 100%;
+  color: white;
+  font-size: 24px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  transition: 300ms;
+  margin-top: 24px;
+  font-weight: 500;
 }
