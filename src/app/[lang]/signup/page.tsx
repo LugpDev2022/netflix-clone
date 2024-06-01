@@ -1,4 +1,6 @@
+import SignUpForm from './components/SignUpForm';
 import './sign-up.css';
+// import '../landing/register-form.css';
 
 const SignUpPage = () => {
   return (
@@ -10,11 +12,7 @@ const SignUpPage = () => {
       <p className='step-paragraph'>Just a few more steps and you're done!</p>
       <p className='step-paragraph'>We hate paperwork, too.</p>
 
-      <form action=''>
-        <input type='email' />
-        <input type='password' />
-        <button type='submit'>Next</button>
-      </form>
+      <SignUpForm />
     </>
   );
 };

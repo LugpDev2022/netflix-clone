@@ -14,3 +14,60 @@
   color: #333333;
   font-size: 18px;
 }
+
+.sign-up-form-input-container {
+  width: 100%;
+  position: relative;
+}
+
+.sign-up-form-input,
+.sign-up-form-input-error {
+  width: 100%;
+  outline: none;
+  border-radius: 4px;
+  padding: 20px 16px 4px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  margin-top: 6px;
+}
+
+.sign-up-form-input:focus + .sign-up-form-label,
+.sign-up-form-input:not(:placeholder-shown) + .sign-up-form-label,
+.sign-up-form-input:valid + .sign-up-form-label {
+  font-size: 12px;
+  top: 7px;
+  transform: translateY(0);
+}
+
+.sign-up-form-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 16px;
+  transition: all 300ms;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.sign-up-form-input-error {
+  border: 1px solid #c11119 !important;
+}
+
+.sign-up-form-error-message {
+  width: 100%;
+  text-align: left;
+  color: #c11119;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.sign-up-form-submit-btn {
+  @apply bg-red-600 hover:bg-red-700 sm:text-2xl;
+  width: 100%;
+  color: white;
+  font-size: 24px;
+  padding: 20px 48px;
+  border-radius: 4px;
+  transition: 300ms;
+  margin-top: 24px;
+}
