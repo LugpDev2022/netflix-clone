@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { Field, Form, Formik } from 'formik';
 import { RxCrossCircled } from 'react-icons/rx';
 
@@ -14,6 +15,7 @@ interface Props {
 
 const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
   const schema = signUpSchema(lang);
+  const router = useRouter();
 
   return (
     <Formik
@@ -24,7 +26,10 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
       validationSchema={schema}
       validateOnBlur
       validateOnChange
-      onSubmit={() => {}}
+      onSubmit={() => {
+        //TODO: Save on db
+        router.push(`/${lang}/signup/plans`);
+      }}
     >
       {({ errors }) => (
         <Form className='pt-4'>
