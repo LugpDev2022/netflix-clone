@@ -12,7 +12,7 @@ const SignUpLayout: React.FC<Props> = ({ children, params }) => {
   return (
     <>
       <Navbar lang={params.lang} />
-      <main>{children}</main>
+      <main className='pt-5 px-8 pb-[60px]'>{children}</main>
     </>
   );
 };
