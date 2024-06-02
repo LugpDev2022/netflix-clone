@@ -1,7 +1,8 @@
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
-import './confirmation.css';
 import DataList from './components/DataList';
+import ConfirmBtn from './components/ConfirmBtn';
+import './confirmation.css';
 
 interface Props {
   params: {
@@ -23,9 +24,7 @@ const ConfirmationPage: React.FC<Props> = async ({ params: { lang } }) => {
 
       <DataList dict={dict} lang={lang} />
 
-      <button className='confirmation-next-btn'>
-        {dict.signUp.step3.confirmBtn}
-      </button>
+      <ConfirmBtn dict={dict} />
     </main>
   );
 };
