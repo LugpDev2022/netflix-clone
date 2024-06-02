@@ -15,6 +15,11 @@ interface StateValue {
   price: number | null;
 }
 
+export interface ContextValue extends StateValue {
+  setAccountInfo: (email: string, password: string) => void;
+  setSelectedPlan: (plan: Plan, price: number) => void;
+}
+
 const DataContextProvider: React.FC<Props> = ({ children }) => {
   const [data, setData] = useState<StateValue>({
     email: null,
@@ -23,7 +28,27 @@ const DataContextProvider: React.FC<Props> = ({ children }) => {
     price: 0,
   });
 
-  return <DataContext.Provider value={null}>{children}</DataContext.Provider>;
+  const setAccountInfo = (email: string, password: string) => {
+    setData({
+      ...data,
+      email,
+      password,
+    });
+  };
+
+  const setSelectedPlan = (plan: Plan, price: number) => {
+    setData({
+      ...data,
+      plan,
+      price,
+    });
+  };
+
+  return (
+    <DataContext.Provider value={{ ...data, setAccountInfo, setSelectedPlan }}>
+      {children}
+    </DataContext.Provider>
+  );
 };
 
 export default DataContextProvider;
