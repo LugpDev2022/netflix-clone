@@ -1,0 +1,23 @@
+.confirmation-data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+
+  li {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    align-items: center;
+
+    .confirmation-data-label {
+      color: #676767;
+      font-size: 14px;
+    }
+
+    .confirmation-data-value {
+      font-size: 16px;
+    }
+  }
+}

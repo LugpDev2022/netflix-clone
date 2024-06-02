@@ -1,5 +1,6 @@
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
+import './confirmation.css';
 
 interface Props {
   params: {
@@ -17,24 +18,22 @@ const ConfirmationPage: React.FC<Props> = async ({ params: { lang } }) => {
         <strong>3</strong>
       </span>
 
-      <h1 className='step-title'>Subscription confirmation</h1>
+      <h1 className='step-title'>Data confirmation</h1>
 
-      <table>
-        <tbody>
-          <tr>
-            <th>Email</th>
-            <th>example@gmail.com</th>
-          </tr>
-          <tr>
-            <th>Plan</th>
-            <th>Premium</th>
-          </tr>
-          <tr>
-            <th>Pricing</th>
-            <th>MXN 299</th>
-          </tr>
-        </tbody>
-      </table>
+      <ul className='confirmation-data-list'>
+        <li>
+          <span className='confirmation-data-label'>Email</span>
+          <span className='confirmation-data-value'>example@gmail.com</span>
+        </li>
+        <li>
+          <span className='confirmation-data-label'>Plan</span>
+          <span className='confirmation-data-value'>Premium</span>
+        </li>
+        <li>
+          <span className='confirmation-data-label'>Price</span>
+          <span className='confirmation-data-value'>MXN 299</span>
+        </li>
+      </ul>
 
       <button>Next</button>
     </main>
