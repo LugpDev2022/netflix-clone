@@ -86,7 +86,7 @@ const PlanSelector: React.FC<Props> = ({ lang, dict }) => {
       </ul>
 
       <button className='plans-next-btn' onClick={handleSubmit}>
-        Next
+        {dict.signUp.step2.nextBtn}
       </button>
     </>
   );
