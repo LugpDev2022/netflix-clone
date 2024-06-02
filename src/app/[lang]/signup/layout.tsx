@@ -1,4 +1,5 @@
 import Navbar from '@/src/app/[lang]/signup/components/Navbar';
+import DataContextProvider from '@/src/app/[lang]/signup/context/DataContextProvider';
 import { Locale } from '@/src/types';
 import './sign-up.css';
 
@@ -11,10 +12,10 @@ interface Props {
 
 const SignUpLayout: React.FC<Props> = ({ children, params }) => {
   return (
-    <>
+    <DataContextProvider>
       <Navbar lang={params.lang} />
       {children}
-    </>
+    </DataContextProvider>
   );
 };
 
