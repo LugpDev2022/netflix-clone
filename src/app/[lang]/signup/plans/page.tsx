@@ -22,8 +22,6 @@ const PlansPage: React.FC<Props> = async ({ params: { lang } }) => {
       <h1 className='step-title'>{dict.signUp.step2.title}</h1>
 
       <PlanSelector lang={lang} dict={dict} />
-
-      <button className='plans-next-btn'>Next</button>
     </main>
   );
 };

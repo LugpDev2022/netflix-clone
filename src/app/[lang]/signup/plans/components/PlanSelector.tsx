@@ -1,11 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { FaCheckCircle } from 'react-icons/fa';
 
-import { Locale } from '@/src/types';
 import { Plan } from '@/src/app/[lang]/signup/types';
+import { DataContextValue } from '@/src/app/[lang]/signup/context/DataContextProvider';
+import { DataContext } from '@/src/app/[lang]/signup/context/DataContext';
+import { getPlanPrice } from '@/src/app/[lang]/signup/plans/lib/getPlanPrice';
+import { Locale } from '@/src/types';
 import data from '../plans.json';
 
 interface Props {
@@ -14,7 +18,15 @@ interface Props {
 }
 
 const PlanSelector: React.FC<Props> = ({ lang, dict }) => {
+  const router = useRouter();
   const [plan, setPlan] = useState<Plan>('premium');
+  const { setSelectedPlan } = useContext(DataContext) as DataContextValue;
+
+  const handleSubmit = () => {
+    const price = getPlanPrice(plan);
+    setSelectedPlan(plan, price);
+    router.push(`/${lang}/signup/confirmation`);
+  };
 
   return (
     <>
@@ -68,6 +80,10 @@ const PlanSelector: React.FC<Props> = ({ lang, dict }) => {
           </li>
         ))}
       </ul>
+
+      <button className='plans-next-btn' onClick={handleSubmit}>
+        Next
+      </button>
     </>
   );
 };
