@@ -15,7 +15,7 @@ interface StateValue {
   price: number | null;
 }
 
-export interface ContextValue extends StateValue {
+export interface DataContextValue extends StateValue {
   setAccountInfo: (email: string, password: string) => void;
   setSelectedPlan: (plan: Plan, price: number) => void;
 }

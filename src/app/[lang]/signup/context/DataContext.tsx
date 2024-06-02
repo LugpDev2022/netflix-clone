@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import { ContextValue } from './DataContextProvider';
+import { DataContextValue } from './DataContextProvider';
 
-export const DataContext = createContext<null | ContextValue>(null);
+export const DataContext = createContext<null | DataContextValue>(null);

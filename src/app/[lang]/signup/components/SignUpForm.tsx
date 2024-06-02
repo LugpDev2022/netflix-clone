@@ -1,11 +1,15 @@
 'use client';
 
+import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
+
 import { Field, Form, Formik } from 'formik';
 import { RxCrossCircled } from 'react-icons/rx';
 
 import { Locale } from '@/src/types';
 import { signUpSchema } from '../lib/signUpSchema';
+import { DataContext } from '../context/DataContext';
+import { DataContextValue } from '../context/DataContextProvider';
 
 interface Props {
   lang: Locale;
@@ -16,6 +20,7 @@ interface Props {
 const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
   const schema = signUpSchema(lang);
   const router = useRouter();
+  const { setAccountInfo } = useContext(DataContext) as DataContextValue;
 
   return (
     <Formik
@@ -26,8 +31,9 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
       validationSchema={schema}
       validateOnBlur
       validateOnChange
-      onSubmit={() => {
+      onSubmit={({ email, password }) => {
         //TODO: Save on db
+        setAccountInfo(email, password);
         router.push(`/${lang}/signup/plans`);
       }}
     >
