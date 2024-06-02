@@ -35,7 +35,7 @@ const ConfirmationPage: React.FC<Props> = async ({ params: { lang } }) => {
         </li>
       </ul>
 
-      <button>Next</button>
+      <button className='confirmation-next-btn'>Confirm</button>
     </main>
   );
 };
