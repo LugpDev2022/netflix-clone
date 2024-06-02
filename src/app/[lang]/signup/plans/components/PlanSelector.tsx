@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 import { FaCheckCircle } from 'react-icons/fa';
 
@@ -20,13 +20,17 @@ interface Props {
 const PlanSelector: React.FC<Props> = ({ lang, dict }) => {
   const router = useRouter();
   const [plan, setPlan] = useState<Plan>('premium');
-  const { setSelectedPlan } = useContext(DataContext) as DataContextValue;
+  const { setSelectedPlan, email, password } = useContext(
+    DataContext
+  ) as DataContextValue;
 
   const handleSubmit = () => {
     const price = getPlanPrice(plan);
     setSelectedPlan(plan, price);
     router.push(`/${lang}/signup/confirmation`);
   };
+
+  if (!email || !password) return redirect(`/${lang}/signup`);
 
   return (
     <>

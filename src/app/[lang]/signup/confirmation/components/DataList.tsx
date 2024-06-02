@@ -1,6 +1,8 @@
 'use client';
 
 import { useContext } from 'react';
+import { redirect } from 'next/navigation';
+
 import { DataContextValue } from '../../context/DataContextProvider';
 import { DataContext } from '../../context/DataContext';
 import { parsePlanName } from '../lib/parsePlanName';
@@ -14,8 +16,7 @@ interface Props {
 const DataList: React.FC<Props> = ({ dict, lang }) => {
   const { email, plan, price } = useContext(DataContext) as DataContextValue;
 
-  //TODO: Redirect if no data
-  if (!plan) return;
+  if (!plan || !price) return redirect(`/${lang}/signup`);
 
   const planName = parsePlanName(plan, lang);
 
