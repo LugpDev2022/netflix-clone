@@ -41,6 +41,11 @@
         "standard_with_ads": "Estándar con anuncios"
       },
       "nextBtn": "Siguiente"
+    },
+    "step3": {
+      "title": "Confirmación de datos",
+      "price": "Precio",
+      "confirmBtn": "Confirmar"
     }
   }
 }

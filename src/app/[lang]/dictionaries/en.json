@@ -41,6 +41,11 @@
         "standard_with_ads": "Standard with ads"
       },
       "nextBtn": "Next"
+    },
+    "step3": {
+      "title": "Data confirmation",
+      "price": "Price",
+      "confirmBtn": "Confirm"
     }
   }
 }

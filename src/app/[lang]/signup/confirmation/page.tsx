@@ -18,7 +18,7 @@ const ConfirmationPage: React.FC<Props> = async ({ params: { lang } }) => {
         <strong>3</strong>
       </span>
 
-      <h1 className='step-title'>Data confirmation</h1>
+      <h1 className='step-title'>{dict.signUp.step3.title}</h1>
 
       <ul className='confirmation-data-list'>
         <li>
@@ -30,12 +30,16 @@ const ConfirmationPage: React.FC<Props> = async ({ params: { lang } }) => {
           <span className='confirmation-data-value'>Premium</span>
         </li>
         <li>
-          <span className='confirmation-data-label'>Price</span>
+          <span className='confirmation-data-label'>
+            {dict.signUp.step3.price}
+          </span>
           <span className='confirmation-data-value'>MXN 299</span>
         </li>
       </ul>
 
-      <button className='confirmation-next-btn'>Confirm</button>
+      <button className='confirmation-next-btn'>
+        {dict.signUp.step3.confirmBtn}
+      </button>
     </main>
   );
 };
