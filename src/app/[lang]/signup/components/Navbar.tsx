@@ -8,7 +8,7 @@ interface Props {
 
 const Navbar: React.FC<Props> = ({ lang }) => {
   return (
-    <header className='p-4 border-b border-[#e6e6e6]'>
+    <header className='p-4 border-b border-[#e6e6e6] flex justify-start'>
       <Link href={`/${lang}/landing`}>
         <Image
           src='/logo.svg'
