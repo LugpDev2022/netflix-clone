@@ -1,17 +1,17 @@
 'use client';
 
+import { useState } from 'react';
+
 import { FaCheckCircle } from 'react-icons/fa';
 
 import { Locale } from '@/src/types';
+import { Plan } from '@/src/app/[lang]/signup/types';
 import data from '../plans.json';
-import { useState } from 'react';
 
 interface Props {
   lang: Locale;
   dict: any;
 }
-
-type Plan = 'premium' | 'standard' | 'standard_with_ads';
 
 const PlanSelector: React.FC<Props> = ({ lang, dict }) => {
   const [plan, setPlan] = useState<Plan>('premium');
