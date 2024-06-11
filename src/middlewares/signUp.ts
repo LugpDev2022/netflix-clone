@@ -5,12 +5,14 @@ export function signUpMiddleware(request: NextRequest) {
   const cookiesStore = cookies();
   const cookie = cookiesStore.get('sign-up-cookie');
 
+  const locale = request.nextUrl.pathname.substring(1, 3);
+
   if (!cookie) {
     if (request.nextUrl.pathname.endsWith('/signup')) {
       return NextResponse.next();
     }
 
-    return NextResponse.redirect(new URL('/signup', request.url));
+    return NextResponse.redirect(new URL(`/${locale}/signup`, request.url));
   }
 
   const { email, password, plan, price } = JSON.parse(cookie.value);
@@ -20,7 +22,7 @@ export function signUpMiddleware(request: NextRequest) {
       return NextResponse.next();
     }
 
-    return NextResponse.redirect(new URL('/signup', request.url));
+    return NextResponse.redirect(new URL(`/${locale}/signup`, request.url));
   }
 
   if (!plan || !price) {
@@ -28,11 +30,15 @@ export function signUpMiddleware(request: NextRequest) {
       return NextResponse.next();
     }
 
-    return NextResponse.redirect(new URL('/signup/plans', request.url));
+    return NextResponse.redirect(
+      new URL(`/${locale}/signup/plans`, request.url)
+    );
   }
 
   if (!request.nextUrl.pathname.endsWith('/signup/confirmation')) {
-    return NextResponse.redirect(new URL('/signup/confirmation', request.url));
+    return NextResponse.redirect(
+      new URL(`/${locale}/signup/confirmation`, request.url)
+    );
   }
 
   return NextResponse.next();
