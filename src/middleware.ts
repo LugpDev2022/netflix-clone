@@ -1,19 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const locales = ['en', 'es'];
+import { stackHandler } from './middlewares/stackHandler';
+import { langMiddleware } from './middlewares/lang';
 
-export function middleware(request: NextRequest) {
-  // Check if there is any supported locale in the pathname
-  const { pathname } = request.nextUrl;
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
+const middlewares = [
+  {
+    matcher: () => true,
+    middleware: langMiddleware,
+  },
+];
 
-  // Redirect if there is no locale
-  if (pathnameHasLocale) return;
+const composedMiddleware = stackHandler(middlewares);
 
-  request.nextUrl.pathname = `/en${pathname}`;
-  return NextResponse.redirect(request.nextUrl);
+export async function middleware(request: NextRequest) {
+  const result = await composedMiddleware(request);
+
+  if (result instanceof NextResponse) {
+    return result;
+  }
+
+  // Default response if no middleware returned a response
+  return new NextResponse('Next.js middleware executed successfully!', {
+    status: 200,
+  });
 }
 
 export const config = {
