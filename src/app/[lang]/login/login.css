@@ -1,3 +1,7 @@
+.login-bg {
+  background-color: black;
+}
+
 .login-form-input-container {
   width: 100%;
   position: relative;
@@ -55,4 +59,11 @@
   border-radius: 4px;
   transition: 300ms;
   margin-top: 24px;
+}
+
+@media (width >= 768px) {
+  .login-bg {
+    background-color: none;
+    background-image: url('/login-bg.jpg');
+  }
 }
