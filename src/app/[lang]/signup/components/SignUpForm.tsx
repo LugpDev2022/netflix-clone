@@ -33,6 +33,7 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
       validateOnChange
       onSubmit={({ email, password }) => {
         //TODO: Save on db
+        //TODO: Encrypt password
         setAccountInfo(email, password);
         router.push(`/${lang}/signup/plans`);
       }}
