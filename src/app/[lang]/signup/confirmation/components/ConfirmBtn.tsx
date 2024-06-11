@@ -1,9 +1,12 @@
 'use client';
 
 import { useContext } from 'react';
+import { useRouter } from 'next/navigation';
+
+import { deleteCookie } from 'cookies-next';
+
 import { DataContext } from '../../context/DataContext';
 import { DataContextValue } from '../../context/DataContextProvider';
-import { useRouter } from 'next/navigation';
 
 interface Props {
   dict: any;
@@ -16,6 +19,7 @@ const ConfirmBtn: React.FC<Props> = ({ dict }) => {
   const handleClick = () => {
     //TODO save user on db
     console.log(email, password, plan);
+    deleteCookie('sign-up-cookie');
     router.push('/');
   };
 
