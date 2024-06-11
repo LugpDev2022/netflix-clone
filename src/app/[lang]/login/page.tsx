@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import SignInForm from '@/src/app/[lang]/login/components/SignInForm';
-import Link from 'next/link';
+import './login.css';
 
 const LoginPage = () => {
   return (
-    <div className='bg-black text-white'>
+    <div className='bg-black text-white min-h-screen'>
       <header className='p-6'>
         <Image
           src='/logo.svg'
@@ -21,7 +22,7 @@ const LoginPage = () => {
 
         <SignInForm />
 
-        <p className='text-[#ffffffb3]'>
+        <p className='text-[#ffffffb3] mt-4'>
           New to Netflix?{' '}
           <Link href='/signup' className='text-white'>
             Sign up now.
