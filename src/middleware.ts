@@ -2,11 +2,19 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { stackHandler } from './middlewares/stackHandler';
 import { langMiddleware } from './middlewares/lang';
+import { signUpMiddleware } from './middlewares/signUp';
 
+const prefixes = ['/es', '/en'];
 const middlewares = [
   {
-    matcher: () => true,
+    // Detect if the url starts with /es or /en
+    matcher: (req: NextRequest) =>
+      !prefixes.some((prefix) => req.nextUrl.pathname.startsWith(prefix)),
     middleware: langMiddleware,
+  },
+  {
+    matcher: (req: NextRequest) => req.nextUrl.pathname.includes('/signup'),
+    middleware: signUpMiddleware,
   },
 ];
 
