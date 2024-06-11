@@ -4,8 +4,6 @@
 
 .login-main {
   padding: 24px;
-  max-width: 450px;
-  margin: auto;
 }
 
 .login-form-input-container {
@@ -78,5 +76,7 @@
     background-color: rgba(0, 0, 0, 0.7);
     padding: 48px 68px;
     border-radius: 4px;
+    max-width: 450px;
+    margin: auto;
   }
 }
