@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import SignInForm from '@/src/app/[lang]/login/components/SignInForm';
+import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
 import './login.css';
 
@@ -11,7 +12,9 @@ interface Props {
   };
 }
 
-const LoginPage: React.FC<Props> = ({ params: { lang } }) => {
+const LoginPage: React.FC<Props> = async ({ params: { lang } }) => {
+  const dict = await getDictionary(lang);
+
   return (
     <div className='login-bg text-white'>
       <div className='bg-gradient-to-b from-black/80 via-black/50 to-black/80 min-h-screen'>
@@ -26,14 +29,14 @@ const LoginPage: React.FC<Props> = ({ params: { lang } }) => {
         </header>
 
         <main className='login-main'>
-          <h1 className='text-[32px] font-bold'>Sign In</h1>
+          <h1 className='text-[32px] font-bold'>{dict.login.title}</h1>
 
-          <SignInForm lang={lang} />
+          <SignInForm lang={lang} dict={dict} />
 
           <p className='text-[#ffffffb3] mt-4'>
-            New to Netflix?{' '}
+            {dict.login.new}{' '}
             <Link href='/signup' className='text-white'>
-              Sign up now.
+              {dict.login.newLink}
             </Link>
           </p>
         </main>

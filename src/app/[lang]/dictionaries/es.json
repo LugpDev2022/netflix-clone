@@ -47,5 +47,12 @@
       "price": "Precio",
       "confirmBtn": "Confirmar"
     }
+  },
+  "login": {
+    "title": "Inicia Sesión",
+    "button": "Iniciar Sesión",
+    "passwordLabel": "Contraseña",
+    "new": "¿Primera vez en Netflix?",
+    "newLink": "Suscríbete ahora."
   }
 }

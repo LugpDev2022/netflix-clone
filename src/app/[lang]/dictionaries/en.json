@@ -47,5 +47,12 @@
       "price": "Price",
       "confirmBtn": "Confirm"
     }
+  },
+  "login": {
+    "title": "Sign In",
+    "button": "Sign In",
+    "passwordLabel": "Password",
+    "new": "New to Netflix?",
+    "newLink": "Sign up now."
   }
 }

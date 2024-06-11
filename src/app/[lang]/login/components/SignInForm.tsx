@@ -8,9 +8,10 @@ import { Locale } from '@/src/types';
 
 interface Props {
   lang: Locale;
+  dict: any;
 }
 
-const SignInForm: React.FC<Props> = ({ lang }) => {
+const SignInForm: React.FC<Props> = ({ lang, dict }) => {
   const schema = loginSchema(lang);
 
   return (
@@ -62,8 +63,7 @@ const SignInForm: React.FC<Props> = ({ lang }) => {
             />
 
             <label htmlFor='email' className='login-form-label'>
-              Password
-              {/* {dict.signUp.step1.passwordLabel} */}
+              {dict.login.passwordLabel}
             </label>
           </div>
 
@@ -77,8 +77,7 @@ const SignInForm: React.FC<Props> = ({ lang }) => {
           )}
 
           <button type='submit' className='login-form-submit-btn'>
-            Sign In
-            {/* {dict.signUp.step1.submitBtn} */}
+            {dict.login.button}
           </button>
         </Form>
       )}
