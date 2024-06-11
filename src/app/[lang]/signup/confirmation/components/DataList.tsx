@@ -15,6 +15,7 @@ interface Props {
 const DataList: React.FC<Props> = ({ dict, lang }) => {
   const { email, plan, price } = useContext(DataContext) as DataContextValue;
 
+  //TODO: Use a loader
   if (!plan || !price) return;
 
   const planName = parsePlanName(plan, lang);
