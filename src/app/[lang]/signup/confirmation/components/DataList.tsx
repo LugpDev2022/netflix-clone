@@ -1,6 +1,6 @@
 'use client';
 
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { DataContextValue } from '../../context/DataContextProvider';
 import { DataContext } from '../../context/DataContext';
@@ -14,27 +14,41 @@ interface Props {
 
 const DataList: React.FC<Props> = ({ dict, lang }) => {
   const { email, plan, price } = useContext(DataContext) as DataContextValue;
+  const [isClient, setIsClient] = useState(false);
 
-  //TODO: Use a loader
-  if (!plan || !price) return;
-
-  const planName = parsePlanName(plan, lang);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <ul className='confirmation-data-list'>
       <li>
         <span className='confirmation-data-label'>Email</span>
-        <span className='confirmation-data-value'>{email}</span>
+        {isClient ? (
+          <span className='confirmation-data-value'>{email}</span>
+        ) : (
+          <div className='w-3/4 h-4 bg-[#676767] rounded animate-pulse'></div>
+        )}
       </li>
       <li>
         <span className='confirmation-data-label'>Plan</span>
-        <span className='confirmation-data-value'>{planName}</span>
+        {isClient && plan ? (
+          <span className='confirmation-data-value'>
+            {parsePlanName(plan, lang)}
+          </span>
+        ) : (
+          <div className='w-1/2 h-4 bg-[#676767] rounded animate-pulse'></div>
+        )}
       </li>
       <li>
         <span className='confirmation-data-label'>
           {dict.signUp.step3.price}
         </span>
-        <span className='confirmation-data-value'>MXN {price}</span>
+        {isClient ? (
+          <span className='confirmation-data-value'>MXN {price}</span>
+        ) : (
+          <div className='w-1/2 h-4 bg-[#676767] rounded animate-pulse'></div>
+        )}
       </li>
     </ul>
   );
