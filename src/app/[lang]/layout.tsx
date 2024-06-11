@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 
 import { Locale } from '@/src/types';
 import '@/src/app/globals.css';
+import AuthProvider from '../auth/AuthProvider';
 
 export const metadata: Metadata = {
   title: 'Netflix | LugpDev2022',
@@ -29,7 +30,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang={params.lang}>
-      <body className={`${inter.className}`}>{children}</body>
+      <body className={`${inter.className}`}>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }

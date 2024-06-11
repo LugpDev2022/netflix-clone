@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-type Middleware = (req: NextRequest) => NextRequest | NextResponse;
+type Middleware = (req: NextRequest) => NextResponse | Promise<NextResponse>;
 
 interface MiddlewareConfig {
   matcher: (req: NextRequest) => boolean;
