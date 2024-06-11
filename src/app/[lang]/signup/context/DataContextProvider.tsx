@@ -1,6 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { getCookie, setCookie } from 'cookies-next';
+
 import { DataContext } from './DataContext';
 import { Plan } from '../types';
 
@@ -21,12 +24,30 @@ export interface DataContextValue extends StateValue {
 }
 
 const DataContextProvider: React.FC<Props> = ({ children }) => {
-  const [data, setData] = useState<StateValue>({
-    email: null,
-    password: null,
-    plan: null,
-    price: 0,
+  const [data, setData] = useState<StateValue>(() => {
+    const cookie = getCookie('sign-up-cookie');
+
+    if (!cookie)
+      return {
+        email: null,
+        password: null,
+        plan: null,
+        price: 0,
+      };
+
+    const { email, password, plan, price } = JSON.parse(cookie);
+
+    return {
+      email,
+      password,
+      plan,
+      price,
+    };
   });
+
+  useEffect(() => {
+    setCookie('sign-up-cookie', JSON.stringify(data));
+  }, [data]);
 
   const setAccountInfo = (email: string, password: string) => {
     setData({
