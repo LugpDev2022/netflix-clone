@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext, useState } from 'react';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import { FaCheckCircle } from 'react-icons/fa';
 
@@ -29,8 +29,6 @@ const PlanSelector: React.FC<Props> = ({ lang, dict }) => {
     setSelectedPlan(plan, price);
     router.push(`/${lang}/signup/confirmation`);
   };
-
-  if (!email || !password) return redirect(`/${lang}/signup`);
 
   return (
     <>
