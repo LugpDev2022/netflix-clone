@@ -14,11 +14,11 @@ const LoginPage = () => {
             width={148}
             height={40}
             alt='Netflix'
-            className='w-[89px] h-6'
+            className='w-[89px] h-6 md:w-[148px] md:h-10'
           />
         </header>
 
-        <main className='px-6'>
+        <main className='login-main'>
           <h1 className='text-[32px] font-bold'>Sign In</h1>
 
           <SignInForm />
