@@ -26,11 +26,6 @@ export async function middleware(request: NextRequest) {
   if (result instanceof NextResponse) {
     return result;
   }
-
-  // Default response if no middleware returned a response
-  return new NextResponse('Next.js middleware executed successfully!', {
-    status: 200,
-  });
 }
 
 export const config = {
