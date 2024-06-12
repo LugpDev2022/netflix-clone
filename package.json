@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@prisma/client": "^5.15.0",
+    "@types/bcrypt": "^5.0.2",
+    "bcrypt": "^5.1.1",
     "cookies-next": "^4.2.1",
     "formik": "^2.4.6",
     "next": "^14.2.3",

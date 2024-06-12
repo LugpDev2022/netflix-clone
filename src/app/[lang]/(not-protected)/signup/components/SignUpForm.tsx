@@ -5,12 +5,14 @@ import { useRouter } from 'next/navigation';
 
 import { Field, Form, Formik } from 'formik';
 import { RxCrossCircled } from 'react-icons/rx';
+import bcrypt from 'bcrypt';
 
 import { Locale } from '@/src/types';
 import { signUpSchema } from '../lib/signUpSchema';
 import { DataContext } from '../context/DataContext';
 import { DataContextValue } from '../context/DataContextProvider';
 import { findUserByEmail } from '@/src/app/actions/findUser';
+import { encryptText } from '@/src/app/actions/encryptText';
 
 interface Props {
   lang: Locale;
@@ -33,7 +35,7 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
       validateOnBlur
       validateOnChange
       onSubmit={async ({ email, password }) => {
-        const [error, user] = await findUserByEmail(email);
+        const [_, user] = await findUserByEmail(email);
 
         if (user) {
           //TODO: Improve alert
@@ -41,8 +43,13 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
           return;
         }
 
-        //TODO: Encrypt password
-        setAccountInfo(email, password);
+        const [encryptError, encryptedPassword] = await encryptText(password);
+
+        if (!encryptedPassword) {
+          return alert(encryptError);
+        }
+
+        setAccountInfo(email, encryptedPassword);
         router.push(`/${lang}/signup/plans`);
       }}
     >

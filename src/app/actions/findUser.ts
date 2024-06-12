@@ -22,5 +22,5 @@ export const findUserByEmail = async (
     if (error instanceof Error) return [error.message];
   }
 
-  return [new Error('Unkown error').message];
+  return [new Error('Unknown error').message];
 };
