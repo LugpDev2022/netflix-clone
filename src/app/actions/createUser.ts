@@ -1,9 +1,7 @@
 'use server';
 
+import { User } from '@prisma/client';
 import { prisma } from '../lib/prisma';
-
-//TODO: Create user type
-type User = any;
 
 export const createUser = async (
   email: string,
