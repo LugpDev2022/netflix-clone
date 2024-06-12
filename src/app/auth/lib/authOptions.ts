@@ -1,6 +1,7 @@
 import { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { prisma } from '../../lib/prisma';
+import { compareEncryptedText } from '../../actions/compareEncryptedText';
 
 export const authOptions: AuthOptions = {
   session: {
@@ -20,11 +21,19 @@ export const authOptions: AuthOptions = {
         const user = await prisma.user.findUnique({
           where: {
             email,
-            password,
           },
         });
 
         if (!user) return null;
+
+        const [error, result] = await compareEncryptedText(
+          password,
+          user.password
+        );
+
+        if (error) return null;
+
+        if (!result) return null;
 
         const { id } = user;
 
