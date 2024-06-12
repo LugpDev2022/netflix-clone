@@ -1,10 +1,12 @@
 {
   "en": {
     "emailInUse": "This email address is already associated with an existing account.",
-    "failedToLogIn": "Incorrect password or email"
+    "failedToLogIn": "Incorrect password or email.",
+    "unexpected": "Unexpected error. Try again later."
   },
   "es": {
     "emailInUse": "Este correo electrónico ya está asociado con una cuenta existente.",
-    "failedToLogIn": "Contraseña o correo electrónico incorrectos"
+    "failedToLogIn": "Contraseña o correo electrónico incorrectos.",
+    "unexpected": "Error inesperado. Intente de nuevo más tarde."
   }
 }

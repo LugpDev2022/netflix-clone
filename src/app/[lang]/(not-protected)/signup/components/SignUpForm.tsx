@@ -5,14 +5,14 @@ import { useRouter } from 'next/navigation';
 
 import { Field, Form, Formik } from 'formik';
 import { RxCrossCircled } from 'react-icons/rx';
-import bcrypt from 'bcrypt';
+import { toast } from 'sonner';
 
 import { Locale } from '@/src/types';
 import { signUpSchema } from '../lib/signUpSchema';
 import { DataContext } from '../context/DataContext';
 import { DataContextValue } from '../context/DataContextProvider';
 import { findUserByEmail } from '@/src/app/actions/findUser';
-import { encryptText } from '@/src/app/actions/encryptText';
+import errorMessages from '@/src/app/[lang]/(not-protected)/loginErrors.json';
 
 interface Props {
   lang: Locale;
@@ -35,12 +35,14 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
       validateOnBlur
       validateOnChange
       onSubmit={async ({ email, password }) => {
-        const [_, user] = await findUserByEmail(email);
+        const [error, user] = await findUserByEmail(email);
+
+        if (error) {
+          return toast.error(errorMessages[lang].unexpected);
+        }
 
         if (user) {
-          //TODO: Improve alert
-          alert('Usuario ya existente');
-          return;
+          return toast.error(errorMessages[lang].emailInUse);
         }
 
         setAccountInfo(email, password);
