@@ -11,6 +11,8 @@ export const authOptions: AuthOptions = {
       credentials: {},
 
       authorize: async (credentials, req) => {
+        //TODO: verify on db
+
         return {
           id: '',
           email: '123@gmail.com',

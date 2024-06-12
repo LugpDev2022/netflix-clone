@@ -1,5 +1,8 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
+import { signIn } from 'next-auth/react';
 import { Field, Form, Formik } from 'formik';
 import { RxCrossCircled } from 'react-icons/rx';
 
@@ -12,6 +15,7 @@ interface Props {
 }
 
 const SignInForm: React.FC<Props> = ({ lang, dict }) => {
+  const router = useRouter();
   const schema = loginSchema(lang);
 
   return (
@@ -20,7 +24,16 @@ const SignInForm: React.FC<Props> = ({ lang, dict }) => {
       validationSchema={schema}
       validateOnBlur
       validateOnChange
-      onSubmit={() => {}}
+      onSubmit={async ({ email, password }) => {
+        const resp = await signIn('credentials', {
+          email,
+          password,
+          redirect: false,
+        });
+
+        if (resp?.ok) return router.push('/');
+        console.log(resp);
+      }}
     >
       {({ errors }) => (
         <Form className='pt-4'>
