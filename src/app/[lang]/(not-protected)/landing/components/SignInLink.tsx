@@ -1,13 +1,15 @@
 import Link from 'next/link';
+import { Locale } from '@/src/types';
 
 interface Props {
   children: React.ReactNode;
+  lang: Locale;
 }
 
-const SignInLink: React.FC<Props> = ({ children }) => {
+const SignInLink: React.FC<Props> = ({ children, lang }) => {
   return (
     <Link
-      href='/login'
+      href={`/${lang}/login`}
       className='
         bg-red-600
         hover:bg-red-700

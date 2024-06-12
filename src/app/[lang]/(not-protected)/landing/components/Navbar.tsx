@@ -37,7 +37,7 @@ const Navbar: React.FC<Props> = async ({ lang }) => {
 
       <div className='flex items-center gap-2 md:gap-6'>
         <LangSelector lang={lang} />
-        <SignInLink>{dict.landing.signIn}</SignInLink>
+        <SignInLink lang={lang}>{dict.landing.signIn}</SignInLink>
       </div>
     </header>
   );
