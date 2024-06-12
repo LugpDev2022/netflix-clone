@@ -1,8 +1,8 @@
-import FirstSection from '@/src/app/[lang]/landing/sections/FirstSection';
-import SecondSection from '@/src/app/[lang]/landing/sections/SecondSection';
-import ThirdSection from '@/src/app/[lang]/landing/sections/ThirdSection';
-import FourthSection from '@/src/app/[lang]/landing/sections/FourthSection';
-import Footer from '@/src/app/[lang]/landing/components/Footer';
+import FirstSection from '@/src/app/[lang]/(not-protected)/landing/sections/FirstSection';
+import SecondSection from '@/src/app/[lang]/(not-protected)/landing/sections/SecondSection';
+import ThirdSection from '@/src/app/[lang]/(not-protected)/landing/sections/ThirdSection';
+import FourthSection from '@/src/app/[lang]/(not-protected)/landing/sections/FourthSection';
+import Footer from '@/src/app/[lang]/(not-protected)/landing/components/Footer';
 import { Locale } from '@/src/types';
 import './landing.css';
 

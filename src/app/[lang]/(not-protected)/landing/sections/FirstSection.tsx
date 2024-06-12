@@ -1,5 +1,5 @@
-import Navbar from '@/src/app/[lang]/landing/components/Navbar';
-import RegisterForm from '@/src/app/[lang]/landing/components/RegisterForm';
+import Navbar from '@/src/app/[lang]/(not-protected)/landing/components/Navbar';
+import RegisterForm from '@/src/app/[lang]/(not-protected)/landing/components/RegisterForm';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
 

@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
-import LangSelector from '@/src/app/[lang]/landing/components/LangSelector';
+import LangSelector from '@/src/app/[lang]/(not-protected)/landing/components/LangSelector';
 import { Locale } from '@/src/types';
-import { getDictionary } from '../../dictionaries';
+import { getDictionary } from '../../../dictionaries';
 import SignInLink from './SignInLink';
 
 interface Props {

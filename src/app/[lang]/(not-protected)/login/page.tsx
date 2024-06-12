@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import SignInForm from '@/src/app/[lang]/login/components/SignInForm';
+import SignInForm from '@/src/app/[lang]/(not-protected)/login/components/SignInForm';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
 import './login.css';

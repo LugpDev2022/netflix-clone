@@ -5,10 +5,10 @@ import { useRouter } from 'next/navigation';
 
 import { FaCheckCircle } from 'react-icons/fa';
 
-import { Plan } from '@/src/app/[lang]/signup/types';
-import { DataContextValue } from '@/src/app/[lang]/signup/context/DataContextProvider';
-import { DataContext } from '@/src/app/[lang]/signup/context/DataContext';
-import { getPlanPrice } from '@/src/app/[lang]/signup/plans/lib/getPlanPrice';
+import { Plan } from '@/src/app/[lang]/(not-protected)/signup/types';
+import { DataContextValue } from '@/src/app/[lang]/(not-protected)/signup/context/DataContextProvider';
+import { DataContext } from '@/src/app/[lang]/(not-protected)/signup/context/DataContext';
+import { getPlanPrice } from '@/src/app/[lang]/(not-protected)/signup/plans/lib/getPlanPrice';
 import { Locale } from '@/src/types';
 import data from '../plans.json';
 

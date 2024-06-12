@@ -3,7 +3,7 @@
 import { Field, Form, Formik } from 'formik';
 import { RxCrossCircled } from 'react-icons/rx';
 
-import { loginSchema } from '@/src/app/[lang]/login/lib/loginSchema';
+import { loginSchema } from '@/src/app/[lang]/(not-protected)/login/lib/loginSchema';
 import { Locale } from '@/src/types';
 
 interface Props {

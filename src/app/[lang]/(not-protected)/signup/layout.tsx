@@ -1,5 +1,5 @@
-import Navbar from '@/src/app/[lang]/signup/components/Navbar';
-import DataContextProvider from '@/src/app/[lang]/signup/context/DataContextProvider';
+import Navbar from '@/src/app/[lang]/(not-protected)/signup/components/Navbar';
+import DataContextProvider from '@/src/app/[lang]/(not-protected)/signup/context/DataContextProvider';
 import { Locale } from '@/src/types';
 import './sign-up.css';
 

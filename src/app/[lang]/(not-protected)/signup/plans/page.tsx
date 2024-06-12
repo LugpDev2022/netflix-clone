@@ -1,5 +1,5 @@
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
-import PlanSelector from '@/src/app/[lang]/signup/plans/components/PlanSelector';
+import PlanSelector from '@/src/app/[lang]/(not-protected)/signup/plans/components/PlanSelector';
 import { Locale } from '@/src/types';
 import './plans.css';
 
