@@ -32,7 +32,9 @@ const SignInForm: React.FC<Props> = ({ lang, dict }) => {
         });
 
         if (resp?.ok) return router.push('/');
-        console.log(resp);
+
+        //TODO: Improve alert
+        alert('Error al iniciar sesión');
       }}
     >
       {({ errors }) => (

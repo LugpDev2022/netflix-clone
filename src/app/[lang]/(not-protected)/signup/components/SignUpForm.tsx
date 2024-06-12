@@ -36,6 +36,7 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
         const [error, user] = await findUserByEmail(email);
 
         if (user) {
+          //TODO: Improve alert
           alert('Usuario ya existente');
           return;
         }
