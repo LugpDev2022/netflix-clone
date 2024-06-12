@@ -10,6 +10,7 @@ import { registerSchema } from '@/src/app/[lang]/(not-protected)/landing/lib/reg
 import { findUserByEmail } from '@/src/app/actions/findUser';
 import { Locale } from '@/src/types';
 import '../register-form.css';
+import { deleteCookie } from 'cookies-next';
 
 interface Props {
   dictionary: any;
@@ -37,6 +38,7 @@ const RegisterForm: React.FC<Props> = ({ dictionary, lang }) => {
           return;
         }
 
+        deleteCookie('sign-up-cookie');
         router.push(`/${lang}/signup?email=${email}`);
       }}
     >
