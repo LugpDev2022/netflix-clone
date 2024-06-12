@@ -19,13 +19,12 @@ const LoginPage: React.FC<Props> = async ({ params: { lang } }) => {
     <div className='login-bg text-white'>
       <div className='bg-gradient-to-b from-black/80 via-black/50 to-black/80 min-h-screen'>
         <header className='p-6'>
-          <Image
-            src='/logo.svg'
-            width={148}
-            height={40}
-            alt='Netflix'
-            className='w-[89px] h-6 md:w-[148px] md:h-10'
-          />
+          <Link
+            href='/landing'
+            className='block w-[89px] h-6 md:w-[148px] md:h-10'
+          >
+            <Image src='/logo.svg' width={148} height={40} alt='Netflix' />
+          </Link>
         </header>
 
         <main className='login-main'>
