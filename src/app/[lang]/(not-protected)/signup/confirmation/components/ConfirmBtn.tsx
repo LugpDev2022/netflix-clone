@@ -2,6 +2,7 @@
 
 import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 
 import { deleteCookie } from 'cookies-next';
 
@@ -16,11 +17,18 @@ const ConfirmBtn: React.FC<Props> = ({ dict }) => {
   const { email, password, plan } = useContext(DataContext) as DataContextValue;
   const router = useRouter();
 
-  const handleClick = () => {
+  const handleClick = async () => {
     //TODO save user on db
-    console.log(email, password, plan);
-    deleteCookie('sign-up-cookie');
-    router.push('/');
+    const resp = await signIn('credentials', {
+      email,
+      password,
+      redirect: false,
+    });
+
+    if (resp?.ok) {
+      deleteCookie('sign-up-cookie');
+      return router.push('/');
+    }
   };
 
   return (
