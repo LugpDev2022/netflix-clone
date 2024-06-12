@@ -10,7 +10,7 @@ import { RxCrossCircled } from 'react-icons/rx';
 
 import { registerSchema } from '@/src/app/[lang]/(not-protected)/landing/lib/registerSchema';
 import { findUserByEmail } from '@/src/app/actions/findUser';
-import errorMessages from '../landingErrors.json';
+import errorMessages from '@/src/app/[lang]/(not-protected)/loginErrors.json';
 import { Locale } from '@/src/types';
 import '../register-form.css';
 
