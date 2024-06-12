@@ -10,6 +10,7 @@ import { Locale } from '@/src/types';
 import { signUpSchema } from '../lib/signUpSchema';
 import { DataContext } from '../context/DataContext';
 import { DataContextValue } from '../context/DataContextProvider';
+import { findUserByEmail } from '@/src/app/actions/findUser';
 
 interface Props {
   lang: Locale;
@@ -31,8 +32,14 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
       validationSchema={schema}
       validateOnBlur
       validateOnChange
-      onSubmit={({ email, password }) => {
-        //TODO: Save on db
+      onSubmit={async ({ email, password }) => {
+        const [error, user] = await findUserByEmail(email);
+
+        if (user) {
+          alert('Usuario ya existente');
+          return;
+        }
+
         //TODO: Encrypt password
         setAccountInfo(email, password);
         router.push(`/${lang}/signup/plans`);
