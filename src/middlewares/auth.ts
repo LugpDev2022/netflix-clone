@@ -1,11 +1,14 @@
-import { getSession } from 'next-auth/react';
+import { getToken } from 'next-auth/jwt';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function authMiddleware(request: NextRequest) {
-  const session = await getSession();
+  const token = await getToken({
+    req: request,
+    secret: process.env.NEXTAUTH_SECRET,
+  });
 
-  if (!true) return NextResponse.redirect(new URL('/landing', request.url));
+  if (!token) return NextResponse.redirect(new URL('/landing', request.url));
 
-  console.log(session?.user);
+  console.log(token);
   return NextResponse.next();
 }
