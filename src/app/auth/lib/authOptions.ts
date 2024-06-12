@@ -1,5 +1,6 @@
 import { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import { prisma } from '../../lib/prisma';
 
 export const authOptions: AuthOptions = {
   session: {
@@ -11,11 +12,25 @@ export const authOptions: AuthOptions = {
       credentials: {},
 
       authorize: async (credentials, req) => {
-        //TODO: verify on db
+        const { email, password } = credentials as {
+          email: string;
+          password: string;
+        };
+
+        const user = await prisma.user.findUnique({
+          where: {
+            email,
+            password,
+          },
+        });
+
+        if (!user) return null;
+
+        const { id } = user;
 
         return {
-          id: '',
-          email: '123@gmail.com',
+          id: id as any,
+          email,
         };
       },
     }),
