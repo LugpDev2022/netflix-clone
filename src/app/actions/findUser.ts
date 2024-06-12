@@ -7,7 +7,7 @@ type User = any;
 
 export const findUserByEmail = async (
   email: string
-): Promise<[String?, User?]> => {
+): Promise<[string?, User?]> => {
   try {
     const user = await prisma.user.findUnique({
       where: {

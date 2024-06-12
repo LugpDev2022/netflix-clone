@@ -1,0 +1,8 @@
+{
+  "en": {
+    "emailInUse": "This email address is already associated with an existing account."
+  },
+  "es": {
+    "emailInUse": "Este correo electrónico ya está asociado con una cuenta existente."
+  }
+}

@@ -3,15 +3,16 @@
 import { useRouter } from 'next/navigation';
 
 import { Field, Form, Formik } from 'formik';
+import { deleteCookie } from 'cookies-next';
 import { GrNext } from 'react-icons/gr';
 import { toast } from 'sonner';
 import { RxCrossCircled } from 'react-icons/rx';
 
 import { registerSchema } from '@/src/app/[lang]/(not-protected)/landing/lib/registerSchema';
 import { findUserByEmail } from '@/src/app/actions/findUser';
+import errorMessages from '../landingErrors.json';
 import { Locale } from '@/src/types';
 import '../register-form.css';
-import { deleteCookie } from 'cookies-next';
 
 interface Props {
   dictionary: any;
@@ -31,11 +32,10 @@ const RegisterForm: React.FC<Props> = ({ dictionary, lang }) => {
       validateOnBlur
       validateOnChange
       onSubmit={async ({ email }) => {
-        const [error] = await findUserByEmail(email);
+        const [_, user] = await findUserByEmail(email);
 
-        if (!error) {
-          //TODO: Improve the error alert
-          toast.error('Usuario ya existente');
+        if (user) {
+          toast.error(errorMessages[lang].emailInUse);
           return;
         }
 
