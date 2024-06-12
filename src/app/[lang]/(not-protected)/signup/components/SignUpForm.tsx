@@ -37,10 +37,6 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
       onSubmit={async ({ email, password }) => {
         const [error, user] = await findUserByEmail(email);
 
-        if (error) {
-          return toast.error(errorMessages[lang].unexpected);
-        }
-
         if (user) {
           return toast.error(errorMessages[lang].emailInUse);
         }

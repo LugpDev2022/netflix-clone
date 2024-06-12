@@ -24,7 +24,7 @@ const ConfirmationPage: React.FC<Props> = async ({ params: { lang } }) => {
 
       <DataList dict={dict} lang={lang} />
 
-      <ConfirmBtn dict={dict} />
+      <ConfirmBtn dict={dict} lang={lang} />
     </main>
   );
 };

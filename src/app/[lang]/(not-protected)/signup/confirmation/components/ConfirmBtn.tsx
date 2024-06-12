@@ -5,18 +5,21 @@ import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 
 import { deleteCookie } from 'cookies-next';
+import { toast } from 'sonner';
 
 import { DataContext } from '../../context/DataContext';
 import { DataContextValue } from '../../context/DataContextProvider';
-import { prisma } from '@/src/app/lib/prisma';
 import { createUser } from '@/src/app/actions/createUser';
 import { encryptText } from '@/src/app/actions/encryptText';
+import errorMessages from '@/src/app/[lang]/(not-protected)/loginErrors.json';
+import { Locale } from '@/src/types';
 
 interface Props {
   dict: any;
+  lang: Locale;
 }
 
-const ConfirmBtn: React.FC<Props> = ({ dict }) => {
+const ConfirmBtn: React.FC<Props> = ({ dict, lang }) => {
   const { email, password, plan } = useContext(DataContext) as DataContextValue;
   const router = useRouter();
 
@@ -25,12 +28,15 @@ const ConfirmBtn: React.FC<Props> = ({ dict }) => {
 
     const [encryptErr, encryptedPassword] = await encryptText(password);
 
-    if (!encryptedPassword) {
-      //TODO: Improve alert
-      return alert(encryptErr);
+    if (encryptErr || !encryptedPassword) {
+      return toast.error(errorMessages[lang].unexpected);
     }
 
-    await createUser(email, encryptedPassword, plan);
+    const [createUserErr] = await createUser(email, encryptedPassword, plan);
+
+    if (createUserErr) {
+      return toast.error(errorMessages[lang].unexpected);
+    }
 
     const resp = await signIn('credentials', {
       email,
@@ -38,10 +44,10 @@ const ConfirmBtn: React.FC<Props> = ({ dict }) => {
       redirect: false,
     });
 
-    if (!resp?.ok) return alert(resp?.error);
+    if (!resp?.ok) return toast.error(errorMessages[lang].unexpected);
 
     deleteCookie('sign-up-cookie');
-    return router.push('/');
+    router.push('/');
   };
 
   return (
