@@ -1,11 +1,5 @@
-import NextAuth, { AuthOptions } from 'next-auth';
-
-export const authOptions: AuthOptions = {
-  session: {
-    strategy: 'jwt',
-  },
-  providers: [],
-};
+import NextAuth from 'next-auth';
+import { authOptions } from '@/src/app/auth/lib/authOptions';
 
 const handler = NextAuth(authOptions);
 
