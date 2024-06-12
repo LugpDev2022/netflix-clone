@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 
 import { Field, Form, Formik } from 'formik';
 import { GrNext } from 'react-icons/gr';
+import { toast } from 'sonner';
 import { RxCrossCircled } from 'react-icons/rx';
 
 import { registerSchema } from '@/src/app/[lang]/(not-protected)/landing/lib/registerSchema';
@@ -34,7 +35,7 @@ const RegisterForm: React.FC<Props> = ({ dictionary, lang }) => {
 
         if (!error) {
           //TODO: Improve the error alert
-          alert('Usuario ya existente');
+          toast.error('Usuario ya existente');
           return;
         }
 
