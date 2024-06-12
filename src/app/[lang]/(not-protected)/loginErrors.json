@@ -1,8 +1,10 @@
 {
   "en": {
-    "emailInUse": "This email address is already associated with an existing account."
+    "emailInUse": "This email address is already associated with an existing account.",
+    "failedToLogIn": "Incorrect password or email"
   },
   "es": {
-    "emailInUse": "Este correo electrónico ya está asociado con una cuenta existente."
+    "emailInUse": "Este correo electrónico ya está asociado con una cuenta existente.",
+    "failedToLogIn": "Contraseña o correo electrónico incorrectos"
   }
 }

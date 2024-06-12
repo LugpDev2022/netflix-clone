@@ -4,9 +4,11 @@ import { useRouter } from 'next/navigation';
 
 import { signIn } from 'next-auth/react';
 import { Field, Form, Formik } from 'formik';
+import { toast } from 'sonner';
 import { RxCrossCircled } from 'react-icons/rx';
 
 import { loginSchema } from '@/src/app/[lang]/(not-protected)/login/lib/loginSchema';
+import errorMessages from '@/src/app/[lang]/(not-protected)/loginErrors.json';
 import { Locale } from '@/src/types';
 
 interface Props {
@@ -31,10 +33,11 @@ const SignInForm: React.FC<Props> = ({ lang, dict }) => {
           redirect: false,
         });
 
-        if (resp?.ok) return router.push('/');
+        if (!resp?.ok) {
+          return toast.error(errorMessages[lang].failedToLogIn);
+        }
 
-        //TODO: Improve alert
-        alert('Error al iniciar sesión');
+        return router.push('/');
       }}
     >
       {({ errors }) => (
