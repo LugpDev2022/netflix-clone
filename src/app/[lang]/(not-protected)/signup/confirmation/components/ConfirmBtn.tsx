@@ -10,6 +10,7 @@ import { DataContext } from '../../context/DataContext';
 import { DataContextValue } from '../../context/DataContextProvider';
 import { prisma } from '@/src/app/lib/prisma';
 import { createUser } from '@/src/app/actions/createUser';
+import { encryptText } from '@/src/app/actions/encryptText';
 
 interface Props {
   dict: any;
@@ -22,7 +23,14 @@ const ConfirmBtn: React.FC<Props> = ({ dict }) => {
   const handleClick = async () => {
     if (!email || !password || !plan) return;
 
-    await createUser(email, password, plan);
+    const [encryptErr, encryptedPassword] = await encryptText(password);
+
+    if (!encryptedPassword) {
+      //TODO: Improve alert
+      return alert(encryptErr);
+    }
+
+    await createUser(email, encryptedPassword, plan);
 
     const resp = await signIn('credentials', {
       email,
@@ -30,10 +38,10 @@ const ConfirmBtn: React.FC<Props> = ({ dict }) => {
       redirect: false,
     });
 
-    if (resp?.ok) {
-      deleteCookie('sign-up-cookie');
-      return router.push('/');
-    }
+    if (!resp?.ok) return alert(resp?.error);
+
+    deleteCookie('sign-up-cookie');
+    return router.push('/');
   };
 
   return (

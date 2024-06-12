@@ -43,13 +43,7 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
           return;
         }
 
-        const [encryptError, encryptedPassword] = await encryptText(password);
-
-        if (!encryptedPassword) {
-          return alert(encryptError);
-        }
-
-        setAccountInfo(email, encryptedPassword);
+        setAccountInfo(email, password);
         router.push(`/${lang}/signup/plans`);
       }}
     >
