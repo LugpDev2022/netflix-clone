@@ -1,4 +1,4 @@
-import { getSession } from 'next-auth/react';
+import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 
 interface Props {
@@ -6,7 +6,9 @@ interface Props {
 }
 
 const NotProtectedLayout: React.FC<Props> = async ({ children }) => {
-  const session = await getSession();
+  const session = await getServerSession();
+
+  console.log(session);
 
   if (!!session) redirect('/');
 
