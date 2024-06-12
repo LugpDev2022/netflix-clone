@@ -2,13 +2,23 @@
 
 import { prisma } from '../lib/prisma';
 
-//TODO: handle errors
+//TODO: Create user type
+type User = any;
+
 export const createUser = async (
   email: string,
   password: string,
   plan: string
-) => {
-  const user = await prisma.user.create({ data: { email, password, plan } });
+): Promise<[string?, User?]> => {
+  try {
+    const user = await prisma.user.create({ data: { email, password, plan } });
 
-  return user;
+    return [undefined, user];
+  } catch (error) {
+    if (error instanceof Error) {
+      return [error.message];
+    }
+  }
+
+  return ['Unknown error'];
 };
