@@ -34,7 +34,11 @@ export default function RootLayout({
       <body className={`${inter.className}`}>
         <AuthProvider>
           {children}
-          <Toaster />
+          <Toaster
+            toastOptions={{
+              classNames: { error: 'bg-red-600 text-white' },
+            }}
+          />
         </AuthProvider>
       </body>
     </html>
