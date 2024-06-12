@@ -8,6 +8,8 @@ import { deleteCookie } from 'cookies-next';
 
 import { DataContext } from '../../context/DataContext';
 import { DataContextValue } from '../../context/DataContextProvider';
+import { prisma } from '@/src/app/lib/prisma';
+import { createUser } from '@/src/app/actions/createUser';
 
 interface Props {
   dict: any;
@@ -18,7 +20,10 @@ const ConfirmBtn: React.FC<Props> = ({ dict }) => {
   const router = useRouter();
 
   const handleClick = async () => {
-    //TODO save user on db
+    if (!email || !password || !plan) return;
+
+    await createUser(email, password, plan);
+
     const resp = await signIn('credentials', {
       email,
       password,
