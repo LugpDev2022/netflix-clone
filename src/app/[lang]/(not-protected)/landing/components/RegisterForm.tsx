@@ -1,13 +1,15 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 import { Field, Form, Formik } from 'formik';
 import { GrNext } from 'react-icons/gr';
 import { RxCrossCircled } from 'react-icons/rx';
 
-import { registerSchema } from '../lib/registerSchema';
+import { registerSchema } from '@/src/app/[lang]/(not-protected)/landing/lib/registerSchema';
+import { findUserByEmail } from '@/src/app/actions/findUser';
 import { Locale } from '@/src/types';
 import '../register-form.css';
-import { useRouter } from 'next/navigation';
 
 interface Props {
   dictionary: any;
@@ -26,8 +28,15 @@ const RegisterForm: React.FC<Props> = ({ dictionary, lang }) => {
       validationSchema={schema}
       validateOnBlur
       validateOnChange
-      onSubmit={({ email }) => {
-        // TODO: Check if email exists on db
+      onSubmit={async ({ email }) => {
+        const [error] = await findUserByEmail(email);
+
+        if (!error) {
+          //TODO: Improve the error alert
+          alert('Usuario ya existente');
+          return;
+        }
+
         router.push(`/${lang}/signup?email=${email}`);
       }}
     >
