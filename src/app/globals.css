@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.footer-container-light,
+.footer-container-dark {
+  padding: 24px;
+  text-align: center;
+}
+
+.footer-container-light {
+  background-color: #f3f3f3;
+  color: #737373;
+  border-top: 1px solid #e6e6e6;
+}
+
+.footer-container-dark {
+  background-color: black;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.footer-subtitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer-contact-list-item a {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  transition: 150ms;
+}
+
+.footer-contact-list-item a:hover {
+  @apply text-red-600;
+}
+
+@media (width >= 1024px) {
+  .footer-container-light,
+  .footer-container-dark {
+    text-align: left;
+  }
+
+  .footer-contact-list-item a {
+    justify-content: flex-start;
+  }
+}
