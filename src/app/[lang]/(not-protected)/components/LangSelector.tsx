@@ -2,7 +2,8 @@
 
 import { ChangeEventHandler } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import Image from 'next/image';
+
+import { MdOutlineTranslate, MdArrowDropDown } from 'react-icons/md';
 
 import { Locale } from '@/src/types';
 
@@ -11,7 +12,6 @@ interface Props {
   theme: 'light' | 'dark';
 }
 
-//TODO: Add theme colors
 const LangSelector: React.FC<Props> = ({ lang, theme }) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -29,22 +29,23 @@ const LangSelector: React.FC<Props> = ({ lang, theme }) => {
   return (
     <>
       <div
-        className='
-          bg-black/80
-          border-[0.2px]
-          border-white/40
-          rounded-md
-          text-base
-          relative
-          inline-flex
-        '
+        className={`
+            ${
+              theme === 'light'
+                ? 'bg-white text-[#737373] border-[#a6a6a6]'
+                : 'bg-black/80 text-white/70 border-white/40'
+            }
+            border-[0.2px]
+            
+            rounded-md
+            text-base
+            relative
+            inline-block
+        `}
       >
-        <Image
-          src='/translate.png'
-          className='h-4 absolute top-1/2 left-3 transform -translate-y-1/2'
-          alt='Translate'
-          width={16}
-          height={16}
+        <MdOutlineTranslate
+          className='absolute top-1/2 left-3 transform -translate-y-1/2'
+          size={18}
         />
 
         <select
@@ -52,20 +53,23 @@ const LangSelector: React.FC<Props> = ({ lang, theme }) => {
           onChange={handleLangChange}
           defaultValue={lang}
         >
-          <option className='bg-black' value='en'>
+          <option
+            className={theme === 'light' ? 'bg-white' : 'bg-black/80'}
+            value='en'
+          >
             English
           </option>
-          <option className='bg-black' value='es'>
+          <option
+            className={theme === 'light' ? 'bg-white' : 'bg-black/80'}
+            value='es'
+          >
             Español
           </option>
         </select>
 
-        <Image
-          src='/arrow.svg'
-          className='h-2 absolute top-1/2 right-3 transform -translate-y-1/2'
-          alt='Arrow'
-          width={8}
-          height={8}
+        <MdArrowDropDown
+          className='absolute top-1/2 right-1 transform -translate-y-1/2'
+          size={28}
         />
       </div>
     </>
