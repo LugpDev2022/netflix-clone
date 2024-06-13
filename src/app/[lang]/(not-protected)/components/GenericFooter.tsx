@@ -14,11 +14,7 @@ interface Props {
   theme: 'light' | 'dark';
 }
 
-const GenericFooter: React.FC<Props> = async ({
-  lang,
-  theme,
-  className = '',
-}) => {
+const GenericFooter: React.FC<Props> = async ({ lang, theme }) => {
   const dict = await getDictionary(lang);
 
   return (
@@ -33,7 +29,6 @@ const GenericFooter: React.FC<Props> = async ({
           : 'bg-black text-white/70'
       }`}
     >
-      {/* TODO: Set custom max width */}
       <div>
         <h4 className='text-lg font-bold'>{dict.landing.footer.subtitle1}</h4>
         <p className='text-pretty'>{dict.landing.footer.information}</p>
@@ -41,8 +36,8 @@ const GenericFooter: React.FC<Props> = async ({
         <h4 className='text-lg font-bold mt-6'>
           {dict.landing.footer.subtitle2}
         </h4>
-        <ul className='mt-4 grid grid-cols-1 justify-center sm:grid-cols-2 md:grid-cols-4 gap-4'>
-          <li className='flex gap-2.5 justify-center'>
+        <ul className='mt-4 grid grid-cols-1 justify-center gap-5 sm:gap-4 sm:grid-cols-2 md:grid-cols-4'>
+          <li className='flex gap-2.5 justify-center lg:justify-start'>
             <FaGithub size={24} />
             <a
               href='https://github.com/LugpDev2022'
@@ -53,7 +48,7 @@ const GenericFooter: React.FC<Props> = async ({
               @LugpDev2022
             </a>
           </li>
-          <li className='flex gap-2.5 justify-center'>
+          <li className='flex gap-2.5 justify-center lg:justify-start'>
             <FaLinkedin size={24} />
             <a
               href={`https://www.linkedin.com/in/luiscerv${
@@ -66,7 +61,7 @@ const GenericFooter: React.FC<Props> = async ({
               in/luiscerv
             </a>
           </li>
-          <li className='flex gap-2.5 justify-center'>
+          <li className='flex gap-2.5 justify-center lg:justify-start'>
             <FaSquareXTwitter size={24} />
             <a
               href='https://twitter.com/LugpDev2022'
@@ -77,7 +72,7 @@ const GenericFooter: React.FC<Props> = async ({
               @LugpDev2022
             </a>
           </li>
-          <li className='flex gap-2.5 justify-center'>
+          <li className='flex gap-2.5 justify-center lg:justify-start'>
             <FaLink size={24} />
             <a
               href={`https://luiscerv.tech${lang === 'en' ? '/' : '/es'}`}
