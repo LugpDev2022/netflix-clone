@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import LangSelector from '@/src/app/[lang]/(not-protected)/landing/components/LangSelector';
+import LangSelector from '@/src/app/[lang]/components/LangSelector';
 import { Locale } from '@/src/types';
 import { getDictionary } from '../../../dictionaries';
 import SignInLink from './SignInLink';
@@ -36,7 +36,7 @@ const Navbar: React.FC<Props> = async ({ lang }) => {
       </span>
 
       <div className='flex items-center gap-2 md:gap-6'>
-        <LangSelector lang={lang} />
+        <LangSelector lang={lang} theme='dark' />
         <SignInLink lang={lang}>{dict.landing.signIn}</SignInLink>
       </div>
     </header>

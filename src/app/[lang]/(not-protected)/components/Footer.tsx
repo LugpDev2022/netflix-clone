@@ -5,17 +5,16 @@ import {
   FaLink,
 } from 'react-icons/fa6';
 
+import LangSelector from '@/src/app/[lang]/components/LangSelector';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
-import LangSelector from './LangSelector';
 
 interface Props {
   lang: Locale;
-  className?: string;
   theme: 'light' | 'dark';
 }
 
-const GenericFooter: React.FC<Props> = async ({ lang, theme }) => {
+const Footer: React.FC<Props> = async ({ lang, theme }) => {
   const dict = await getDictionary(lang);
 
   return (
@@ -25,10 +24,10 @@ const GenericFooter: React.FC<Props> = async ({ lang, theme }) => {
       }
     >
       <div>
-        <h4 className='footer-subtitle'>{dict.genericFooter.subtitle1}</h4>
-        <p className='text-pretty'>{dict.genericFooter.information}</p>
+        <h4 className='footer-subtitle'>{dict.footer.subtitle1}</h4>
+        <p className='text-pretty'>{dict.footer.information}</p>
 
-        <h4 className='footer-subtitle mt-6'>{dict.genericFooter.subtitle2}</h4>
+        <h4 className='footer-subtitle mt-6'>{dict.footer.subtitle2}</h4>
         <ul className='mt-4 grid grid-cols-1 justify-center gap-5 sm:gap-4 sm:grid-cols-2 md:grid-cols-4'>
           <li className='footer-contact-list-item'>
             <a
@@ -77,9 +76,7 @@ const GenericFooter: React.FC<Props> = async ({ lang, theme }) => {
         </ul>
 
         <div className='mt-6'>
-          <h4 className='footer-subtitle mb-2'>
-            {dict.genericFooter.subtitle3}
-          </h4>
+          <h4 className='footer-subtitle mb-2'>{dict.footer.subtitle3}</h4>
           <LangSelector lang={lang} theme={theme} />
         </div>
       </div>
@@ -87,4 +84,4 @@ const GenericFooter: React.FC<Props> = async ({ lang, theme }) => {
   );
 };
 
-export default GenericFooter;
+export default Footer;

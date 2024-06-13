@@ -2,7 +2,7 @@ import FirstSection from '@/src/app/[lang]/(not-protected)/landing/sections/Firs
 import SecondSection from '@/src/app/[lang]/(not-protected)/landing/sections/SecondSection';
 import ThirdSection from '@/src/app/[lang]/(not-protected)/landing/sections/ThirdSection';
 import FourthSection from '@/src/app/[lang]/(not-protected)/landing/sections/FourthSection';
-import Footer from '@/src/app/[lang]/(not-protected)/landing/components/Footer';
+import Footer from '@/src/app/[lang]/(not-protected)/components/Footer';
 import { Locale } from '@/src/types';
 import './landing.css';
 
@@ -19,7 +19,7 @@ const LandingPage: React.FC<Props> = async ({ params: { lang } }) => {
       <SecondSection lang={lang} />
       <ThirdSection lang={lang} />
       <FourthSection lang={lang} />
-      <Footer lang={lang} />
+      <Footer lang={lang} theme='dark' />
     </div>
   );
 };
