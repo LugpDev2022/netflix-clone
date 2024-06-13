@@ -5,6 +5,7 @@ import SignInForm from '@/src/app/[lang]/(not-protected)/login/components/SignIn
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
 import './login.css';
+import GenericFooter from '../components/GenericFooter';
 
 interface Props {
   params: {
@@ -40,6 +41,8 @@ const LoginPage: React.FC<Props> = async ({ params: { lang } }) => {
           </p>
         </main>
       </div>
+
+      <GenericFooter lang={lang} />
     </div>
   );
 };
