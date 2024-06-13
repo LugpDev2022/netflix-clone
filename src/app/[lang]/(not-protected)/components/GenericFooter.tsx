@@ -23,7 +23,11 @@ const GenericFooter: React.FC<Props> = async ({
 
   return (
     <footer
-      className={` ${
+      className={` 
+      p-6
+      text-center
+      lg:text-left
+      ${
         theme === 'light'
           ? 'bg-[#f3f3f3] text-[#737373] border-t border-[#e6e6e6]'
           : 'bg-black text-white/70'
@@ -31,49 +35,55 @@ const GenericFooter: React.FC<Props> = async ({
     >
       {/* TODO: Set custom max width */}
       <div>
-        <h4 className=''>{dict.landing.footer.subtitle1}</h4>
+        <h4 className='text-lg font-bold'>{dict.landing.footer.subtitle1}</h4>
         <p className='text-pretty'>{dict.landing.footer.information}</p>
 
-        <h4 className='mt-6'>{dict.landing.footer.subtitle2}</h4>
+        <h4 className='text-lg font-bold mt-6'>
+          {dict.landing.footer.subtitle2}
+        </h4>
         <ul className='mt-4 grid grid-cols-1 justify-center sm:grid-cols-2 md:grid-cols-4 gap-4'>
-          <li className=''>
-            <FaGithub />
+          <li className='flex gap-2.5 justify-center'>
+            <FaGithub size={24} />
             <a
               href='https://github.com/LugpDev2022'
               target='_blank'
               rel='noopener noreferrer'
+              className='hover:underline'
             >
               @LugpDev2022
             </a>
           </li>
-          <li className=''>
-            <FaLinkedin />
+          <li className='flex gap-2.5 justify-center'>
+            <FaLinkedin size={24} />
             <a
               href={`https://www.linkedin.com/in/luiscerv${
                 lang === 'en' ? '/en' : '/'
               }`}
               target='_blank'
               rel='noopener noreferrer'
+              className='hover:underline'
             >
               in/luiscerv
             </a>
           </li>
-          <li className=''>
-            <FaSquareXTwitter />
+          <li className='flex gap-2.5 justify-center'>
+            <FaSquareXTwitter size={24} />
             <a
               href='https://twitter.com/LugpDev2022'
               target='_blank'
               rel='noopener noreferrer'
+              className='hover:underline'
             >
               @LugpDev2022
             </a>
           </li>
-          <li className=''>
-            <FaLink />
+          <li className='flex gap-2.5 justify-center'>
+            <FaLink size={24} />
             <a
               href={`https://luiscerv.tech${lang === 'en' ? '/' : '/es'}`}
               target='_blank'
               rel='noopener noreferrer'
+              className='hover:underline'
             >
               luiscerv.tech
             </a>
