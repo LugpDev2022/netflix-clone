@@ -18,7 +18,7 @@ const SignUpLayout: React.FC<Props> = ({ children, params }) => {
         <Navbar lang={params.lang} />
         {children}
       </div>
-      <GenericFooter lang={params.lang} />
+      <GenericFooter lang={params.lang} theme='light' />
     </DataContextProvider>
   );
 };

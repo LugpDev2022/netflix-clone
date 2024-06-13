@@ -42,7 +42,7 @@ const LoginPage: React.FC<Props> = async ({ params: { lang } }) => {
         </main>
       </div>
 
-      <GenericFooter lang={lang} />
+      <GenericFooter lang={lang} theme='dark' />
     </div>
   );
 };

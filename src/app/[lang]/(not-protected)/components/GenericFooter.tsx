@@ -11,13 +11,24 @@ import { Locale } from '@/src/types';
 interface Props {
   lang: Locale;
   className?: string;
+  theme: 'light' | 'dark';
 }
 
-const GenericFooter: React.FC<Props> = async ({ lang, className = '' }) => {
+const GenericFooter: React.FC<Props> = async ({
+  lang,
+  theme,
+  className = '',
+}) => {
   const dict = await getDictionary(lang);
 
   return (
-    <footer className='bg-red-600'>
+    <footer
+      className={` ${
+        theme === 'light'
+          ? 'bg-[#f3f3f3] text-[#737373] border-t border-[#e6e6e6]'
+          : 'bg-black text-white/70'
+      }`}
+    >
       {/* TODO: Set custom max width */}
       <div>
         <h4 className=''>{dict.landing.footer.subtitle1}</h4>
