@@ -7,6 +7,7 @@ import {
 
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
+import LangSelector from './LangSelector';
 
 interface Props {
   lang: Locale;
@@ -86,6 +87,10 @@ const GenericFooter: React.FC<Props> = async ({ lang, theme }) => {
         </ul>
 
         {/* TODO: Add a lang switch */}
+        <div className='mt-6'>
+          <h4 className='text-lg font-bold mb-2'>Language</h4>
+          <LangSelector lang={lang} theme={theme} />
+        </div>
       </div>
     </footer>
   );
