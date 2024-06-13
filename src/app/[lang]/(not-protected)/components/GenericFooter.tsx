@@ -28,7 +28,7 @@ const GenericFooter: React.FC<Props> = async ({ lang, theme }) => {
         <h4 className='footer-subtitle'>{dict.genericFooter.subtitle1}</h4>
         <p className='text-pretty'>{dict.genericFooter.information}</p>
 
-        <h4 className='footer-subtitle'>{dict.genericFooter.subtitle2}</h4>
+        <h4 className='footer-subtitle mt-6'>{dict.genericFooter.subtitle2}</h4>
         <ul className='mt-4 grid grid-cols-1 justify-center gap-5 sm:gap-4 sm:grid-cols-2 md:grid-cols-4'>
           <li className='footer-contact-list-item'>
             <a
@@ -77,7 +77,9 @@ const GenericFooter: React.FC<Props> = async ({ lang, theme }) => {
         </ul>
 
         <div className='mt-6'>
-          <h4 className='footer-subtitle'>{dict.genericFooter.subtitle3}</h4>
+          <h4 className='footer-subtitle mb-2'>
+            {dict.genericFooter.subtitle3}
+          </h4>
           <LangSelector lang={lang} theme={theme} />
         </div>
       </div>
