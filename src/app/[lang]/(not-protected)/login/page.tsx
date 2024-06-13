@@ -44,6 +44,7 @@ const LoginPage: React.FC<Props> = async ({ params: { lang } }) => {
         </main>
       </div>
 
+      <hr className='sm:hidden border-white/70' />
       <Footer lang={lang} theme='dark' />
     </div>
   );
