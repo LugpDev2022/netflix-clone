@@ -23,7 +23,7 @@ const Footer: React.FC<Props> = async ({ lang, theme }) => {
         theme === 'light' ? 'footer-container-light' : 'footer-container-dark'
       }
     >
-      <div>
+      <div className='max-w-screen-lg mx-auto'>
         <h4 className='footer-subtitle'>{dict.footer.subtitle1}</h4>
         <p className='text-pretty'>{dict.footer.information}</p>
 

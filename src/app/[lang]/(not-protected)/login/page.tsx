@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 import SignInForm from '@/src/app/[lang]/(not-protected)/login/components/SignInForm';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
+import Footer from '@/src/app/[lang]/(not-protected)/components/Footer';
 import { Locale } from '@/src/types';
 import './login.css';
-import Footer from '../components/Footer';
 
 interface Props {
   params: {
@@ -20,12 +20,14 @@ const LoginPage: React.FC<Props> = async ({ params: { lang } }) => {
     <div className='login-bg text-white'>
       <div className='bg-gradient-to-b from-black/80 via-black/50 to-black/80 min-h-screen'>
         <header className='p-6'>
-          <Link
-            href='/landing'
-            className='block w-[89px] h-6 md:w-[148px] md:h-10'
-          >
-            <Image src='/logo.svg' width={148} height={40} alt='Netflix' />
-          </Link>
+          <div className='max-w-screen-lg mx-auto'>
+            <Link
+              href='/landing'
+              className='block w-[89px] h-6 md:w-[148px] md:h-10'
+            >
+              <Image src='/logo.svg' width={148} height={40} alt='Netflix' />
+            </Link>
+          </div>
         </header>
 
         <main className='login-main'>
