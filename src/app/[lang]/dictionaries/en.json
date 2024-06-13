@@ -54,5 +54,11 @@
     "passwordLabel": "Password",
     "new": "New to Netflix?",
     "newLink": "Sign up now."
+  },
+  "genericFooter": {
+    "subtitle1": "Important Information",
+    "information": "This website is not the official Netflix site. It was created by Luis Cervantes for programming practice.",
+    "subtitle2": "Contact Links",
+    "subtitle3": "Language"
   }
 }

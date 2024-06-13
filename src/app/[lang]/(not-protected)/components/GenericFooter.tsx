@@ -31,11 +31,11 @@ const GenericFooter: React.FC<Props> = async ({ lang, theme }) => {
       }`}
     >
       <div>
-        <h4 className='text-lg font-bold'>{dict.landing.footer.subtitle1}</h4>
-        <p className='text-pretty'>{dict.landing.footer.information}</p>
+        <h4 className='text-lg font-bold'>{dict.genericFooter.subtitle1}</h4>
+        <p className='text-pretty'>{dict.genericFooter.information}</p>
 
         <h4 className='text-lg font-bold mt-6'>
-          {dict.landing.footer.subtitle2}
+          {dict.genericFooter.subtitle2}
         </h4>
         <ul className='mt-4 grid grid-cols-1 justify-center gap-5 sm:gap-4 sm:grid-cols-2 md:grid-cols-4'>
           <li className='flex gap-2.5 justify-center lg:justify-start'>
@@ -88,7 +88,9 @@ const GenericFooter: React.FC<Props> = async ({ lang, theme }) => {
 
         {/* TODO: Add a lang switch */}
         <div className='mt-6'>
-          <h4 className='text-lg font-bold mb-2'>Language</h4>
+          <h4 className='text-lg font-bold mb-2'>
+            {dict.genericFooter.subtitle3}
+          </h4>
           <LangSelector lang={lang} theme={theme} />
         </div>
       </div>

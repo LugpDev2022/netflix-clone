@@ -54,5 +54,11 @@
     "passwordLabel": "Contraseña",
     "new": "¿Primera vez en Netflix?",
     "newLink": "Suscríbete ahora."
+  },
+  "genericFooter": {
+    "subtitle1": "Información Importante",
+    "information": "Esta página web no es el sitio oficial de Netflix. Fue creada por Luis Cervantes con el fin de practicar habilidades de programación.",
+    "subtitle2": "Enlaces de contacto",
+    "subtitle3": "Idioma"
   }
 }
