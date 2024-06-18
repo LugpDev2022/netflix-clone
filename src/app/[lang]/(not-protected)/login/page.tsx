@@ -22,7 +22,7 @@ const LoginPage: React.FC<Props> = async ({ params: { lang } }) => {
         <header className='p-6'>
           <div className='max-w-screen-lg mx-auto'>
             <Link
-              href='/landing'
+              href={`/${lang}/landing`}
               className='block w-[89px] h-6 md:w-[148px] md:h-10'
             >
               <Image src='/logo.svg' width={148} height={40} alt='Netflix' />
@@ -37,7 +37,7 @@ const LoginPage: React.FC<Props> = async ({ params: { lang } }) => {
 
           <p className='text-[#ffffffb3] mt-4'>
             {dict.login.new}{' '}
-            <Link href='/signup' className='text-white'>
+            <Link href={`/${lang}/signup`} className='text-white'>
               {dict.login.newLink}
             </Link>
           </p>
