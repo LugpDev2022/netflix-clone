@@ -8,8 +8,6 @@ interface Props {
 const NotProtectedLayout: React.FC<Props> = async ({ children }) => {
   const session = await getServerSession();
 
-  console.log(session);
-
   if (!!session) redirect('/');
 
   return <>{children}</>;
