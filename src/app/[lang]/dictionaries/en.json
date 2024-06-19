@@ -55,5 +55,18 @@
     "information": "This website is not the official Netflix site. It was created by Luis Cervantes for programming practice.",
     "subtitle2": "Contact Links",
     "subtitle3": "Language"
+  },
+  "app": {
+    "navbar": {
+      "navigation": {
+        "home": "Home",
+        "series": "Series",
+        "movies": "Movies"
+      },
+      "avatar": {
+        "account": "My Account",
+        "logOut": "Log Out"
+      }
+    }
   }
 }

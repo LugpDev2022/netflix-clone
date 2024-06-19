@@ -6,9 +6,16 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { HiMagnifyingGlass } from 'react-icons/hi2';
-import AvatarDropdown from './AvatarDropdown';
 
-const Navbar = () => {
+import AvatarDropdown from './AvatarDropdown';
+import { Locale } from '@/src/types';
+
+interface Props {
+  lang: Locale;
+  dict: any;
+}
+
+const Navbar: React.FC<Props> = ({ lang, dict }) => {
   const TRANSPARENCY_BREAK_POINT = 100;
 
   const pathname = usePathname();
@@ -36,7 +43,7 @@ const Navbar = () => {
         isTransparent ? 'bg-transparent' : 'bg-black/80'
       } grid grid-cols-2 p-5 items-center  text-white/80 fixed w-full sm:flex sm:justify-between transition`}
     >
-      <Link href='/'>
+      <Link href={`/${lang}`}>
         <Image src='/logo.svg' alt='Netflix' width={125} height={34} />
       </Link>
 
@@ -49,30 +56,34 @@ const Navbar = () => {
                 : 'nav-item'
             }
           >
-            <Link href='/'>Home</Link>
+            <Link href={`/${lang}`}>{dict.app.navbar.navigation.home}</Link>
           </li>
           <li
             className={
               pathname.includes('/series') ? 'nav-item-active' : 'nav-item'
             }
           >
-            <Link href='/series'>Series</Link>
+            <Link href={`/${lang}/series`}>
+              {dict.app.navbar.navigation.series}
+            </Link>
           </li>
           <li
             className={
               pathname.includes('/movies') ? 'nav-item-active' : 'nav-item'
             }
           >
-            <Link href='/movies'>Movies</Link>
+            <Link href={`/${lang}/movies`}>
+              {dict.app.navbar.navigation.movies}
+            </Link>
           </li>
         </ul>
       </nav>
 
       <div className='flex gap-5 justify-end order-1 sm:order-2'>
-        <Link href='/search'>
+        <Link href={`/${lang}/search`}>
           <HiMagnifyingGlass size={26} />
         </Link>
-        <AvatarDropdown />
+        <AvatarDropdown dict={dict} />
       </div>
     </header>
   );

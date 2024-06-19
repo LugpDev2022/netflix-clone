@@ -12,21 +12,25 @@ import {
   DropdownMenuTrigger,
 } from '@/src/components/ui/dropdown-menu';
 
-const AvatarDropdown = () => {
+interface Props {
+  dict: any;
+}
+
+const AvatarDropdown: React.FC<Props> = ({ dict }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Image src='/avatar.png' alt='Avatar' width={26} height={26} />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>{dict.app.navbar.avatar.account}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onClick={() => {
             signOut();
           }}
         >
-          Log Out
+          {dict.app.navbar.avatar.logOut}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
