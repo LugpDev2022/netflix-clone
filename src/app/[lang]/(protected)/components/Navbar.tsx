@@ -12,23 +12,21 @@ const Navbar = () => {
   const TRANSPARENCY_BREAK_POINT = 100;
 
   const pathname = usePathname();
-  const [isTransparent, setIsTransparent] = useState<boolean>(() => {
-    if (typeof window !== 'undefined') {
-      return window.scrollY < TRANSPARENCY_BREAK_POINT;
-    }
+  const [isTransparent, setIsTransparent] = useState(true);
 
-    return false;
-  });
+  const changeTransparencyOnScroll = () => {
+    setIsTransparent(window.scrollY < TRANSPARENCY_BREAK_POINT);
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsTransparent(window.scrollY < TRANSPARENCY_BREAK_POINT);
-    };
+    changeTransparencyOnScroll();
+  }, []);
 
-    window.addEventListener('scroll', handleScroll);
+  useEffect(() => {
+    window.addEventListener('scroll', changeTransparencyOnScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', changeTransparencyOnScroll);
     };
   }, []);
 
