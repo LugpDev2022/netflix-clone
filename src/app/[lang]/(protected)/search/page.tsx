@@ -1,9 +1,7 @@
-import SearchBar from './components/SearchBar';
-
 const SearchPage = () => {
   return (
     <>
-      <SearchBar />
+      <h1>SearchPage</h1>
     </>
   );
 };
