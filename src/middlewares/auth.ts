@@ -9,6 +9,5 @@ export async function authMiddleware(request: NextRequest) {
 
   if (!token) return NextResponse.redirect(new URL('/landing', request.url));
 
-  console.log(token);
   return NextResponse.next();
 }
