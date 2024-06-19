@@ -1,8 +1,17 @@
+'use client';
+
+import { ChangeEvent, useState } from 'react';
 import { HiMagnifyingGlass } from 'react-icons/hi2';
 import { RxCross1 } from 'react-icons/rx';
 
 //TODO:Update color scheme
 const SearchBar = () => {
+  const [state, setState] = useState('');
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setState(e.target.value);
+  };
+
   return (
     <div className='w-full relative text-white mt-2.5'>
       <label htmlFor='' className='absolute top-1/2 -translate-y-1/2 left-6'>
@@ -12,6 +21,8 @@ const SearchBar = () => {
         type='text'
         className='w-full h-14 bg-white/70 rounded-md pl-[56px] pe-[52px] outline-none'
         placeholder='Find movies and series'
+        value={state}
+        onChange={handleChange}
       />
 
       <button
