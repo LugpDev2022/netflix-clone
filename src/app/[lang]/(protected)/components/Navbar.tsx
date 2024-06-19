@@ -6,14 +6,19 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { HiMagnifyingGlass } from 'react-icons/hi2';
+import AvatarDropdown from './AvatarDropdown';
 
 const Navbar = () => {
   const TRANSPARENCY_BREAK_POINT = 100;
 
   const pathname = usePathname();
-  const [isTransparent, setIsTransparent] = useState(
-    window.scrollY < TRANSPARENCY_BREAK_POINT
-  );
+  const [isTransparent, setIsTransparent] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.scrollY < TRANSPARENCY_BREAK_POINT;
+    }
+
+    return false;
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,7 +72,7 @@ const Navbar = () => {
         <Link href='/search'>
           <HiMagnifyingGlass size={26} />
         </Link>
-        <Image src='/avatar.png' alt='Avatar' width={26} height={26} />
+        <AvatarDropdown />
       </div>
     </header>
   );
