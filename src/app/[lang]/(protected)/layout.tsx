@@ -9,7 +9,9 @@ const ProtectedLayout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Navbar />
-      <div className='pt-[115px] sm:pt-[74px]'>{children}</div>
+      <div className='pt-[115px] sm:pt-[74px] bg-red-500 h-[1000px]'>
+        {children}
+      </div>
     </>
   );
 };

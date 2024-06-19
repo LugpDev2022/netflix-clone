@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -7,10 +8,31 @@ import { usePathname } from 'next/navigation';
 import { HiMagnifyingGlass } from 'react-icons/hi2';
 
 const Navbar = () => {
+  const TRANSPARENCY_BREAK_POINT = 100;
+
   const pathname = usePathname();
+  const [isTransparent, setIsTransparent] = useState(
+    window.scrollY < TRANSPARENCY_BREAK_POINT
+  );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsTransparent(window.scrollY < TRANSPARENCY_BREAK_POINT);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <header className='grid grid-cols-2 p-5 items-center bg-black text-white/80 fixed w-full sm:flex sm:justify-between'>
+    <header
+      className={`${
+        isTransparent ? 'bg-transparent' : 'bg-black/80'
+      } grid grid-cols-2 p-5 items-center  text-white/80 fixed w-full sm:flex sm:justify-between transition`}
+    >
       <Image src='/logo.svg' alt='Netflix' width={125} height={34} />
 
       <nav className='col-span-2 order-2 mt-5 sm:order-1 sm:mt-0'>
