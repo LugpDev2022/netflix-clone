@@ -26,9 +26,9 @@ const SearchBar = () => {
   }, []);
 
   useEffect(() => {
-    if (state.length < 1) return router.push(pathname);
+    if (state.length < 1) return router.push('/search');
 
-    router.push(`${pathname}?q=${state}`);
+    router.push(`/search/results?q=${state}`);
   }, [state, pathname, router]);
 
   return (
