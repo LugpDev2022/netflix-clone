@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { HiMagnifyingGlass } from 'react-icons/hi2';
 import { RxCross1 } from 'react-icons/rx';
@@ -10,10 +10,20 @@ const SearchBar = () => {
   const [state, setState] = useState('');
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setState(e.target.value);
   };
+
+  useEffect(() => {
+    const query = searchParams.get('q');
+
+    if (!query) return;
+
+    setState(query);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (state.length < 1) return router.push(pathname);
