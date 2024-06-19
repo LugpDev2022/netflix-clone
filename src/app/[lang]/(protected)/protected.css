@@ -1,19 +1,26 @@
 .nav-item,
 .nav-item-active {
   font-size: 14px;
-}
-
-.nav-item-active {
   position: relative;
 }
 
+.nav-item::after,
 .nav-item-active::after {
   background-color: white;
   bottom: -5px;
   content: ' ';
   height: 2px;
   left: 0;
+  margin: auto;
   position: absolute;
+  right: 0;
   transition: all 300ms;
+}
+
+.nav-item::after {
+  width: 0px;
+}
+
+.nav-item-active::after {
   width: 100%;
 }
