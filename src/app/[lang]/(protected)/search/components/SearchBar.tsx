@@ -25,12 +25,17 @@ const SearchBar = () => {
         onChange={handleChange}
       />
 
-      <button
-        type='reset'
-        className='absolute top-1/2 -translate-y-1/2 right-6'
-      >
-        <RxCross1 size={20} />
-      </button>
+      {state.length > 0 ? (
+        <button
+          type='reset'
+          className='absolute top-1/2 -translate-y-1/2 right-6'
+          onClick={() => setState('')}
+        >
+          <RxCross1 size={20} />
+        </button>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
