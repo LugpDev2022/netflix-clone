@@ -38,7 +38,9 @@ const Navbar = () => {
         isTransparent ? 'bg-transparent' : 'bg-black/80'
       } grid grid-cols-2 p-5 items-center  text-white/80 fixed w-full sm:flex sm:justify-between transition`}
     >
-      <Image src='/logo.svg' alt='Netflix' width={125} height={34} />
+      <Link href='/'>
+        <Image src='/logo.svg' alt='Netflix' width={125} height={34} />
+      </Link>
 
       <nav className='col-span-2 order-2 mt-5 sm:order-1 sm:mt-0'>
         <ul className='flex justify-center gap-7 font-semibold'>
