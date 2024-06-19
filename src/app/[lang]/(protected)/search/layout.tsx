@@ -1,4 +1,4 @@
-import React from 'react';
+import { Suspense } from 'react';
 import SearchBar from './components/SearchBar';
 
 interface Props {
@@ -8,7 +8,9 @@ interface Props {
 const SearchLayout: React.FC<Props> = ({ children }) => {
   return (
     <>
-      <SearchBar />
+      <Suspense>
+        <SearchBar />
+      </Suspense>
       <div className='mt-6'>{children}</div>
     </>
   );
