@@ -1,8 +1,9 @@
 import { redirect } from 'next/navigation';
 
-import MoviesList from './components/MoviesList';
-import { getMoviesByName } from './lib/getMoviesByName';
-import { getSeriesByName } from './lib/getSeriesByName';
+import MoviesList from '@/src/app/[lang]/(protected)/search/results/components/MoviesList';
+import SeriesList from '@/src/app/[lang]/(protected)/search/results/components/SeriesList';
+import { getMoviesByName } from '@/src/app/[lang]/(protected)/search/results/lib/getMoviesByName';
+import { getSeriesByName } from '@/src/app/[lang]/(protected)/search/results/lib/getSeriesByName';
 import { Locale } from '@/src/types';
 import './results.css';
 
@@ -34,8 +35,11 @@ const ResultsPage: React.FC<Props> = async ({
 
   return (
     <main>
-      <h2>Movies</h2>
+      <h2 className='mb-2 text-xl font-bold'>Movies</h2>
       <MoviesList movies={movies} />
+
+      <h2 className='mt-5 mb-2 text-xl font-bold'>Series</h2>
+      <SeriesList series={series} />
     </main>
   );
 };
