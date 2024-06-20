@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import AuthProvider from '../auth/AuthProvider';
+import { Toaster } from '@/src/components/ui/toaster';
 import { Locale } from '@/src/types';
 import '@/src/app/globals.css';
-import AuthProvider from '../auth/AuthProvider';
-import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: 'Netflix | LugpDev2022',
@@ -34,11 +34,7 @@ export default function RootLayout({
       <body className={`${inter.className}`}>
         <AuthProvider>
           {children}
-          <Toaster
-            toastOptions={{
-              classNames: { error: 'bg-red-600 text-white' },
-            }}
-          />
+          <Toaster />
         </AuthProvider>
       </body>
     </html>
