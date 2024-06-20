@@ -67,6 +67,11 @@
         "account": "Mi Cuenta",
         "logOut": "Cerrar sesión"
       }
+    },
+    "searchPage": {
+      "searchBar": {
+        "placeholder": "Encuentra películas y series."
+      }
     }
   }
 }

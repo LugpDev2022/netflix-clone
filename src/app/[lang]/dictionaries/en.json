@@ -67,6 +67,11 @@
         "account": "My Account",
         "logOut": "Log Out"
       }
+    },
+    "searchPage": {
+      "searchBar": {
+        "placeholder": "Find movies and series."
+      }
     }
   }
 }

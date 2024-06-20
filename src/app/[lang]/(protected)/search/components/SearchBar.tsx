@@ -50,7 +50,7 @@ const SearchBar: React.FC<Props> = ({ lang, dict }) => {
       <input
         type='text'
         className='w-full h-14 bg-white/70 rounded-md pl-[56px] pe-[52px] outline-none'
-        placeholder='Find movies and series'
+        placeholder={dict.app.searchPage.searchBar.placeholder}
         id='searchbox'
         value={state}
         onChange={handleChange}
