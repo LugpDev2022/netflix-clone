@@ -20,7 +20,7 @@ const ResultCard: React.FC<Props> = ({ image, releaseYear, title }) => {
       />
 
       <div className='mt-2'>
-        <h2 className='font-medium'>{title}</h2>
+        <h3 className='font-medium'>{title}</h3>
         <time
           dateTime={releaseYear}
           className='font-light text-white/80 text-sm'

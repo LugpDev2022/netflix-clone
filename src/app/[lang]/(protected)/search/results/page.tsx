@@ -1,10 +1,10 @@
 import { redirect } from 'next/navigation';
 
-import ResultCard from '../components/ResultCard';
-import { Locale } from '@/src/types';
-import './results.css';
+import MoviesList from './components/MoviesList';
 import { getMoviesByName } from './lib/getMoviesByName';
 import { getSeriesByName } from './lib/getSeriesByName';
+import { Locale } from '@/src/types';
+import './results.css';
 
 interface Props {
   searchParams: {
@@ -33,20 +33,9 @@ const ResultsPage: React.FC<Props> = async ({
   if (!movies || movies.length < 1) return <h1>Not found</h1>;
 
   return (
-    <main className='grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-2.5'>
-      {movies.map((result: any) => {
-        const { id, title, backdrop_path, release_date } = result;
-
-        const img = `https://image.tmdb.org/t/p/original${backdrop_path}`;
-
-        const year = new Date(release_date).getFullYear().toString();
-
-        if (!backdrop_path) return <></>;
-
-        return (
-          <ResultCard key={id} image={img} releaseYear={year} title={title} />
-        );
-      })}
+    <main>
+      <h2>Movies</h2>
+      <MoviesList movies={movies} />
     </main>
   );
 };
