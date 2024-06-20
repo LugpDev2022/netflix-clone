@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import ResultCard from '../components/ResultCard';
 import { Locale } from '@/src/types';
 import './results.css';
+import { getMoviesByName } from './lib/getMoviesByName';
 
 interface Props {
   searchParams: {
@@ -20,20 +21,15 @@ const ResultsPage: React.FC<Props> = async ({
   if (!query) return redirect(`/${lang}/search`);
 
   //TODO: Fetch series
-  const resp = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&language=${lang}&query=${query}`
-  );
 
-  const data = await resp.json();
-
-  const { results } = data;
+  const [moviesErr, movies] = await getMoviesByName(query, lang);
 
   //TODO: Improve the not found message
-  if (results.length < 1) return <h1>Not found</h1>;
+  if (!movies || movies.length < 1) return <h1>Not found</h1>;
 
   return (
     <main className='grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-2.5'>
-      {results.map((result: any) => {
+      {movies.map((result: any) => {
         const { id, title, backdrop_path, release_date } = result;
 
         const img = `https://image.tmdb.org/t/p/original${backdrop_path}`;
