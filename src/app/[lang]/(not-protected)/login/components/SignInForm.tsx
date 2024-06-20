@@ -4,10 +4,10 @@ import { useRouter } from 'next/navigation';
 
 import { signIn } from 'next-auth/react';
 import { Field, Form, Formik } from 'formik';
-import { toast } from 'sonner';
 import { RxCrossCircled } from 'react-icons/rx';
 
 import { loginSchema } from '@/src/app/[lang]/(not-protected)/login/lib/loginSchema';
+import { useToast } from '@/src/components/ui/use-toast';
 import errorMessages from '@/src/app/[lang]/(not-protected)/loginErrors.json';
 import { Locale } from '@/src/types';
 
@@ -19,6 +19,7 @@ interface Props {
 const SignInForm: React.FC<Props> = ({ lang, dict }) => {
   const router = useRouter();
   const schema = loginSchema(lang);
+  const { toast } = useToast();
 
   return (
     <Formik
@@ -34,7 +35,10 @@ const SignInForm: React.FC<Props> = ({ lang, dict }) => {
         });
 
         if (!resp?.ok) {
-          return toast.error(errorMessages[lang].failedToLogIn);
+          return toast({
+            variant: 'destructive',
+            description: errorMessages[lang].failedToLogIn,
+          });
         }
 
         return router.push('/');

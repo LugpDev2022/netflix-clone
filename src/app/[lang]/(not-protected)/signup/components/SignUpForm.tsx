@@ -5,13 +5,13 @@ import { useRouter } from 'next/navigation';
 
 import { Field, Form, Formik } from 'formik';
 import { RxCrossCircled } from 'react-icons/rx';
-import { toast } from 'sonner';
 
 import { Locale } from '@/src/types';
 import { signUpSchema } from '../lib/signUpSchema';
 import { DataContext } from '../context/DataContext';
 import { DataContextValue } from '../context/DataContextProvider';
 import { findUserByEmail } from '@/src/app/actions/findUser';
+import { useToast } from '@/src/components/ui/use-toast';
 import errorMessages from '@/src/app/[lang]/(not-protected)/loginErrors.json';
 
 interface Props {
@@ -24,6 +24,7 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
   const schema = signUpSchema(lang);
   const router = useRouter();
   const { setAccountInfo } = useContext(DataContext) as DataContextValue;
+  const { toast } = useToast();
 
   return (
     <Formik
@@ -38,7 +39,10 @@ const SignUpForm: React.FC<Props> = ({ lang, email, dict }) => {
         const [error, user] = await findUserByEmail(email);
 
         if (user) {
-          return toast.error(errorMessages[lang].emailInUse);
+          return toast({
+            variant: 'destructive',
+            description: errorMessages[lang].emailInUse,
+          });
         }
 
         setAccountInfo(email, password);

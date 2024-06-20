@@ -5,11 +5,11 @@ import { useRouter } from 'next/navigation';
 import { Field, Form, Formik } from 'formik';
 import { deleteCookie } from 'cookies-next';
 import { GrNext } from 'react-icons/gr';
-import { toast } from 'sonner';
 import { RxCrossCircled } from 'react-icons/rx';
 
 import { registerSchema } from '@/src/app/[lang]/(not-protected)/landing/lib/registerSchema';
 import { findUserByEmail } from '@/src/app/actions/findUser';
+import { useToast } from '@/src/components/ui/use-toast';
 import errorMessages from '@/src/app/[lang]/(not-protected)/loginErrors.json';
 import { Locale } from '@/src/types';
 import '../register-form.css';
@@ -22,6 +22,7 @@ interface Props {
 const RegisterForm: React.FC<Props> = ({ dictionary, lang }) => {
   const router = useRouter();
   const schema = registerSchema(lang);
+  const { toast } = useToast();
 
   return (
     <Formik
@@ -35,7 +36,11 @@ const RegisterForm: React.FC<Props> = ({ dictionary, lang }) => {
         const [_, user] = await findUserByEmail(email);
 
         if (user) {
-          toast.error(errorMessages[lang].emailInUse);
+          toast({
+            variant: 'destructive',
+            description: errorMessages[lang].emailInUse,
+          });
+
           return;
         }
 
