@@ -14,7 +14,7 @@ const ResultsPage: React.FC<Props> = async ({
   params: { lang },
   searchParams: { q: query },
 }) => {
-  if (!query) return redirect('/search');
+  if (!query) return redirect(`/${lang}/search`);
 
   const resp = await fetch(
     `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&language=${lang}&query=${query}`

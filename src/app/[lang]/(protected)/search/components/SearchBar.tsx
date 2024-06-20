@@ -1,12 +1,20 @@
 'use client';
 
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+
 import { HiMagnifyingGlass } from 'react-icons/hi2';
 import { RxCross1 } from 'react-icons/rx';
 
+import { Locale } from '@/src/types';
+
+interface Props {
+  lang: Locale;
+  dict: any;
+}
+
 //TODO:Update color scheme
-const SearchBar = () => {
+const SearchBar: React.FC<Props> = ({ lang, dict }) => {
   const [state, setState] = useState('');
   const router = useRouter();
   const pathname = usePathname();
@@ -26,10 +34,10 @@ const SearchBar = () => {
   }, []);
 
   useEffect(() => {
-    if (state.length < 1) return router.push('/search');
+    if (state.length < 1) return router.push(`/${lang}/search`);
 
-    router.push(`/search/results?q=${state}`);
-  }, [state, pathname, router]);
+    router.push(`/${lang}/search/results?q=${state}`);
+  }, [state, pathname, router, lang]);
 
   return (
     <div className='w-full relative text-white mt-2.5'>
