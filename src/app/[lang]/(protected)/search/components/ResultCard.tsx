@@ -1,3 +1,4 @@
+import { Locale } from '@/src/types';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,6 +8,7 @@ interface Props {
   releaseYear: string;
   type: 'series' | 'movies';
   id: number;
+  lang: Locale;
 }
 
 const ResultCard: React.FC<Props> = ({
@@ -15,9 +17,10 @@ const ResultCard: React.FC<Props> = ({
   title,
   type,
   id,
+  lang,
 }) => {
   return (
-    <Link href={`/${type}/${id}`} className='result-card'>
+    <Link href={`/${lang}/${type}/${id}`} className='result-card'>
       <Image
         src={image}
         width={335}

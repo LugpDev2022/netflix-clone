@@ -1,10 +1,12 @@
 import ResultCard from '@/src/app/[lang]/(protected)/search/components/ResultCard';
+import { Locale } from '@/src/types';
 
 interface Props {
   series: [];
+  lang: Locale;
 }
 
-const SeriesList: React.FC<Props> = ({ series }) => {
+const SeriesList: React.FC<Props> = ({ series, lang }) => {
   return (
     <div className='grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-2.5'>
       {series.map((result: any) => {
@@ -24,6 +26,7 @@ const SeriesList: React.FC<Props> = ({ series }) => {
             releaseYear={year}
             title={name}
             type='series'
+            lang={lang}
           />
         );
       })}

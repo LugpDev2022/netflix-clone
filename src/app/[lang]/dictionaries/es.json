@@ -71,6 +71,12 @@
     "searchPage": {
       "searchBar": {
         "placeholder": "Encuentra películas y series."
+      },
+      "resultsPage": {
+        "movies": "Películas",
+        "series": "Series",
+        "notFound": "No encontramos lo que buscas. Prueba con otra búsqueda.",
+        "error": "Error inesperado. Intenta de nuevo más tarde."
       }
     }
   }

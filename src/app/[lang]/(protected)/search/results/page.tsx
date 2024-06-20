@@ -4,7 +4,8 @@ import MoviesList from '@/src/app/[lang]/(protected)/search/results/components/M
 import SeriesList from '@/src/app/[lang]/(protected)/search/results/components/SeriesList';
 import { getMoviesByName } from '@/src/app/[lang]/(protected)/search/results/lib/getMoviesByName';
 import { getSeriesByName } from '@/src/app/[lang]/(protected)/search/results/lib/getSeriesByName';
-import { Locale } from '@/src/types';
+import { getDictionary } from '@/src/app/[lang]/dictionaries';
+import type { Locale } from '@/src/types';
 import './results.css';
 
 interface Props {
@@ -22,15 +23,16 @@ const ResultsPage: React.FC<Props> = async ({
 }) => {
   if (!query) return redirect(`/${lang}/search`);
 
+  const dict = await getDictionary(lang);
+
   const [moviesErr, movies] = await getMoviesByName(query, lang);
   const [seriesErr, series] = await getSeriesByName(query, lang);
 
-  //TODO: Improve the error message
   if (moviesErr || seriesErr || !series || !movies)
-    return <h1>Unexpected error</h1>;
+    return <p>{dict.app.searchPage.resultsPage.error}</p>;
 
-  //TODO: Improve the not found message
-  if (movies.length < 1 && series.length < 1) return <h1>Not found</h1>;
+  if (movies.length < 1 && series.length < 1)
+    return <p>{dict.app.searchPage.resultsPage.notFound}</p>;
 
   return (
     <main>
@@ -38,8 +40,10 @@ const ResultsPage: React.FC<Props> = async ({
         <></>
       ) : (
         <>
-          <h2 className='mb-2 text-xl font-bold'>Movies</h2>
-          <MoviesList movies={movies} />
+          <h2 className='mb-2 text-xl font-bold'>
+            {dict.app.searchPage.resultsPage.movies}
+          </h2>
+          <MoviesList movies={movies} lang={lang} />
         </>
       )}
 
@@ -47,8 +51,10 @@ const ResultsPage: React.FC<Props> = async ({
         <></>
       ) : (
         <>
-          <h2 className='mt-5 mb-2 text-xl font-bold'>Series</h2>
-          <SeriesList series={series} />
+          <h2 className='mt-5 mb-2 text-xl font-bold'>
+            {dict.app.searchPage.resultsPage.series}
+          </h2>
+          <SeriesList series={series} lang={lang} />
         </>
       )}
     </main>
