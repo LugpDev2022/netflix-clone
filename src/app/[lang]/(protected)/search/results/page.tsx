@@ -4,6 +4,7 @@ import ResultCard from '../components/ResultCard';
 import { Locale } from '@/src/types';
 import './results.css';
 import { getMoviesByName } from './lib/getMoviesByName';
+import { getSeriesByName } from './lib/getSeriesByName';
 
 interface Props {
   searchParams: {
@@ -23,6 +24,10 @@ const ResultsPage: React.FC<Props> = async ({
   //TODO: Fetch series
 
   const [moviesErr, movies] = await getMoviesByName(query, lang);
+  const [seriesErr, series] = await getSeriesByName(query, lang);
+
+  //TODO: Improve the error message
+  if (moviesErr) return <h1>Unexpected error</h1>;
 
   //TODO: Improve the not found message
   if (!movies || movies.length < 1) return <h1>Not found</h1>;
