@@ -13,7 +13,6 @@ interface Props {
   dict: any;
 }
 
-//TODO:Update color scheme
 const SearchBar: React.FC<Props> = ({ lang, dict }) => {
   const [state, setState] = useState('');
   const router = useRouter();
@@ -49,7 +48,7 @@ const SearchBar: React.FC<Props> = ({ lang, dict }) => {
       </label>
       <input
         type='text'
-        className='w-full h-14 bg-white/70 rounded-md pl-[56px] pe-[52px] outline-none'
+        className='w-full h-14 bg-black border border-[#808080b3] rounded-md pl-[56px] pe-[52px] outline-none placeholder:text-white/70'
         placeholder={dict.app.searchPage.searchBar.placeholder}
         id='searchbox'
         value={state}
