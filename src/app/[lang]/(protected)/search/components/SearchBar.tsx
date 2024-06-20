@@ -41,13 +41,17 @@ const SearchBar: React.FC<Props> = ({ lang, dict }) => {
 
   return (
     <div className='w-full relative text-white mt-2.5'>
-      <label htmlFor='' className='absolute top-1/2 -translate-y-1/2 left-6'>
+      <label
+        htmlFor='searchbox'
+        className='absolute top-1/2 -translate-y-1/2 left-6'
+      >
         <HiMagnifyingGlass size={24} />
       </label>
       <input
         type='text'
         className='w-full h-14 bg-white/70 rounded-md pl-[56px] pe-[52px] outline-none'
         placeholder='Find movies and series'
+        id='searchbox'
         value={state}
         onChange={handleChange}
       />
