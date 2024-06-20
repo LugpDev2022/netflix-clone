@@ -9,11 +9,22 @@ interface Props {
 const ResultCard: React.FC<Props> = ({ image, releaseYear, title }) => {
   return (
     <article>
-      <Image src={image} width={335} height={189} alt={`${title} Poster`} />
+      <Image
+        src={image}
+        width={335}
+        height={189}
+        alt={`${title} Poster`}
+        className='rounded-sm'
+      />
 
-      <div>
-        <h2>{title}</h2>
-        <time dateTime={releaseYear}>{releaseYear}</time>
+      <div className='mt-2'>
+        <h2 className='font-medium'>{title}</h2>
+        <time
+          dateTime={releaseYear}
+          className='font-light text-white/80 text-sm'
+        >
+          {releaseYear}
+        </time>
       </div>
     </article>
   );
