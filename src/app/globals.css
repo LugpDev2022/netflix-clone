@@ -98,7 +98,7 @@
 }
 
 .footer-contact-list-item a {
-  display: flex;
+  display: inline-flex;
   gap: 6px;
   justify-content: center;
   transition: 150ms;

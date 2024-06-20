@@ -56,7 +56,6 @@ const Footer: React.FC<Props> = async ({ lang, theme }) => {
               href='https://twitter.com/LugpDev2022'
               target='_blank'
               rel='noopener noreferrer'
-              className='hover:underline'
             >
               <FaSquareXTwitter size={24} />
               <span>@LugpDev2022</span>
@@ -67,7 +66,6 @@ const Footer: React.FC<Props> = async ({ lang, theme }) => {
               href={`https://luiscerv.tech${lang === 'en' ? '/' : '/es'}`}
               target='_blank'
               rel='noopener noreferrer'
-              className='hover:underline'
             >
               <FaLink size={24} />
               <span>luiscerv.tech</span>
