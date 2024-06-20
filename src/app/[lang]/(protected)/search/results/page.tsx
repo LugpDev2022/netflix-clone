@@ -28,18 +28,31 @@ const ResultsPage: React.FC<Props> = async ({
   const [seriesErr, series] = await getSeriesByName(query, lang);
 
   //TODO: Improve the error message
-  if (moviesErr) return <h1>Unexpected error</h1>;
+  if (moviesErr || seriesErr || !series || !movies)
+    return <h1>Unexpected error</h1>;
 
   //TODO: Improve the not found message
-  if (!movies || movies.length < 1) return <h1>Not found</h1>;
+  if (movies.length < 1 && series.length < 1) return <h1>Not found</h1>;
 
   return (
     <main>
-      <h2 className='mb-2 text-xl font-bold'>Movies</h2>
-      <MoviesList movies={movies} />
+      {movies.length < 1 ? (
+        <></>
+      ) : (
+        <>
+          <h2 className='mb-2 text-xl font-bold'>Movies</h2>
+          <MoviesList movies={movies} />
+        </>
+      )}
 
-      <h2 className='mt-5 mb-2 text-xl font-bold'>Series</h2>
-      <SeriesList series={series} />
+      {series.length < 1 ? (
+        <></>
+      ) : (
+        <>
+          <h2 className='mt-5 mb-2 text-xl font-bold'>Series</h2>
+          <SeriesList series={series} />
+        </>
+      )}
     </main>
   );
 };
