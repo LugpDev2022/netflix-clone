@@ -1,3 +1,5 @@
+'use client';
+
 import { Locale } from '@/src/types';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,7 +22,10 @@ const ResultCard: React.FC<Props> = ({
   lang,
 }) => {
   return (
-    <Link href={`/${lang}/${type}/${id}`} className='result-card'>
+    <Link
+      href={`/${lang}/${type}/${id}`}
+      className='result-card fade-in-animation'
+    >
       <Image
         src={image}
         width={335}
