@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Navbar: React.FC<Props> = ({ lang, dict }) => {
-  const TRANSPARENCY_BREAK_POINT = 100;
+  const TRANSPARENCY_BREAK_POINT = 20;
 
   const pathname = usePathname();
   const [isTransparent, setIsTransparent] = useState(true);
@@ -40,7 +40,7 @@ const Navbar: React.FC<Props> = ({ lang, dict }) => {
   return (
     <header
       className={`${
-        false ? 'bg-transparent' : 'bg-black/80'
+        isTransparent ? 'bg-transparent' : 'bg-black/80'
       } grid grid-cols-2 p-5 px-4 items-center z-10 text-white/80 fixed w-full sm:flex sm:justify-between transition`}
     >
       <Link href={`/${lang}`}>
