@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Props {
   image: string;
@@ -7,14 +8,15 @@ interface Props {
 }
 
 const ResultCard: React.FC<Props> = ({ image, releaseYear, title }) => {
+  //TODO: Set the correct url
   return (
-    <article>
+    <Link href='/movies/123' className='result-card'>
       <Image
         src={image}
         width={335}
         height={189}
         alt={`${title} Poster`}
-        className='rounded-sm'
+        className='result-card-img'
       />
 
       <div className='mt-2'>
@@ -26,7 +28,7 @@ const ResultCard: React.FC<Props> = ({ image, releaseYear, title }) => {
           {releaseYear}
         </time>
       </div>
-    </article>
+    </Link>
   );
 };
 

@@ -1,0 +1,13 @@
+.result-card {
+  margin-bottom: 10px;
+}
+
+.result-card-img {
+  border-radius: 4px;
+  outline: none;
+  transition: 150ms;
+}
+
+.result-card:hover .result-card-img {
+  outline: 3px solid white;
+}

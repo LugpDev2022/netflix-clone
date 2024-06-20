@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation';
 
 import ResultCard from '../components/ResultCard';
 import { Locale } from '@/src/types';
+import './results.css';
 
 interface Props {
   searchParams: {
