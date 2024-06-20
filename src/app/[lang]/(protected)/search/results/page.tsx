@@ -22,8 +22,6 @@ const ResultsPage: React.FC<Props> = async ({
 }) => {
   if (!query) return redirect(`/${lang}/search`);
 
-  //TODO: Fetch series
-
   const [moviesErr, movies] = await getMoviesByName(query, lang);
   const [seriesErr, series] = await getSeriesByName(query, lang);
 

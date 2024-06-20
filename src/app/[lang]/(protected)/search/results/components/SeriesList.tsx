@@ -17,7 +17,14 @@ const SeriesList: React.FC<Props> = ({ series }) => {
         if (!backdrop_path) return <></>;
 
         return (
-          <ResultCard key={id} image={img} releaseYear={year} title={name} />
+          <ResultCard
+            key={id}
+            id={id}
+            image={img}
+            releaseYear={year}
+            title={name}
+            type='series'
+          />
         );
       })}
     </div>

@@ -5,12 +5,19 @@ interface Props {
   image: string;
   title: string;
   releaseYear: string;
+  type: 'series' | 'movies';
+  id: number;
 }
 
-const ResultCard: React.FC<Props> = ({ image, releaseYear, title }) => {
-  //TODO: Set the correct url
+const ResultCard: React.FC<Props> = ({
+  image,
+  releaseYear,
+  title,
+  type,
+  id,
+}) => {
   return (
-    <Link href='/movies/123' className='result-card'>
+    <Link href={`/${type}/${id}`} className='result-card'>
       <Image
         src={image}
         width={335}

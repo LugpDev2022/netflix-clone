@@ -17,7 +17,14 @@ const MoviesList: React.FC<Props> = ({ movies }) => {
         if (!backdrop_path) return <></>;
 
         return (
-          <ResultCard key={id} image={img} releaseYear={year} title={title} />
+          <ResultCard
+            key={id}
+            image={img}
+            releaseYear={year}
+            title={title}
+            type='movies'
+            id={id}
+          />
         );
       })}
     </div>
