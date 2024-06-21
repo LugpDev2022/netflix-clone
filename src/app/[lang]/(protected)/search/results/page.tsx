@@ -51,7 +51,7 @@ const ResultsPage: React.FC<Props> = async ({
         <></>
       ) : (
         <>
-          <h2 className='category-subtitle'>
+          <h2 className='category-subtitle mt-6'>
             {dict.app.searchPage.resultsPage.series}
           </h2>
           <SeriesList series={series} lang={lang} />
