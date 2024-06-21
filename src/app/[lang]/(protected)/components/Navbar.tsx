@@ -41,49 +41,51 @@ const Navbar: React.FC<Props> = ({ lang, dict }) => {
     <header
       className={`${
         isTransparent ? 'bg-transparent' : 'bg-black/80'
-      } grid grid-cols-2 p-5 px-4 items-center z-10 text-white/80 fixed w-full sm:flex sm:justify-between transition`}
+      }  z-10 text-white/80 fixed w-full transition py-5 px-4`}
     >
-      <Link href={`/${lang}`}>
-        <Image src='/logo.svg' alt='Netflix' width={125} height={34} />
-      </Link>
-
-      <nav className='col-span-2 order-2 mt-5 sm:order-1 sm:mt-0'>
-        <ul className='flex justify-center gap-7 font-semibold'>
-          <li
-            className={
-              pathname === '/en' || pathname === '/es'
-                ? 'nav-item-active'
-                : 'nav-item'
-            }
-          >
-            <Link href={`/${lang}`}>{dict.app.navbar.navigation.home}</Link>
-          </li>
-          <li
-            className={
-              pathname.includes('/series') ? 'nav-item-active' : 'nav-item'
-            }
-          >
-            <Link href={`/${lang}/series`}>
-              {dict.app.navbar.navigation.series}
-            </Link>
-          </li>
-          <li
-            className={
-              pathname.includes('/movies') ? 'nav-item-active' : 'nav-item'
-            }
-          >
-            <Link href={`/${lang}/movies`}>
-              {dict.app.navbar.navigation.movies}
-            </Link>
-          </li>
-        </ul>
-      </nav>
-
-      <div className='flex gap-5 justify-end order-1 sm:order-2'>
-        <Link href={`/${lang}/search`}>
-          <HiMagnifyingGlass size={26} />
+      <div className='max-w-screen-lg mx-auto grid grid-cols-2 items-center sm:flex sm:justify-between'>
+        <Link href={`/${lang}`}>
+          <Image src='/logo.svg' alt='Netflix' width={125} height={34} />
         </Link>
-        <AvatarDropdown dict={dict} />
+
+        <nav className='col-span-2 order-2 mt-5 sm:order-1 sm:mt-0'>
+          <ul className='flex justify-center gap-7 font-semibold'>
+            <li
+              className={
+                pathname === '/en' || pathname === '/es'
+                  ? 'nav-item-active'
+                  : 'nav-item'
+              }
+            >
+              <Link href={`/${lang}`}>{dict.app.navbar.navigation.home}</Link>
+            </li>
+            <li
+              className={
+                pathname.includes('/series') ? 'nav-item-active' : 'nav-item'
+              }
+            >
+              <Link href={`/${lang}/series`}>
+                {dict.app.navbar.navigation.series}
+              </Link>
+            </li>
+            <li
+              className={
+                pathname.includes('/movies') ? 'nav-item-active' : 'nav-item'
+              }
+            >
+              <Link href={`/${lang}/movies`}>
+                {dict.app.navbar.navigation.movies}
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <div className='flex gap-5 justify-end order-1 sm:order-2'>
+          <Link href={`/${lang}/search`}>
+            <HiMagnifyingGlass size={26} />
+          </Link>
+          <AvatarDropdown dict={dict} />
+        </div>
       </div>
     </header>
   );
