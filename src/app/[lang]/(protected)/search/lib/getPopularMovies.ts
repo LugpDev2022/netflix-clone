@@ -5,7 +5,12 @@ export const getPopularMovies = async (
 ): Promise<[Error?, []?]> => {
   try {
     const resp = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc`
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_API_KEY}&language=${lang}&sort_by=popularity.desc`,
+      {
+        next: {
+          revalidate: 3600,
+        },
+      }
     );
 
     const { results } = await resp.json();
