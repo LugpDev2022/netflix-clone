@@ -35,7 +35,7 @@ const ResultsPage: React.FC<Props> = async ({
     return <p>{dict.app.searchPage.resultsPage.notFound}</p>;
 
   return (
-    <main>
+    <>
       {movies.length < 1 ? (
         <></>
       ) : (
@@ -57,7 +57,7 @@ const ResultsPage: React.FC<Props> = async ({
           <SeriesList series={series} lang={lang} />
         </>
       )}
-    </main>
+    </>
   );
 };
 
