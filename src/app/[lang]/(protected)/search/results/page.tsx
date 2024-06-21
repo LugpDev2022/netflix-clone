@@ -40,7 +40,7 @@ const ResultsPage: React.FC<Props> = async ({
         <></>
       ) : (
         <>
-          <h2 className='mb-2 text-xl font-bold'>
+          <h2 className='category-subtitle'>
             {dict.app.searchPage.resultsPage.movies}
           </h2>
           <MoviesList movies={movies} lang={lang} />
@@ -51,7 +51,7 @@ const ResultsPage: React.FC<Props> = async ({
         <></>
       ) : (
         <>
-          <h2 className='mt-5 mb-2 text-xl font-bold'>
+          <h2 className='category-subtitle'>
             {dict.app.searchPage.resultsPage.series}
           </h2>
           <SeriesList series={series} lang={lang} />

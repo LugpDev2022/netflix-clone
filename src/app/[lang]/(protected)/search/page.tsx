@@ -1,7 +1,17 @@
-const SearchPage = () => {
+import { Locale } from '@/src/types';
+
+interface Props {
+  params: {
+    lang: Locale;
+  };
+}
+
+const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
+  console.log(lang);
+
   return (
     <>
-      <h1>SearchPage</h1>
+      <h2 className='category-subtitle'>Popular</h2>
     </>
   );
 };
