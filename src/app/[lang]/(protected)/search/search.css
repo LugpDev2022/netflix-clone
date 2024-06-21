@@ -1,0 +1,12 @@
+.search-card {
+  margin-bottom: 10px;
+
+  img {
+    outline: none;
+    transition: 150ms;
+  }
+}
+
+.search-card:hover img {
+  outline: 3px solid white;
+}
