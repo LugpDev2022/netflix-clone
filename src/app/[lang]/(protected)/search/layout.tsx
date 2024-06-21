@@ -22,7 +22,7 @@ const SearchLayout: React.FC<Props> = async ({
       <Suspense>
         <SearchBar dict={dict} lang={lang} />
       </Suspense>
-      <main className='mt-6'>{children}</main>
+      <main className='mt-6 pb-5'>{children}</main>
     </>
   );
 };
