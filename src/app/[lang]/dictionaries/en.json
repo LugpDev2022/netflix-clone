@@ -69,6 +69,9 @@
       }
     },
     "searchPage": {
+      "popularMovies": "Popular Movies",
+      "popularSeries": "Popular Series",
+
       "searchBar": {
         "placeholder": "Find movies and series."
       },
