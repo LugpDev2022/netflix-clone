@@ -2,8 +2,8 @@ import { Locale } from '@/src/types';
 import { getPopularMovies } from './lib/getPopularMovies';
 import { getPopularSeries } from './lib/getPopularSeries';
 import Card from './components/Card';
-import './search.css';
 import { getDictionary } from '../../dictionaries';
+import './search.css';
 
 interface Props {
   params: {
@@ -16,6 +16,8 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
 
   const [moviesErr, movies] = await getPopularMovies(lang);
   const [seriesErr, series] = await getPopularSeries(lang);
+
+  if (moviesErr || seriesErr) return <p>{dict.error}</p>;
 
   return (
     <>

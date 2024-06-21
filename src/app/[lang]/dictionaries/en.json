@@ -82,5 +82,7 @@
         "error": "Unexpected error. Try again later."
       }
     }
-  }
+  },
+
+  "error": "Unexpected error. Try again later."
 }

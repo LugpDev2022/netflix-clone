@@ -82,5 +82,7 @@
         "error": "Error inesperado. Intenta de nuevo más tarde."
       }
     }
-  }
+  },
+
+  "error": "Error inesperado. Intenta de nuevo más tarde."
 }
