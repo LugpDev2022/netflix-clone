@@ -1,4 +1,5 @@
 import { Locale } from '@/src/types';
+import { getPopularMovies } from './lib/getPopularMovies';
 
 interface Props {
   params: {
@@ -7,11 +8,14 @@ interface Props {
 }
 
 const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
-  console.log(lang);
+  const [moviesErr, movies] = await getPopularMovies(lang);
 
   return (
     <>
       <h2 className='category-subtitle'>Popular</h2>
+      {movies?.map((movie: any) => (
+        <div key={movie.id}>{movie.title}</div>
+      ))}
     </>
   );
 };
