@@ -1,6 +1,141 @@
 .popular-slider-container {
+  height: 90vh;
+  width: 100%;
+  position: relative;
+}
+
+.popular-slider-container:hover {
+  .left-arrow,
+  .right-arrow {
+    opacity: 1;
+  }
+}
+
+.popular-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.popular-slider ul {
+  height: 100%;
+}
+
+.left-arrow,
+.right-arrow {
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  justify-items: center;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0.2),
+    rgb(0 0 0 / 0.1),
+    rgb(0 0 0 / 0.2)
+  );
+  align-items: center;
+  opacity: 0%;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.left-arrow {
+  left: 0px;
+}
+
+.right-arrow {
+  right: 0px;
+}
+
+.left-arrow:hover,
+.right-arrow:hover {
+  color: #fff;
+}
+
+.popular-slider-item {
+  height: 100%;
+  width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 90vh;
   background-position: center;
+  position: relative;
+  padding: 0 40px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 50px;
+}
+
+.popular-slider-info-container {
+  max-width: 380px;
+  text-align: center;
+  font-size: 18px;
+  z-index: 10;
+
+  h2 {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  time {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  a {
+    display: inline-block;
+    background-color: rgba(134, 151, 206, 0.3);
+    border-radius: 4px;
+    padding: 10px 24px;
+    margin-top: 12px;
+    font-weight: 600;
+    transition: 150ms;
+  }
+
+  a:hover {
+    background-color: rgba(134, 151, 206, 0.5);
+  }
+}
+
+.popular-slider-dots {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 10px;
+}
+
+.popular-slider-dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(134, 151, 206, 0.3);
+  border-radius: 999px;
+}
+
+.popular-slider-dot:hover,
+.popular-slider-dot-active {
+  background-color: rgba(134, 151, 206, 0.8);
+}
+
+@media (width > 768px) {
+  .popular-slider-item {
+    justify-content: left;
+  }
+
+  .popular-slider-info-container {
+    max-width: none;
+    width: 60%;
+    text-align: left;
+  }
+}
+
+@media (width > 1024px) {
+  .popular-slider-info-container {
+    width: 45%;
+  }
 }

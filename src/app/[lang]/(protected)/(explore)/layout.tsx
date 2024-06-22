@@ -15,11 +15,12 @@ const ExploreLayout: React.FC<Props> = async ({
   params: { lang },
 }) => {
   const [err, sliderData] = await getSliderData('mixed', lang);
-  console.log(sliderData);
+
+  if (err || !sliderData) throw err;
 
   return (
     <>
-      <PopularSlider />
+      <PopularSlider data={sliderData} />
       <main className='px-4 md:px-10'>{children}</main>
     </>
   );
