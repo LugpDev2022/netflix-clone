@@ -19,10 +19,7 @@ const ProtectedLayout: React.FC<Props> = async ({
   return (
     <div className='min-h-screen bg-black text-white'>
       <Navbar lang={lang} dict={dict} />
-
-      <div className='pt-[115px] sm:pt-[74px] px-4'>
-        <div className='max-w-screen-lg mx-auto'>{children}</div>
-      </div>
+      {children}
     </div>
   );
 };

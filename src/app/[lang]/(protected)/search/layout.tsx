@@ -18,12 +18,12 @@ const SearchLayout: React.FC<Props> = async ({
   const dict = await getDictionary(lang);
 
   return (
-    <>
+    <div className='pt-[115px] sm:pt-[74px] px-4 md:px-10'>
       <Suspense>
         <SearchBar dict={dict} lang={lang} />
       </Suspense>
       <main className='mt-6 pb-5'>{children}</main>
-    </>
+    </div>
   );
 };
 
