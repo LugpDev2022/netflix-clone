@@ -8,7 +8,7 @@ interface Props {
 
 const SeriesList: React.FC<Props> = ({ series, lang }) => {
   return (
-    <div className='grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-2.5'>
+    <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-2.5'>
       {series.map((result: any) => {
         const { id, name, backdrop_path, first_air_date } = result;
 

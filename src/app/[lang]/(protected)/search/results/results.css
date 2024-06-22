@@ -6,6 +6,7 @@
   border-radius: 4px;
   outline: none;
   transition: 150ms;
+  width: 100%;
 }
 
 .result-card:hover .result-card-img {
