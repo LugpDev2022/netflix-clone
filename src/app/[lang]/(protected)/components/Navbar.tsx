@@ -41,7 +41,7 @@ const Navbar: React.FC<Props> = ({ lang, dict }) => {
     <header
       className={`${
         isTransparent ? 'bg-transparent' : 'bg-black/80'
-      } grid grid-cols-2 p-5 px-4 items-center z-10 text-white/80 fixed w-full sm:flex sm:justify-between transition`}
+      } grid grid-cols-2 p-5 px-4 items-center z-10 text-white/80 fixed w-full sm:flex sm:justify-between transition md:px-10`}
     >
       <Link href={`/${lang}`}>
         <Image src='/logo.svg' alt='Netflix' width={125} height={34} />
