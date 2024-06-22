@@ -1,5 +1,5 @@
 import { Locale } from '@/src/types';
-import Spectacular from './components/Spectacular';
+import PopularSlider from './components/PopularSlider';
 import './explore.css';
 import { getSliderData } from './lib/getSliderData';
 
@@ -19,7 +19,7 @@ const ExploreLayout: React.FC<Props> = async ({
 
   return (
     <>
-      <Spectacular />
+      <PopularSlider />
       <main className='px-4 md:px-10'>{children}</main>
     </>
   );
