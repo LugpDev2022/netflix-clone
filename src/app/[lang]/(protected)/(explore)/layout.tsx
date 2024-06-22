@@ -8,7 +8,7 @@ const WatchLayout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Spectacular />
-      <div className='px-4 md:px-10'>{children}</div>
+      <main className='px-4 md:px-10'>{children}</main>
     </>
   );
 };
