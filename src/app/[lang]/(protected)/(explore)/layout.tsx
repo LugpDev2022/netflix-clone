@@ -1,4 +1,5 @@
 import Spectacular from './components/Spectacular';
+import './explore.css';
 
 interface Props {
   children: React.ReactNode;
