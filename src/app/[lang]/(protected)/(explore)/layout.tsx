@@ -1,11 +1,22 @@
+import { Locale } from '@/src/types';
 import Spectacular from './components/Spectacular';
 import './explore.css';
+import { getSliderData } from './lib/getSliderData';
 
 interface Props {
   children: React.ReactNode;
+  params: {
+    lang: Locale;
+  };
 }
 
-const WatchLayout: React.FC<Props> = ({ children }) => {
+const ExploreLayout: React.FC<Props> = async ({
+  children,
+  params: { lang },
+}) => {
+  const [err, sliderData] = await getSliderData('mixed', lang);
+  console.log(sliderData);
+
   return (
     <>
       <Spectacular />
@@ -14,4 +25,4 @@ const WatchLayout: React.FC<Props> = ({ children }) => {
   );
 };
 
-export default WatchLayout;
+export default ExploreLayout;
