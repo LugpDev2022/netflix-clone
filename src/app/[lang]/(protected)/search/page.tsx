@@ -22,7 +22,7 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
   return (
     <>
       <h2 className='category-subtitle'>{dict.app.searchPage.popularMovies}</h2>
-      <div className='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5  gap-2 lg:gap-2.5'>
+      <div className='posters-grid'>
         {movies?.map((movie: any) => (
           <Card
             alt={movie.name}
@@ -36,7 +36,7 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
       <h2 className='category-subtitle mt-6'>
         {dict.app.searchPage.popularSeries}
       </h2>
-      <div className='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5  gap-2 lg:gap-2.5'>
+      <div className='posters-grid'>
         {series?.map((show: any) => (
           <Card
             alt={show.name}
