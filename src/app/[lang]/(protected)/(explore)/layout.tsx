@@ -20,7 +20,7 @@ const ExploreLayout: React.FC<Props> = async ({
 
   return (
     <>
-      <PopularSlider data={sliderData} />
+      <PopularSlider lang={lang} data={sliderData} />
       <main className='px-4 md:px-10'>{children}</main>
     </>
   );

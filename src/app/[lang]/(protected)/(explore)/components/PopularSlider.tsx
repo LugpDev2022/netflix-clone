@@ -6,9 +6,10 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 import { usePopularSliderControls } from '@/src/app/[lang]/(protected)/(explore)/hooks/usePopularSliderControls';
 import { Locale } from '@/src/types';
+import type { PopularSliderItem } from '../lib/getSliderData';
 
 interface Props {
-  data: {}[];
+  data: PopularSliderItem[];
   lang: Locale;
 }
 
@@ -29,37 +30,30 @@ const PopularSlider: React.FC<Props> = ({ data, lang }) => {
       </button>
       <div className='popular-slider'>
         <ul ref={listRef}>
-          {data.map((item: any) => {
-            const title = item.name ? item.name : item.title;
-            const date = item.release_date
-              ? item.release_date
-              : item.first_air_date;
-
-            const releaseYear = new Date(date).getFullYear();
-
-            return (
-              <li key={item.id} className='popular-slider-item'>
+          {data.map(
+            ({ title, backdrop_path, id, release_year }: PopularSliderItem) => (
+              <li key={id} className='popular-slider-item'>
                 <div className='w-full h-full absolute top-0 left-0'>
                   <div className='bg-gradient-to-b from-black/80 via-black/50 to-black/80 w-full h-full absolute top-0 left-0'></div>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
+                    src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
                     alt='Poster'
                   />
                 </div>
 
                 <div className='popular-slider-info-container'>
                   <h2>{title}</h2>
-                  <time dateTime={releaseYear.toString()} className='block'>
-                    {releaseYear}
+                  <time dateTime={release_year.toString()} className='block'>
+                    {release_year}
                   </time>
                   <Link href='/'>
                     {lang === 'en' ? 'Watch Now' : 'Ver Ahora'}
                   </Link>
                 </div>
               </li>
-            );
-          })}
+            )
+          )}
         </ul>
       </div>
       <div className='popular-slider-dots'>

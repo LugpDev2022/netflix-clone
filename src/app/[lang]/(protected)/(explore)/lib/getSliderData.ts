@@ -4,11 +4,33 @@ import { getPopularSeries } from '../../search/lib/getPopularSeries';
 
 type SliderType = 'mixed' | 'movies' | 'series';
 
+type Series = {
+  backdrop_path: string;
+  id: number;
+  name: string;
+  first_air_date: number;
+};
+
+type Movie = {
+  backdrop_path: string;
+  id: number;
+  title: string;
+  release_date: number;
+};
+
+export type PopularSliderItem = {
+  backdrop_path: string;
+  id: number;
+  title: string;
+  release_year: number;
+  type: 'series' | 'movies';
+};
+
 export const getSliderData = async (
   sliderType: SliderType,
   lang: Locale
-): Promise<[Error?, {}[]?]> => {
-  const sliderData: {}[] = [];
+): Promise<[Error?, PopularSliderItem[]?]> => {
+  const sliderData: PopularSliderItem[] = [];
 
   try {
     if (sliderType === 'mixed' || sliderType === 'movies') {
@@ -26,9 +48,12 @@ export const getSliderData = async (
       const slicedMovies = movies.slice(0, 3);
 
       // Add movie type
-      const movieItems = slicedMovies?.map((movie: {}) => ({
-        type: 'movie',
-        ...movie,
+      const movieItems = slicedMovies?.map((movie: Movie) => ({
+        type: 'movies' as 'movies',
+        backdrop_path: movie.backdrop_path,
+        id: movie.id,
+        title: movie.title,
+        release_year: new Date(movie.release_date).getFullYear(),
       }));
 
       sliderData.push(...movieItems);
@@ -49,9 +74,12 @@ export const getSliderData = async (
       const slicedSeries = series.slice(0, 3);
 
       // Add movie type
-      const seriesItems = slicedSeries.map((series: {}) => ({
-        type: 'series',
-        ...series,
+      const seriesItems = slicedSeries.map((series: Series) => ({
+        type: 'series' as 'series',
+        backdrop_path: series.backdrop_path,
+        id: series.id,
+        title: series.name,
+        release_year: new Date(series.first_air_date).getFullYear(),
       }));
 
       sliderData.push(...seriesItems);
