@@ -1,8 +1,10 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import Link from 'next/link';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+
+import { usePopularSliderControls } from '@/src/app/[lang]/(protected)/(explore)/hooks/usePopularSliderControls';
 
 interface Props {
   data: {}[];
@@ -10,37 +12,10 @@ interface Props {
 
 const PopularSlider: React.FC<Props> = ({ data }) => {
   const listRef = useRef<HTMLUListElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    if (!listRef.current) return;
-
-    const imgNode = listRef.current.querySelectorAll('li img')[currentIndex];
-
-    if (imgNode) {
-      imgNode.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
-  }, [currentIndex]);
-
-  const scrollToImage = (direction: 'prev' | 'next') => {
-    if (direction === 'prev') {
-      setCurrentIndex((curr) => {
-        const isFirstSlide = currentIndex === 0;
-        return isFirstSlide ? 0 : curr - 1;
-      });
-    } else {
-      const isLastSlide = currentIndex === data.length - 1;
-      if (!isLastSlide) {
-        setCurrentIndex((curr) => curr + 1);
-      }
-    }
-  };
-
-  const goToSlide = (slideIndex: number) => {
-    setCurrentIndex(slideIndex);
-  };
+  const { scrollToImage, goToSlide, currentIndex } = usePopularSliderControls(
+    listRef,
+    data.length
+  );
 
   return (
     <div className='popular-slider-container'>
