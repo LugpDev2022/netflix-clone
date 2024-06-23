@@ -5,12 +5,14 @@ import Link from 'next/link';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 import { usePopularSliderControls } from '@/src/app/[lang]/(protected)/(explore)/hooks/usePopularSliderControls';
+import { Locale } from '@/src/types';
 
 interface Props {
   data: {}[];
+  lang: Locale;
 }
 
-const PopularSlider: React.FC<Props> = ({ data }) => {
+const PopularSlider: React.FC<Props> = ({ data, lang }) => {
   const listRef = useRef<HTMLUListElement>(null);
   const { scrollToImage, goToSlide, currentIndex } = usePopularSliderControls(
     listRef,
@@ -28,6 +30,13 @@ const PopularSlider: React.FC<Props> = ({ data }) => {
       <div className='popular-slider'>
         <ul ref={listRef}>
           {data.map((item: any) => {
+            const title = item.name ? item.name : item.title;
+            const date = item.release_date
+              ? item.release_date
+              : item.first_air_date;
+
+            const releaseYear = new Date(date).getFullYear();
+
             return (
               <li key={item.id} className='popular-slider-item'>
                 <div className='w-full h-full absolute top-0 left-0'>
@@ -40,15 +49,13 @@ const PopularSlider: React.FC<Props> = ({ data }) => {
                 </div>
 
                 <div className='popular-slider-info-container'>
-                  <h2>Inside Out 2</h2>
-                  <time dateTime='2024'>2024</time>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellat odit laudantium consequuntur eum beatae. Cumque
-                    minima aperiam illum similique sapiente!
-                  </p>
-
-                  <Link href='/'>Go to movie</Link>
+                  <h2>{title}</h2>
+                  <time dateTime={releaseYear.toString()} className='block'>
+                    {releaseYear}
+                  </time>
+                  <Link href='/'>
+                    {lang === 'en' ? 'Watch Now' : 'Ver Ahora'}
+                  </Link>
                 </div>
               </li>
             );
