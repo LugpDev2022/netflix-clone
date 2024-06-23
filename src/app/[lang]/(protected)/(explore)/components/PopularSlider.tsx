@@ -31,7 +31,13 @@ const PopularSlider: React.FC<Props> = ({ data, lang }) => {
       <div className='popular-slider'>
         <ul ref={listRef}>
           {data.map(
-            ({ title, backdrop_path, id, release_year }: PopularSliderItem) => (
+            ({
+              title,
+              backdrop_path,
+              id,
+              release_year,
+              type,
+            }: PopularSliderItem) => (
               <li key={id} className='popular-slider-item'>
                 <div className='w-full h-full absolute top-0 left-0'>
                   <div className='bg-gradient-to-b from-black/80 via-black/50 to-black/80 w-full h-full absolute top-0 left-0'></div>
@@ -47,7 +53,7 @@ const PopularSlider: React.FC<Props> = ({ data, lang }) => {
                   <time dateTime={release_year.toString()} className='block'>
                     {release_year}
                   </time>
-                  <Link href='/'>
+                  <Link href={`/${lang}/${type}/${id}`}>
                     {lang === 'en' ? 'Watch Now' : 'Ver Ahora'}
                   </Link>
                 </div>
