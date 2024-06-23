@@ -1,3 +1,6 @@
+'use client';
+
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
@@ -6,16 +9,49 @@ interface Props {
 }
 
 const PopularSlider: React.FC<Props> = ({ data }) => {
+  const listRef = useRef<HTMLUListElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!listRef.current) return;
+
+    const imgNode = listRef.current.querySelectorAll('li img')[currentIndex];
+
+    if (imgNode) {
+      imgNode.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [currentIndex]);
+
+  const scrollToImage = (direction: 'prev' | 'next') => {
+    if (direction === 'prev') {
+      setCurrentIndex((curr) => {
+        const isFirstSlide = currentIndex === 0;
+        return isFirstSlide ? 0 : curr - 1;
+      });
+    } else {
+      const isLastSlide = currentIndex === data.length - 1;
+      if (!isLastSlide) {
+        setCurrentIndex((curr) => curr + 1);
+      }
+    }
+  };
+
+  const goToSlide = (slideIndex: number) => {
+    setCurrentIndex(slideIndex);
+  };
+
   return (
     <div className='popular-slider-container'>
-      <button className='left-arrow'>
+      <button className='left-arrow' onClick={() => scrollToImage('prev')}>
         <MdKeyboardArrowLeft size={30} />
       </button>
-      <button className='right-arrow'>
+      <button className='right-arrow' onClick={() => scrollToImage('next')}>
         <MdKeyboardArrowRight size={30} />
       </button>
       <div className='popular-slider'>
-        <ul>
+        <ul ref={listRef}>
           {data.map((item: any) => {
             return (
               <li key={item.id} className='popular-slider-item'>
@@ -48,9 +84,12 @@ const PopularSlider: React.FC<Props> = ({ data }) => {
         {data.map((_, i) => (
           <button
             key={i}
-            className='popular-slider-dot'
-            // className={`dot-container-item ${idx === currentIndex ? "active" : ""}`}
-            // onClick={() => goToSlide(idx)}
+            className={` ${
+              i === currentIndex
+                ? 'popular-slider-dot-active'
+                : 'popular-slider-dot'
+            }`}
+            onClick={() => goToSlide(i)}
           ></button>
         ))}
       </div>
