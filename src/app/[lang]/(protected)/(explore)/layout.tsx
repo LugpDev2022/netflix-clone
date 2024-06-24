@@ -1,7 +1,7 @@
+import PopularSlider from '@/src/app/[lang]/(protected)/(explore)/components/PopularSlider';
+import { getSliderData } from '@/src/app/[lang]/(protected)/(explore)/lib/getSliderData';
 import { Locale } from '@/src/types';
-import PopularSlider from './components/PopularSlider';
 import './explore.css';
-import { getSliderData } from './lib/getSliderData';
 
 interface Props {
   children: React.ReactNode;
@@ -21,7 +21,7 @@ const ExploreLayout: React.FC<Props> = async ({
   return (
     <>
       <PopularSlider lang={lang} data={sliderData} />
-      <main className='px-4 md:px-10'>{children}</main>
+      <main className='mt-6 pb-5'>{children}</main>
     </>
   );
 };
