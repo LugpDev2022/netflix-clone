@@ -108,6 +108,12 @@
   @apply text-red-600;
 }
 
+.category-subtitle {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 @media (width >= 1024px) {
   .footer-container-light,
   .footer-container-dark {

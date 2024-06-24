@@ -28,9 +28,3 @@
 .nav-item-active::after {
   width: 100%;
 }
-
-.category-subtitle {
-  margin-bottom: 8px;
-  font-size: 20px;
-  font-weight: bold;
-}
