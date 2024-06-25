@@ -1,0 +1,61 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.leftArrow,
+.rightArrow {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  opacity: 0;
+  transition: 150ms;
+}
+
+.leftArrow:hover,
+.rightArrow:hover {
+  @apply text-red-600;
+}
+
+.container:hover {
+  .leftArrow,
+  .rightArrow {
+    opacity: 1;
+  }
+}
+
+.leftArrow {
+  left: 0;
+  background-image: linear-gradient(to right, rgb(0 0 0 / 0.3), rgb(0 0 0 / 0));
+  padding-right: 10px;
+}
+
+.rightArrow {
+  right: 0;
+  background-image: linear-gradient(to left, rgb(0 0 0 / 0.5), rgb(0 0 0 / 0));
+  padding-left: 10px;
+}
+
+.slidesContainer {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+}
+
+.slidesContainer div:first-child {
+  margin-left: 16px;
+}
+
+.slidesContainer div:last-child {
+  margin-right: 16px;
+}
+
+@media (width > 768px) {
+  .slidesContainer div:first-child {
+    margin-left: 40px;
+  }
+
+  .slidesContainer div:last-child {
+    margin-right: 40px;
+  }
+}

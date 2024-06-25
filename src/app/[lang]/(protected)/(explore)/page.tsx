@@ -1,3 +1,4 @@
+import Carousel from '@/src/app/[lang]/(protected)/(explore)/components/Carousel';
 import { Locale } from '@/src/types';
 
 interface Props {
@@ -9,7 +10,8 @@ interface Props {
 const HomePage: React.FC<Props> = ({ params: { lang } }) => {
   return (
     <>
-      <h1>Clonflix 2</h1>
+      <h2 className='category-subtitle px-4 md:px-10'>Top 10</h2>
+      <Carousel />
     </>
   );
 };
