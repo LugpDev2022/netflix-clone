@@ -10,6 +10,7 @@
   height: 100%;
   opacity: 0;
   transition: 150ms;
+  outline: none;
 }
 
 .leftArrow:hover,
