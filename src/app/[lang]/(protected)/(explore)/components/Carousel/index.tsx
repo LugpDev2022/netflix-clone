@@ -1,12 +1,32 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import styles from './carousel.module.css';
 
 const Carousel = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const slidesContainerRef = useRef<HTMLDivElement>(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const ref = slidesContainerRef.current;
+
+    if (!ref) return;
+
+    const handleScroll = () => {
+      if (!ref) return;
+
+      setScrollPosition(ref.scrollLeft);
+    };
+
+    slidesContainerRef.current.addEventListener('scroll', handleScroll);
+
+    return () => {
+      if (!ref) return;
+      ref.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const scrollLeft = () => {
     if (!containerRef.current || !slidesContainerRef.current) return;
@@ -30,14 +50,31 @@ const Carousel = () => {
     });
   };
 
+  const maxScroll = slidesContainerRef.current
+    ? slidesContainerRef?.current.scrollWidth -
+      slidesContainerRef?.current.clientWidth
+    : 100;
+
   return (
     <div className={styles.container} ref={containerRef}>
-      <button className={styles.leftArrow} onClick={scrollLeft}>
-        <MdKeyboardArrowLeft size={30} />
-      </button>
-      <button className={styles.rightArrow} onClick={scrollRight}>
-        <MdKeyboardArrowRight size={30} />
-      </button>
+      {/* Render just if scrolled */}
+      {scrollPosition === 0 ? (
+        <></>
+      ) : (
+        <button className={styles.leftArrow} onClick={scrollLeft}>
+          <MdKeyboardArrowLeft size={30} />
+        </button>
+      )}
+
+      {/* Do not render if max scroll */}
+      {scrollPosition >= maxScroll ? (
+        <></>
+      ) : (
+        <button className={styles.rightArrow} onClick={scrollRight}>
+          <MdKeyboardArrowRight size={30} />
+        </button>
+      )}
+
       <div
         className={`${styles.slidesContainer} no-scrollbar`}
         ref={slidesContainerRef}
