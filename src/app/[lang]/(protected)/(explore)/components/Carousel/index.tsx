@@ -1,59 +1,15 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import styles from './carousel.module.css';
+import { useCarouselControls } from './useCarouselControls';
 
 const Carousel = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const slidesContainerRef = useRef<HTMLDivElement>(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  useEffect(() => {
-    const ref = slidesContainerRef.current;
-
-    if (!ref) return;
-
-    const handleScroll = () => {
-      if (!ref) return;
-
-      setScrollPosition(ref.scrollLeft);
-    };
-
-    slidesContainerRef.current.addEventListener('scroll', handleScroll);
-
-    return () => {
-      if (!ref) return;
-      ref.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const scrollLeft = () => {
-    if (!containerRef.current || !slidesContainerRef.current) return;
-
-    const containerWidth = containerRef.current.clientWidth;
-
-    slidesContainerRef.current.scrollBy({
-      left: -containerWidth,
-      behavior: 'smooth',
-    });
-  };
-
-  const scrollRight = () => {
-    if (!containerRef.current || !slidesContainerRef.current) return;
-
-    const containerWidth = containerRef.current.clientWidth;
-
-    slidesContainerRef.current.scrollBy({
-      left: containerWidth,
-      behavior: 'smooth',
-    });
-  };
-
-  const maxScroll = slidesContainerRef.current
-    ? slidesContainerRef?.current.scrollWidth -
-      slidesContainerRef?.current.clientWidth
-    : 100;
+  const { maxScroll, scrollLeft, scrollPosition, scrollRight } =
+    useCarouselControls(containerRef, slidesContainerRef);
 
   return (
     <div className={styles.container} ref={containerRef}>
