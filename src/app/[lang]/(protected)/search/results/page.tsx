@@ -2,8 +2,8 @@ import { redirect } from 'next/navigation';
 
 import MoviesList from '@/src/app/[lang]/(protected)/search/results/components/MoviesList';
 import SeriesList from '@/src/app/[lang]/(protected)/search/results/components/SeriesList';
-import { getMoviesByName } from '@/src/app/[lang]/(protected)/search/results/lib/getMoviesByName';
-import { getSeriesByName } from '@/src/app/[lang]/(protected)/search/results/lib/getSeriesByName';
+import { getMoviesByName } from '@/src/app/[lang]/(protected)/lib/getMoviesByName';
+import { getSeriesByName } from '@/src/app/[lang]/(protected)/lib/getSeriesByName';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import type { Locale } from '@/src/types';
 import './results.css';

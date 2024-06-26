@@ -1,8 +1,8 @@
-import { Locale } from '@/src/types';
-import { getPopularMovies } from './lib/getPopularMovies';
-import { getPopularSeries } from './lib/getPopularSeries';
 import Card from './components/Card';
+import { getPopularMovies } from '@/src/app/[lang]/(protected)/lib/getPopularMovies';
+import { getPopularSeries } from '@/src/app/[lang]/(protected)/lib/getPopularSeries';
 import { getDictionary } from '../../dictionaries';
+import { Locale } from '@/src/types';
 import './search.css';
 
 interface Props {

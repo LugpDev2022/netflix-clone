@@ -1,6 +1,6 @@
 import { Locale } from '@/src/types';
-import { getPopularMovies } from '../../search/lib/getPopularMovies';
-import { getPopularSeries } from '../../search/lib/getPopularSeries';
+import { getPopularMovies } from '@/src/app/[lang]/(protected)/lib/getPopularMovies';
+import { getPopularSeries } from '@/src/app/[lang]/(protected)/lib/getPopularSeries';
 
 type SliderType = 'mixed' | 'movies' | 'series';
 
