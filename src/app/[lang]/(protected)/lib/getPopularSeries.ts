@@ -1,3 +1,4 @@
+import { parseResults } from '@/src/app/[lang]/(protected)/lib/parseResults';
 import { Locale, TMDBData } from '@/src/types';
 
 export const getPopularSeries = async (
@@ -15,20 +16,7 @@ export const getPopularSeries = async (
 
     const { results }: { results: [] } = await resp.json();
 
-    // Filter the results that don't have a backdrop path
-    const filteredResults = results.filter(
-      ({ backdrop_path }) => backdrop_path
-    );
-
-    const parsedResults: TMDBData[] = filteredResults.map(
-      ({ backdrop_path, id, poster_path, first_air_date, name }) => ({
-        id,
-        title: name,
-        poster_path,
-        release_date: first_air_date,
-        backdrop_path,
-      })
-    );
+    const parsedResults = parseResults(results);
 
     return [undefined, parsedResults];
   } catch (error) {
