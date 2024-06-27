@@ -12,7 +12,7 @@ export const getSeriesByName = async (
 
     const { results }: { results: [] } = await resp.json();
 
-    const parsedResults = parseResults(results);
+    const parsedResults = parseResults('series', results);
 
     return [undefined, parsedResults];
   } catch (error) {

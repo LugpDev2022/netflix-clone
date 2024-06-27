@@ -12,8 +12,7 @@ export const getMoviesByName = async (
 
     const { results }: { results: [] } = await resp.json();
 
-    const parsedResults = parseResults(results);
-    console.log(parsedResults);
+    const parsedResults = parseResults('movies', results);
 
     return [undefined, parsedResults];
   } catch (error) {
