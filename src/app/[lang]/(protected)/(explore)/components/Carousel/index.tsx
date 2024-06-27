@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
-import Card from '@/src/app/[lang]/(protected)/search/components/Card';
+import Card from '@/src/app/[lang]/(protected)/components/PosterCard';
 import { useCarouselControls } from './useCarouselControls';
 import styles from './carousel.module.css';
 import { Locale, TMDBData } from '@/src/types';

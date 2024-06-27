@@ -32,6 +32,7 @@
 .poster-card img {
   outline: none;
   transition: 150ms;
+  display: inline;
 }
 
 .poster-card:hover img {

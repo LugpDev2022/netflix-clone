@@ -1,7 +1,7 @@
-import Card from './components/Card';
+import PosterCard from '@/src/app/[lang]/(protected)/components/PosterCard';
 import { getPopularMovies } from '@/src/app/[lang]/(protected)/lib/getPopularMovies';
 import { getPopularSeries } from '@/src/app/[lang]/(protected)/lib/getPopularSeries';
-import { getDictionary } from '../../dictionaries';
+import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
 import './search.css';
 
@@ -24,7 +24,7 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
       <h2 className='category-subtitle'>{dict.app.searchPage.popularMovies}</h2>
       <div className='posters-grid'>
         {movies?.map((movie) => (
-          <Card
+          <PosterCard
             alt={movie.title}
             href={`/${lang}/movies/${movie.id}`}
             image={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -38,7 +38,7 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
       </h2>
       <div className='posters-grid'>
         {series?.map((show) => (
-          <Card
+          <PosterCard
             alt={show.title}
             href={`/${lang}/series/${show.id}`}
             image={`https://image.tmdb.org/t/p/original${show.poster_path}`}

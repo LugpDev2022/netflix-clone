@@ -7,9 +7,9 @@ interface Props {
   href: string;
 }
 
-const Card: React.FC<Props> = ({ alt, href, image }) => {
+const PosterCard: React.FC<Props> = ({ alt, href, image }) => {
   return (
-    <Link href={href} className='poster-card inline'>
+    <Link href={href} className='poster-card'>
       <Image
         src={image}
         className='h-full w-full object-cover'
@@ -21,4 +21,4 @@ const Card: React.FC<Props> = ({ alt, href, image }) => {
   );
 };
 
-export default Card;
+export default PosterCard;
