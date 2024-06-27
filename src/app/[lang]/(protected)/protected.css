@@ -28,3 +28,12 @@
 .nav-item-active::after {
   width: 100%;
 }
+
+.poster-card img {
+  outline: none;
+  transition: 150ms;
+}
+
+.poster-card:hover img {
+  outline: 3px solid white;
+}

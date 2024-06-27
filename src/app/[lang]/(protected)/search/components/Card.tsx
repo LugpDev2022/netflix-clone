@@ -9,7 +9,7 @@ interface Props {
 
 const Card: React.FC<Props> = ({ alt, href, image }) => {
   return (
-    <Link href={href} className='search-card inline'>
+    <Link href={href} className='poster-card inline'>
       <Image
         src={image}
         className='h-full w-full object-cover'

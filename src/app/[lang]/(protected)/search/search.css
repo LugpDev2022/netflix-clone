@@ -1,20 +1,8 @@
-.search-card {
-  margin-bottom: 10px;
-
-  img {
-    outline: none;
-    transition: 150ms;
-  }
-}
-
-.search-card:hover img {
-  outline: 3px solid white;
-}
-
 .posters-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  column-gap: 0.5rem;
+  row-gap: 18px;
 }
 
 @media (min-width: 640px) {
@@ -32,6 +20,7 @@
 @media (min-width: 1024px) {
   .posters-grid {
     grid-template-columns: repeat(6, 1fr);
-    gap: 0.75rem;
+    column-gap: 0.75rem;
+    row-gap: 22px;
   }
 }
