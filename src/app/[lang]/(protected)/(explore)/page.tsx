@@ -1,4 +1,5 @@
 import Carousel from '@/src/app/[lang]/(protected)/(explore)/components/Carousel';
+import { getPopularMovies } from '@/src/app/[lang]/(protected)/lib/getPopularMovies';
 import { Locale } from '@/src/types';
 
 interface Props {
@@ -7,11 +8,16 @@ interface Props {
   };
 }
 
-const HomePage: React.FC<Props> = ({ params: { lang } }) => {
+const HomePage: React.FC<Props> = async ({ params: { lang } }) => {
+  const [err, movies] = await getPopularMovies(lang);
+
+  //TODO: Handle errors
+  if (!movies) return;
+
   return (
     <>
       <h2 className='category-subtitle px-4 md:px-10'>Top 10</h2>
-      <Carousel />
+      <Carousel data={movies} lang={lang} />
     </>
   );
 };

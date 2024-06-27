@@ -2,10 +2,18 @@
 
 import { useRef } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-import styles from './carousel.module.css';
-import { useCarouselControls } from './useCarouselControls';
 
-const Carousel = () => {
+import Card from '@/src/app/[lang]/(protected)/search/components/Card';
+import { useCarouselControls } from './useCarouselControls';
+import styles from './carousel.module.css';
+import { Locale, TMDBData } from '@/src/types';
+
+interface Props {
+  data: TMDBData[];
+  lang: Locale;
+}
+
+const Carousel: React.FC<Props> = ({ data, lang }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const slidesContainerRef = useRef<HTMLDivElement>(null);
   const { maxScroll, scrollLeft, scrollPosition, scrollRight } =
@@ -35,15 +43,9 @@ const Carousel = () => {
         className={`${styles.slidesContainer} no-scrollbar`}
         ref={slidesContainerRef}
       >
-        <div className='h-[250px] w-[200px] bg-gray-300 shrink-0'></div>
-        <div className='h-[250px] w-[200px] bg-gray-300 shrink-0'></div>
-        <div className='h-[250px] w-[200px] bg-gray-300 shrink-0'></div>
-        <div className='h-[250px] w-[200px] bg-gray-300 shrink-0'></div>
-        <div className='h-[250px] w-[200px] bg-gray-300 shrink-0'></div>
-        <div className='h-[250px] w-[200px] bg-gray-300 shrink-0'></div>
-        <div className='h-[250px] w-[200px] bg-gray-300 shrink-0'></div>
-        <div className='h-[250px] w-[200px] bg-gray-300 shrink-0'></div>
-        <div className='h-[250px] w-[200px] bg-gray-300 shrink-0'></div>
+        {data.map(({ id, title, poster_path, type }) => (
+          <div key={id}>{title}</div>
+        ))}
       </div>
     </div>
   );
