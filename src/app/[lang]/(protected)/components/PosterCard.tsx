@@ -12,7 +12,6 @@ const PosterCard: React.FC<Props> = ({ alt, href, posterPath }) => {
     <Link href={href} className='poster-card'>
       <Image
         src={`https://image.tmdb.org/t/p/original${posterPath}`}
-        className='h-full w-full object-cover'
         alt={alt}
         width={190}
         height={280}

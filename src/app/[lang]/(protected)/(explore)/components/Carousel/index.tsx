@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
-import Card from '@/src/app/[lang]/(protected)/components/PosterCard';
+import PosterCard from '@/src/app/[lang]/(protected)/components/PosterCard';
 import { useCarouselControls } from './useCarouselControls';
 import styles from './carousel.module.css';
 import { Locale, TMDBData } from '@/src/types';
@@ -44,7 +44,12 @@ const Carousel: React.FC<Props> = ({ data, lang }) => {
         ref={slidesContainerRef}
       >
         {data.map(({ id, title, poster_path, type }) => (
-          <div key={id}>{title}</div>
+          <PosterCard
+            key={id}
+            alt={title}
+            posterPath={poster_path}
+            href={`/${lang}/${type}/${id}`}
+          />
         ))}
       </div>
     </div>

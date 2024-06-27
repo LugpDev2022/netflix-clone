@@ -41,22 +41,29 @@
   display: flex;
   gap: 20px;
   overflow-x: scroll;
+  padding: 5px 0;
+  height: 280px;
 }
 
-.slidesContainer div:first-child {
+.slidesContainer a {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.slidesContainer a:first-child {
   margin-left: 16px;
 }
 
-.slidesContainer div:last-child {
+.slidesContainer a:last-child {
   margin-right: 16px;
 }
 
 @media (width > 768px) {
-  .slidesContainer div:first-child {
+  .slidesContainer a:first-child {
     margin-left: 40px;
   }
 
-  .slidesContainer div:last-child {
+  .slidesContainer a:last-child {
     margin-right: 40px;
   }
 }

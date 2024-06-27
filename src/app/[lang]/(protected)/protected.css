@@ -33,6 +33,9 @@
   outline: none;
   transition: 150ms;
   display: inline;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .poster-card:hover img {
