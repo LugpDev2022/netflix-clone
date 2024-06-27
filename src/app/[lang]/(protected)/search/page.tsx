@@ -27,7 +27,7 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
           <PosterCard
             alt={movie.title}
             href={`/${lang}/movies/${movie.id}`}
-            image={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+            posterPath={movie.poster_path}
             key={movie.id}
           />
         ))}
@@ -41,7 +41,7 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
           <PosterCard
             alt={show.title}
             href={`/${lang}/series/${show.id}`}
-            image={`https://image.tmdb.org/t/p/original${show.poster_path}`}
+            posterPath={show.poster_path}
             key={show.id}
           />
         ))}
