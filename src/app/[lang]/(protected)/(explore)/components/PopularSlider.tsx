@@ -5,11 +5,10 @@ import Link from 'next/link';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 import { usePopularSliderControls } from '@/src/app/[lang]/(protected)/(explore)/hooks/usePopularSliderControls';
-import { Locale } from '@/src/types';
-import type { PopularSliderItem } from '../lib/getSliderData';
+import { Locale, TMDBData } from '@/src/types';
 
 interface Props {
-  data: PopularSliderItem[];
+  data: TMDBData[];
   lang: Locale;
 }
 
@@ -30,14 +29,10 @@ const PopularSlider: React.FC<Props> = ({ data, lang }) => {
       </button>
       <div className='popular-slider'>
         <ul ref={listRef}>
-          {data.map(
-            ({
-              title,
-              backdrop_path,
-              id,
-              release_year,
-              type,
-            }: PopularSliderItem) => (
+          {data.map(({ title, backdrop_path, id, type, release_date }) => {
+            const releaseYear = new Date(release_date).getFullYear();
+
+            return (
               <li key={id} className='popular-slider-item'>
                 <div className='w-full h-full absolute top-0 left-0'>
                   <div className='bg-gradient-to-b from-black/80 via-black/50 to-black/80 w-full h-full absolute top-0 left-0'></div>
@@ -50,16 +45,22 @@ const PopularSlider: React.FC<Props> = ({ data, lang }) => {
 
                 <div className='popular-slider-info-container'>
                   <h2>{title}</h2>
-                  <time dateTime={release_year.toString()} className='block'>
-                    {release_year}
-                  </time>
+
+                  {release_date ? (
+                    <time dateTime={releaseYear.toString()} className='block'>
+                      {releaseYear}
+                    </time>
+                  ) : (
+                    <></>
+                  )}
+
                   <Link href={`/${lang}/${type}/${id}`}>
                     {lang === 'en' ? 'Watch Now' : 'Ver Ahora'}
                   </Link>
                 </div>
               </li>
-            )
-          )}
+            );
+          })}
         </ul>
       </div>
       <div className='popular-slider-dots'>

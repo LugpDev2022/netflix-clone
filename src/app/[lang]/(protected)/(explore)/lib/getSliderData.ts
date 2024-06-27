@@ -1,36 +1,14 @@
-import { Locale } from '@/src/types';
 import { getPopularMovies } from '@/src/app/[lang]/(protected)/lib/getPopularMovies';
 import { getPopularSeries } from '@/src/app/[lang]/(protected)/lib/getPopularSeries';
+import { Locale, TMDBData } from '@/src/types';
 
 type SliderType = 'mixed' | 'movies' | 'series';
-
-type Series = {
-  backdrop_path: string;
-  id: number;
-  name: string;
-  first_air_date: number;
-};
-
-type Movie = {
-  backdrop_path: string;
-  id: number;
-  title: string;
-  release_date: number;
-};
-
-export type PopularSliderItem = {
-  backdrop_path: string;
-  id: number;
-  title: string;
-  release_year: number;
-  type: 'series' | 'movies';
-};
 
 export const getSliderData = async (
   sliderType: SliderType,
   lang: Locale
-): Promise<[Error?, PopularSliderItem[]?]> => {
-  const sliderData: PopularSliderItem[] = [];
+): Promise<[Error?, TMDBData[]?]> => {
+  const sliderData: TMDBData[] = [];
 
   try {
     if (sliderType === 'mixed' || sliderType === 'movies') {
@@ -47,16 +25,7 @@ export const getSliderData = async (
       // Get top 3 popular movies
       const slicedMovies = movies.slice(0, 3);
 
-      // Add movie type
-      const movieItems = slicedMovies?.map((movie: Movie) => ({
-        type: 'movies' as 'movies',
-        backdrop_path: movie.backdrop_path,
-        id: movie.id,
-        title: movie.title,
-        release_year: new Date(movie.release_date).getFullYear(),
-      }));
-
-      sliderData.push(...movieItems);
+      sliderData.push(...slicedMovies);
     }
 
     if (sliderType === 'mixed' || sliderType === 'series') {
@@ -73,16 +42,7 @@ export const getSliderData = async (
       // Get top 3 popular series
       const slicedSeries = series.slice(0, 3);
 
-      // Add movie type
-      const seriesItems = slicedSeries.map((series: Series) => ({
-        type: 'series' as 'series',
-        backdrop_path: series.backdrop_path,
-        id: series.id,
-        title: series.name,
-        release_year: new Date(series.first_air_date).getFullYear(),
-      }));
-
-      sliderData.push(...seriesItems);
+      sliderData.push(...slicedSeries);
     }
 
     return [undefined, sliderData];
