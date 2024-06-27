@@ -26,7 +26,7 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
         {movies?.map((movie) => (
           <Card
             alt={movie.title}
-            href={`/${lang}/series/${movie.id}`}
+            href={`/${lang}/movies/${movie.id}`}
             image={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
             key={movie.id}
           />
