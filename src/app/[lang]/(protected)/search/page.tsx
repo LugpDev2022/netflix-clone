@@ -23,9 +23,9 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
     <>
       <h2 className='category-subtitle'>{dict.app.searchPage.popularMovies}</h2>
       <div className='posters-grid'>
-        {movies?.map((movie: any) => (
+        {movies?.map((movie) => (
           <Card
-            alt={movie.name}
+            alt={movie.title}
             href={`/${lang}/series/${movie.id}`}
             image={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
             key={movie.id}
@@ -37,9 +37,9 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
         {dict.app.searchPage.popularSeries}
       </h2>
       <div className='posters-grid'>
-        {series?.map((show: any) => (
+        {series?.map((show) => (
           <Card
-            alt={show.name}
+            alt={show.title}
             href={`/${lang}/series/${show.id}`}
             image={`https://image.tmdb.org/t/p/original${show.poster_path}`}
             key={show.id}

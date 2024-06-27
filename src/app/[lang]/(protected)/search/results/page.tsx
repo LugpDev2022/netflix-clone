@@ -1,7 +1,6 @@
 import { redirect } from 'next/navigation';
 
-import MoviesList from '@/src/app/[lang]/(protected)/search/results/components/MoviesList';
-import SeriesList from '@/src/app/[lang]/(protected)/search/results/components/SeriesList';
+import ResultCard from '../components/ResultCard';
 import { getMoviesByName } from '@/src/app/[lang]/(protected)/lib/getMoviesByName';
 import { getSeriesByName } from '@/src/app/[lang]/(protected)/lib/getSeriesByName';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
@@ -43,7 +42,20 @@ const ResultsPage: React.FC<Props> = async ({
           <h2 className='category-subtitle'>
             {dict.app.searchPage.resultsPage.movies}
           </h2>
-          <MoviesList movies={movies} lang={lang} />
+
+          <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-2.5'>
+            {movies.map(({ id, backdrop_path, release_date, title }) => (
+              <ResultCard
+                key={id}
+                id={id}
+                image={`https://image.tmdb.org/t/p/original${backdrop_path}`}
+                lang={lang}
+                releaseYear={new Date(release_date).getFullYear().toString()}
+                title={title}
+                type='movies'
+              />
+            ))}
+          </div>
         </>
       )}
 
@@ -54,7 +66,20 @@ const ResultsPage: React.FC<Props> = async ({
           <h2 className='category-subtitle mt-6'>
             {dict.app.searchPage.resultsPage.series}
           </h2>
-          <SeriesList series={series} lang={lang} />
+
+          <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-2.5'>
+            {series.map(({ id, backdrop_path, release_date, title }) => (
+              <ResultCard
+                key={id}
+                id={id}
+                image={`https://image.tmdb.org/t/p/original${backdrop_path}`}
+                lang={lang}
+                releaseYear={new Date(release_date).getFullYear().toString()}
+                title={title}
+                type='series'
+              />
+            ))}
+          </div>
         </>
       )}
     </>
