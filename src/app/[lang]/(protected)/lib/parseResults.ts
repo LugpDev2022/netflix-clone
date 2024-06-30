@@ -1,7 +1,7 @@
 import { TMDBData } from '@/src/types';
 
 export const parseResults = (
-  type: 'series' | 'movies',
+  type: 'tv' | 'movies' | 'default',
   results: []
 ): TMDBData[] => {
   // Filter the results that don't have a backdrop path
@@ -17,9 +17,10 @@ export const parseResults = (
       first_air_date,
       title,
       name,
+      media_type,
     }) => ({
       id,
-      type,
+      type: type === 'default' ? media_type : type,
       title: title || name,
       release_date: release_date || first_air_date,
       poster_path,

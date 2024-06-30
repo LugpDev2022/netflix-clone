@@ -16,7 +16,7 @@ export const getPopularSeries = async (
 
     const { results }: { results: [] } = await resp.json();
 
-    const parsedResults = parseResults('series', results);
+    const parsedResults = parseResults('tv', results);
 
     return [undefined, parsedResults];
   } catch (error) {

@@ -4,6 +4,7 @@ import { getPopularSeries } from '@/src/app/[lang]/(protected)/lib/getPopularSer
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
 import './search.css';
+import { getAllPopular } from '../lib/getAllPopular';
 
 interface Props {
   params: {
@@ -16,6 +17,8 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
 
   const [moviesErr, movies] = await getPopularMovies(lang);
   const [seriesErr, series] = await getPopularSeries(lang);
+
+  await getAllPopular(lang);
 
   if (moviesErr || seriesErr) return <p>{dict.error}</p>;
 
