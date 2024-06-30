@@ -48,7 +48,9 @@ const Carousel: React.FC<Props> = ({ data, lang }) => {
             key={id}
             alt={title}
             posterPath={poster_path}
-            href={`/${lang}/${type}/${id}`}
+            id={id}
+            lang={lang}
+            type={type}
           />
         ))}
       </div>

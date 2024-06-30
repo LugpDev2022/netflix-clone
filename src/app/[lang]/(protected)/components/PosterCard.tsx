@@ -1,15 +1,18 @@
+import { Locale } from '@/src/types';
 import Image from 'next/image';
 import Link from 'next/link';
 
 interface Props {
   posterPath: string;
   alt: string;
-  href: string;
+  id: number;
+  type: 'tv' | 'movie';
+  lang: Locale;
 }
 
-const PosterCard: React.FC<Props> = ({ alt, href, posterPath }) => {
+const PosterCard: React.FC<Props> = ({ alt, posterPath, id, lang, type }) => {
   return (
-    <Link href={href} className='poster-card'>
+    <Link href={`/${lang}/details/${type}/${id}`} className='poster-card'>
       <Image
         src={`https://image.tmdb.org/t/p/original${posterPath}`}
         alt={alt}

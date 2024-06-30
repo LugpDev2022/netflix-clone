@@ -23,9 +23,11 @@ const SearchPage: React.FC<Props> = async ({ params: { lang } }) => {
         {results?.map(({ title, id, poster_path, type }) => (
           <PosterCard
             alt={title}
-            href={`/${lang}/${type}/${id}`}
             posterPath={poster_path}
             key={id}
+            lang={lang}
+            id={id}
+            type={type}
           />
         ))}
       </div>
