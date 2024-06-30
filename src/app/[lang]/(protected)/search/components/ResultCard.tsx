@@ -23,7 +23,7 @@ const ResultCard: React.FC<Props> = ({
 }) => {
   return (
     <Link
-      href={`/${lang}/details/${type}/${id}`}
+      href={`/${lang}/${type}/${id}`}
       className='result-card fade-in-animation'
     >
       <Image

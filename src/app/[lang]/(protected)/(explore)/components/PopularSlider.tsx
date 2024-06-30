@@ -54,7 +54,7 @@ const PopularSlider: React.FC<Props> = ({ data, lang }) => {
                     <></>
                   )}
 
-                  <Link href={`/${lang}/details/${type}/${id}`}>
+                  <Link href={`/${lang}/${type}/${id}`}>
                     {lang === 'en' ? 'Watch Now' : 'Ver Ahora'}
                   </Link>
                 </div>
