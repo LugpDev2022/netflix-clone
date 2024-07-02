@@ -8,7 +8,7 @@ interface Props {
   image: string;
   title: string;
   releaseYear: string;
-  type: 'tv' | 'movies';
+  type: 'tv' | 'movie';
   id: number;
   lang: Locale;
 }

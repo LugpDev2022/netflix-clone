@@ -16,7 +16,7 @@ export const getPopularMovies = async (
 
     const { results }: { results: [] } = await resp.json();
 
-    const parsedResults = parseResults('movies', results);
+    const parsedResults = parseResults('movie', results);
 
     return [undefined, parsedResults];
   } catch (error) {
