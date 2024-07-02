@@ -17,7 +17,9 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
   //TODO: Improve error handling
   if (err) return <></>;
 
-  // console.log(details);
+  const releaseYear = new Date(
+    details ? details.release_date : ''
+  ).getFullYear();
 
   return (
     <div>
@@ -38,7 +40,11 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
           <div className='text-white/80 my-2.5 flex flex-row gap-5'>
             <span>1h 44min</span>
 
-            <time dateTime='2023'>2023</time>
+            {releaseYear ? (
+              <time dateTime={releaseYear.toString()}>{releaseYear}</time>
+            ) : (
+              <></>
+            )}
           </div>
 
           <button className='flex gap-2 items-center bg-red-600 hover:bg-red-700 transition py-2.5 px-5 rounded-sm w-full justify-center'>

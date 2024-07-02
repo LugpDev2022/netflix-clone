@@ -4,6 +4,8 @@ type Response = {
   title: string;
   overview: string;
   backdrop_path: string;
+  runtime: number;
+  release_date: string;
   genres: [{ name: string }];
 };
 

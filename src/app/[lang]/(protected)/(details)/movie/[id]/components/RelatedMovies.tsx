@@ -1,7 +1,7 @@
 import Carousel from '@/src/app/[lang]/(protected)/(explore)/components/Carousel';
 import { getRecommendations } from '@/src/app/[lang]/(protected)/(details)/lib/getRecommendations';
-import { Locale } from '@/src/types';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
+import { Locale } from '@/src/types';
 
 interface Props {
   id: number;
