@@ -47,14 +47,17 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
         </div>
       </section>
 
-      <section>
-        <p>{details.overview}</p>
+      <section className='px-5 py-2.5 md:px-10'>
+        <p className='text-white/80'>{details.overview}</p>
 
         {/* Categories */}
-        <ul>
+        <ul className='mt-3 text-sm flex flex-row gap-2 font-semibold'>
           <li>Action</li>
+          <li>Comedy</li>
         </ul>
+      </section>
 
+      <section className='px-5 py-2.5 md:px-10'>
         <h2>You may like</h2>
       </section>
     </div>
