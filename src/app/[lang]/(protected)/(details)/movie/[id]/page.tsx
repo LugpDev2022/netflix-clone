@@ -25,7 +25,7 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
           <div className='bg-gradient-to-b from-black/80 via-black/0 via-40% to-black w-full h-full absolute top-0 left-0'></div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/original${details?.backdrop_path}`}
             alt='Poster'
             className='w-full h-full object-cover'
           />
@@ -48,17 +48,19 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
       </section>
 
       <section className='px-5 py-2.5 md:px-10'>
-        <p className='text-white/80'>{details.overview}</p>
+        <p className='text-white/80'>{details?.overview}</p>
 
         {/* Categories */}
-        <ul className='mt-3 text-sm flex flex-row gap-2 font-semibold'>
-          <li>Action</li>
-          <li>Comedy</li>
+        <ul className='mt-3 text-sm flex flex-row flex-wrap gap-2 font-semibold'>
+          {details?.genres.map(({ name }) => (
+            <li key={name}>{name}</li>
+          ))}
         </ul>
       </section>
 
       <section className='px-5 py-2.5 md:px-10'>
-        <h2>You may like</h2>
+        <h2 className='text-lg font-semibold'>You may like</h2>
+        {/* TODO: Show related movies */}
       </section>
     </div>
   );

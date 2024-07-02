@@ -2,6 +2,9 @@ import { Locale } from '@/src/types';
 
 type Response = {
   title: string;
+  overview: string;
+  backdrop_path: string;
+  genres: [{ name: string }];
 };
 
 export const searchById = async (
