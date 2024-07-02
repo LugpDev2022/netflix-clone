@@ -20,7 +20,7 @@ export const getRecommendations = async (
       throw new Error('Invalid data format received from the API');
     }
 
-    const parsedData = parseResults(type as any, results);
+    const parsedData = parseResults(type, results);
 
     return [undefined, parsedData];
   } catch (error) {

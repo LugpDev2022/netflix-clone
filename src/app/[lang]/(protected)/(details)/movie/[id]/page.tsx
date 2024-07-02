@@ -1,5 +1,6 @@
 import { FaPlay } from 'react-icons/fa6';
 
+import RelatedMovies from '@/src/app/[lang]/(protected)/(details)/movie/[id]/components/RelatedMovies';
 import { searchById } from '@/src/app/[lang]/(protected)/(details)/lib/searchById';
 import { Locale } from '@/src/types';
 
@@ -16,7 +17,7 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
   //TODO: Improve error handling
   if (err) return <></>;
 
-  console.log(details);
+  // console.log(details);
 
   return (
     <div>
@@ -58,9 +59,11 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
         </ul>
       </section>
 
-      <section className='px-5 py-2.5 md:px-10'>
-        <h2 className='text-lg font-semibold'>You may like</h2>
-        {/* TODO: Show related movies */}
+      <section className='pt-2.5 pb-5'>
+        <h2 className='px-5 md:px-10 text-lg font-semibold mb-2'>
+          You may like
+        </h2>
+        <RelatedMovies id={parseInt(id)} lang={lang} />
       </section>
     </div>
   );
