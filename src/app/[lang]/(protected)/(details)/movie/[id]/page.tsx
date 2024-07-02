@@ -1,6 +1,7 @@
+import { FaPlay } from 'react-icons/fa6';
+
 import { searchById } from '@/src/app/[lang]/(protected)/(details)/lib/searchById';
 import { Locale } from '@/src/types';
-import { FaPlay } from 'react-icons/fa6';
 
 interface Props {
   params: {
@@ -21,7 +22,7 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
     <div>
       <section className='h-screen relative flex justify-start items-end'>
         <div className='w-full h-full absolute top-0 left-0'>
-          <div className='bg-gradient-to-b from-black/80 via-black/50 to-black/80 w-full h-full absolute top-0 left-0'></div>
+          <div className='bg-gradient-to-b from-black/80 via-black/0 via-40% to-black w-full h-full absolute top-0 left-0'></div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
@@ -30,13 +31,18 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
           />
         </div>
 
-        <div className='z-10 relative'>
-          <h1>{details?.title}</h1>
-          <time dateTime='2023'>2023</time>
+        <div className='z-10 relative w-full p-5 sm:max-w-sm md:p-10'>
+          <h1 className='text-3xl font-bold text-pretty'>{details?.title}</h1>
 
-          <button>
-            <FaPlay />
-            Watch Now
+          <div className='text-white/80 my-2.5 flex flex-row gap-5'>
+            <span>1h 44min</span>
+
+            <time dateTime='2023'>2023</time>
+          </div>
+
+          <button className='flex gap-2 items-center bg-red-600 hover:bg-red-700 transition py-2.5 px-5 rounded-sm w-full justify-center'>
+            <FaPlay size={18} />
+            <span className='text-lg font-semibold'>Watch Now</span>
           </button>
         </div>
       </section>
