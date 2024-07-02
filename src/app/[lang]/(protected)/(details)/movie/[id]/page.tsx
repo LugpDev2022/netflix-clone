@@ -3,6 +3,7 @@ import { FaPlay } from 'react-icons/fa6';
 import RelatedMovies from '@/src/app/[lang]/(protected)/(details)/movie/[id]/components/RelatedMovies';
 import { searchById } from '@/src/app/[lang]/(protected)/(details)/lib/searchById';
 import { parseRuntime } from '@/src/app/[lang]/(protected)/(details)/lib/parseRuntime';
+import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
+  const dict = await getDictionary(lang);
   const [err, details] = await searchById('movie', parseInt(id), lang);
 
   //TODO: Improve error handling
@@ -50,7 +52,9 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
 
           <button className='flex gap-2 items-center bg-red-600 hover:bg-red-700 transition py-2.5 px-5 rounded-sm w-full justify-center'>
             <FaPlay size={18} />
-            <span className='text-lg font-semibold'>Watch Now</span>
+            <span className='text-lg font-semibold'>
+              {dict.app.details.watchNow}
+            </span>
           </button>
         </div>
       </section>
@@ -68,7 +72,7 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
 
       <section className='pt-2.5 pb-5'>
         <h2 className='px-5 md:px-10 text-lg font-semibold mb-2'>
-          You may like
+          {dict.app.details.recommendations}
         </h2>
         <RelatedMovies id={parseInt(id)} lang={lang} />
       </section>

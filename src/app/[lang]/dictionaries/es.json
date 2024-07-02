@@ -68,6 +68,10 @@
         "logOut": "Cerrar sesión"
       }
     },
+    "details": {
+      "watchNow": "Ver Ahora",
+      "recommendations": "Recomendaciones"
+    },
     "searchPage": {
       "popularMovies": "Películas Populares",
       "popularSeries": "Series Populares",
