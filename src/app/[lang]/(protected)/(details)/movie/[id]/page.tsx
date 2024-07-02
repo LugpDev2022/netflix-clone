@@ -2,6 +2,7 @@ import { FaPlay } from 'react-icons/fa6';
 
 import RelatedMovies from '@/src/app/[lang]/(protected)/(details)/movie/[id]/components/RelatedMovies';
 import { searchById } from '@/src/app/[lang]/(protected)/(details)/lib/searchById';
+import { parseRuntime } from '@/src/app/[lang]/(protected)/(details)/lib/parseRuntime';
 import { Locale } from '@/src/types';
 
 interface Props {
@@ -16,10 +17,10 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
 
   //TODO: Improve error handling
   if (err) return <></>;
+  if (!details) return <></>;
 
-  const releaseYear = new Date(
-    details ? details.release_date : ''
-  ).getFullYear();
+  const { hours, minutes } = parseRuntime(details.runtime);
+  const releaseYear = new Date(details.release_date).getFullYear();
 
   return (
     <div>
@@ -38,7 +39,7 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
           <h1 className='text-3xl font-bold text-pretty'>{details?.title}</h1>
 
           <div className='text-white/80 my-2.5 flex flex-row gap-5'>
-            <span>1h 44min</span>
+            <span>{`${hours}h ${minutes}min`}</span>
 
             {releaseYear ? (
               <time dateTime={releaseYear.toString()}>{releaseYear}</time>
