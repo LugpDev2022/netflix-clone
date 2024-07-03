@@ -43,7 +43,7 @@
   gap: 20px;
   overflow-x: scroll;
   padding: 5px 0;
-  height: 280px;
+  height: 250px;
 }
 
 .slidesContainer a {
@@ -60,6 +60,10 @@
 }
 
 @media (width > 768px) {
+  .slidesContainer {
+    height: 280px;
+  }
+
   .slidesContainer a:first-child {
     margin-left: 40px;
   }
