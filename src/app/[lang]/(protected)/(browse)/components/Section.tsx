@@ -2,13 +2,13 @@ import Carousel from '@/src/app/[lang]/(protected)/(browse)/components/Carousel'
 import { Locale, TMDBData } from '@/src/types';
 
 interface Props {
-  fn: (lang: Locale) => Promise<[Error?, TMDBData[]?]>;
+  fetchDataFn: (lang: Locale) => Promise<[Error?, TMDBData[]?]>;
   lang: Locale;
   title: string;
 }
 
-const Section: React.FC<Props> = async ({ fn, lang, title }) => {
-  const [err, data] = await fn(lang);
+const Section: React.FC<Props> = async ({ fetchDataFn, lang, title }) => {
+  const [err, data] = await fetchDataFn(lang);
 
   if (err || !data) {
     return <></>;

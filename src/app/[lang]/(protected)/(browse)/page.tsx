@@ -11,7 +11,11 @@ interface Props {
 const HomePage: React.FC<Props> = async ({ params: { lang } }) => {
   return (
     <>
-      <Section fn={getPopularMovies} lang={lang} title='Popular Movies' />
+      <Section
+        fetchDataFn={getPopularMovies}
+        lang={lang}
+        title='Popular Movies'
+      />
     </>
   );
 };
