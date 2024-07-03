@@ -1,8 +1,8 @@
 import { FaPlay } from 'react-icons/fa6';
 
 import RelatedMovies from '@/src/app/[lang]/(protected)/(details)/[type]/[id]/components/RelatedMovies';
+import AdditionalInfo from '@/src/app/[lang]/(protected)/(details)/[type]/[id]/components/AdditionalInfo';
 import { searchById } from '@/src/app/[lang]/(protected)/(details)/lib/searchById';
-import { parseRuntime } from '@/src/app/[lang]/(protected)/(details)/lib/parseRuntime';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
 
@@ -22,7 +22,6 @@ const DetailsPage: React.FC<Props> = async ({ params: { id, lang, type } }) => {
   if (err) return <></>;
   if (!details) return <></>;
 
-  const { hours, minutes } = parseRuntime(details.runtime);
   const releaseYear = new Date(details.release_date).getFullYear();
 
   return (
@@ -41,15 +40,12 @@ const DetailsPage: React.FC<Props> = async ({ params: { id, lang, type } }) => {
         <div className='z-10 relative w-full p-5 sm:max-w-sm md:p-10'>
           <h1 className='text-3xl font-bold text-pretty'>{details?.title}</h1>
 
-          <div className='text-white/80 my-2.5 flex flex-row gap-5'>
-            <span>{`${hours}h ${minutes}min`}</span>
-
-            {releaseYear ? (
-              <time dateTime={releaseYear.toString()}>{releaseYear}</time>
-            ) : (
-              <></>
-            )}
-          </div>
+          <AdditionalInfo
+            type={type}
+            releaseYear={releaseYear}
+            runtime={details.runtime}
+            seasons={details.number_of_seasons}
+          />
 
           <button className='flex gap-2 items-center bg-red-600 hover:bg-red-700 transition py-2.5 px-5 rounded-sm w-full justify-center'>
             <FaPlay size={18} />
