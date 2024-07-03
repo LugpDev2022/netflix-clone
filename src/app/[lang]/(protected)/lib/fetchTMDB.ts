@@ -20,8 +20,6 @@ export const fetchTMDB = async (
 
     const parsedResults = parseResults(type, results);
 
-    console.log(parsedResults);
-
     return [undefined, parsedResults];
   } catch (error) {
     if (error instanceof Error) {
