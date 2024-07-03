@@ -49,6 +49,8 @@
 .slidesContainer a {
   flex-shrink: 0;
   flex-grow: 0;
+  height: 100%;
+  width: 170px;
 }
 
 .slidesContainer a:first-child {
@@ -62,6 +64,10 @@
 @media (width > 768px) {
   .slidesContainer {
     height: 280px;
+  }
+
+  .slidesContainer a {
+    width: 190px;
   }
 
   .slidesContainer a:first-child {
