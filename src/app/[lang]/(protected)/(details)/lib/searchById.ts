@@ -4,9 +4,10 @@ type Response = {
   title: string;
   overview: string;
   backdrop_path: string;
-  runtime: number;
   release_date: string;
   genres: [{ name: string }];
+  runtime?: number;
+  number_of_seasons?: number;
 };
 
 export const searchById = async (
@@ -24,7 +25,17 @@ export const searchById = async (
 
     const data = await resp.json();
 
-    return [undefined, data];
+    const usedData: Response = {
+      backdrop_path: data.backdrop_path,
+      genres: data.genres,
+      overview: data.overview,
+      title: data.title || data.name,
+      release_date: data.release_date || data.first_air_date,
+      number_of_seasons: data.number_of_seasons,
+      runtime: data.runtime,
+    };
+
+    return [undefined, usedData];
   } catch (error) {
     if (error instanceof Error) return [error];
   }
