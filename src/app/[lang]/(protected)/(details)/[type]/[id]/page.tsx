@@ -71,7 +71,7 @@ const DetailsPage: React.FC<Props> = async ({ params: { id, lang, type } }) => {
         <h2 className='px-5 md:px-10 text-lg font-semibold mb-2'>
           {dict.app.details.recommendations}
         </h2>
-        <RelatedMovies id={parseInt(id)} lang={lang} />
+        <RelatedMovies id={parseInt(id)} lang={lang} type={type} />
       </section>
     </div>
   );

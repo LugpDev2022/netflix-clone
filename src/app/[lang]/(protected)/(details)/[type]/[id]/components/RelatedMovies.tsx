@@ -6,11 +6,12 @@ import { Locale } from '@/src/types';
 interface Props {
   id: number;
   lang: Locale;
+  type: 'movie' | 'tv';
 }
 
-const RelatedMovies: React.FC<Props> = async ({ id, lang }) => {
+const RelatedMovies: React.FC<Props> = async ({ id, lang, type }) => {
   const dict = await getDictionary(lang);
-  const [err, recommendations] = await getRecommendations('movie', id, lang);
+  const [err, recommendations] = await getRecommendations(type, id, lang);
 
   if (err || !recommendations)
     return <p className='px-5 md:px-10'>{dict.error}</p>;
