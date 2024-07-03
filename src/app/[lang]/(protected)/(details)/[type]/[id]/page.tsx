@@ -1,6 +1,6 @@
 import { FaPlay } from 'react-icons/fa6';
 
-import RelatedMovies from '@/src/app/[lang]/(protected)/(details)/movie/[id]/components/RelatedMovies';
+import RelatedMovies from '@/src/app/[lang]/(protected)/(details)/[type]/[id]/components/RelatedMovies';
 import { searchById } from '@/src/app/[lang]/(protected)/(details)/lib/searchById';
 import { parseRuntime } from '@/src/app/[lang]/(protected)/(details)/lib/parseRuntime';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
@@ -10,12 +10,13 @@ interface Props {
   params: {
     lang: Locale;
     id: string;
+    type: 'movie' | 'tv';
   };
 }
 
-const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
+const DetailsPage: React.FC<Props> = async ({ params: { id, lang, type } }) => {
   const dict = await getDictionary(lang);
-  const [err, details] = await searchById('movie', parseInt(id), lang);
+  const [err, details] = await searchById(type, parseInt(id), lang);
 
   //TODO: Improve error handling
   if (err) return <></>;
@@ -80,4 +81,4 @@ const MovieDetailsPage: React.FC<Props> = async ({ params: { id, lang } }) => {
   );
 };
 
-export default MovieDetailsPage;
+export default DetailsPage;
