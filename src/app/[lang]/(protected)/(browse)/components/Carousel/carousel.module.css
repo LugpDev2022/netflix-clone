@@ -12,6 +12,7 @@
   opacity: 0;
   transition: 150ms;
   outline: none;
+  display: none;
 }
 
 .leftArrow:hover,
@@ -76,5 +77,10 @@
 
   .slidesContainer a:last-child {
     margin-right: 40px;
+  }
+
+  .leftArrow,
+  .rightArrow {
+    display: block;
   }
 }
