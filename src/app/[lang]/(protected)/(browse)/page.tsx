@@ -1,4 +1,4 @@
-import Carousel from '@/src/app/[lang]/(protected)/(explore)/components/Carousel';
+import Carousel from '@/src/app/[lang]/(protected)/(browse)/components/Carousel';
 import { getPopularMovies } from '@/src/app/[lang]/(protected)/lib/getPopularMovies';
 import { Locale } from '@/src/types';
 

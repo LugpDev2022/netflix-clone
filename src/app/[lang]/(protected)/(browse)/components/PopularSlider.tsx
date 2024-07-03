@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
-import { usePopularSliderControls } from '@/src/app/[lang]/(protected)/(explore)/hooks/usePopularSliderControls';
+import { usePopularSliderControls } from '@/src/app/[lang]/(protected)/(browse)/hooks/usePopularSliderControls';
 import { Locale, TMDBData } from '@/src/types';
 
 interface Props {

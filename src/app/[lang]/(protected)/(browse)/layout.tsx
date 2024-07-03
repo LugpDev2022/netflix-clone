@@ -1,5 +1,5 @@
-import PopularSlider from '@/src/app/[lang]/(protected)/(explore)/components/PopularSlider';
-import { getSliderData } from '@/src/app/[lang]/(protected)/(explore)/lib/getSliderData';
+import PopularSlider from '@/src/app/[lang]/(protected)/(browse)/components/PopularSlider';
+import { getSliderData } from '@/src/app/[lang]/(protected)/(browse)/lib/getSliderData';
 import { Locale } from '@/src/types';
 import './explore.css';
 

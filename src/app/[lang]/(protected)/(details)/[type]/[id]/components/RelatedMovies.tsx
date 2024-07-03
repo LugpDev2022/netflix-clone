@@ -1,4 +1,4 @@
-import Carousel from '@/src/app/[lang]/(protected)/(explore)/components/Carousel';
+import Carousel from '@/src/app/[lang]/(protected)/(browse)/components/Carousel';
 import { getRecommendations } from '@/src/app/[lang]/(protected)/(details)/lib/getRecommendations';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
