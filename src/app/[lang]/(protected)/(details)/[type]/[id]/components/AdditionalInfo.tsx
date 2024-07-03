@@ -5,6 +5,7 @@ interface Props {
   runtime?: number;
   releaseYear: number;
   seasons?: number;
+  dict: any;
 }
 
 const AdditionalInfo: React.FC<Props> = ({
@@ -12,6 +13,7 @@ const AdditionalInfo: React.FC<Props> = ({
   runtime = 0,
   releaseYear,
   seasons = 1,
+  dict,
 }) => {
   const { hours, minutes } = parseRuntime(runtime);
 
@@ -22,7 +24,15 @@ const AdditionalInfo: React.FC<Props> = ({
       )}
 
       {type === 'tv' && (
-        <span>{`${seasons} season${seasons > 1 ? 's' : ''}`}</span>
+        /**
+         * Output examples
+         * 1 season - 1 temporada
+         * 3 seasons - 3 temporadas
+         */
+
+        <span>{`${seasons} ${dict.app.details.season}${
+          seasons > 1 ? 's' : ''
+        }`}</span>
       )}
 
       {releaseYear && (

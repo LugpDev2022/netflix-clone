@@ -45,6 +45,7 @@ const DetailsPage: React.FC<Props> = async ({ params: { id, lang, type } }) => {
             releaseYear={releaseYear}
             runtime={details.runtime}
             seasons={details.number_of_seasons}
+            dict={dict}
           />
 
           <button className='flex gap-2 items-center bg-red-600 hover:bg-red-700 transition py-2.5 px-5 rounded-sm w-full justify-center'>

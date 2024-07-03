@@ -70,7 +70,8 @@
     },
     "details": {
       "watchNow": "Watch Now",
-      "recommendations": "Recommendations"
+      "recommendations": "Recommendations",
+      "season": "season"
     },
     "searchPage": {
       "popularMovies": "Popular Movies",
