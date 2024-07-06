@@ -1,3 +1,4 @@
+import { parseResults } from '@/src/app/[lang]/(protected)/lib';
 import { Locale, TMDBData } from '@/src/types';
 
 export const getByGenre = async (
@@ -13,13 +14,19 @@ export const getByGenre = async (
 
     if (!resp.ok) throw new Error(resp.statusText);
 
-    const data = await resp.json();
+    const { results } = await resp.json();
 
-    if (!data.results) {
+    if (!results) {
       throw new Error('Invalid data format received from the API');
     }
 
-    return [undefined, data.results];
+    if (results.length < 1) {
+      throw new Error('No results returned');
+    }
+
+    const parsedResults = parseResults(type, results);
+
+    return [undefined, parsedResults];
   } catch (error) {
     if (error instanceof Error) {
       return [error];

@@ -16,8 +16,6 @@ interface Props {
 const SeriesPage: React.FC<Props> = async ({ params: { lang } }) => {
   const [errs, genres] = await getGenresId('movie', lang);
 
-  console.log(genres);
-
   return (
     <>
       <Section
