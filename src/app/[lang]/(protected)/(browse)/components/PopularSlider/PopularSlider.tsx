@@ -6,6 +6,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 import { usePopularSliderControls } from '@/src/app/[lang]/(protected)/(browse)/hooks/usePopularSliderControls';
 import { Locale, TMDBData } from '@/src/types';
+import './slider.css';
 
 interface Props {
   data: TMDBData[];

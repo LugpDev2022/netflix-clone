@@ -1,7 +1,6 @@
 import PopularSlider from '@/src/app/[lang]/(protected)/(browse)/components/PopularSlider';
 import { getSliderData } from '@/src/app/[lang]/(protected)/(browse)/lib/getSliderData';
 import { Locale } from '@/src/types';
-import './explore.css';
 
 interface Props {
   children: React.ReactNode;
