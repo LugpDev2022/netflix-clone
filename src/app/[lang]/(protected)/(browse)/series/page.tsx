@@ -1,7 +1,9 @@
 import Section from '@/src/app/[lang]/(protected)/(browse)/components/Section';
-import { fetchTMDB } from '@/src/app/[lang]/(protected)/lib/fetchTMDB';
-import { getPopularSeries } from '@/src/app/[lang]/(protected)/lib/getPopularSeries';
-import { getGenresId } from '@/src/app/[lang]/(protected)/lib/getGenresId';
+import {
+  getPopularSeries,
+  fetchTMDB,
+  getGenresId,
+} from '@/src/app/[lang]/(protected)/lib';
 import { Locale } from '@/src/types';
 
 interface Props {
