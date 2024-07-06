@@ -3,6 +3,7 @@ import {
   getPopularSeries,
   fetchTMDB,
   getGenresId,
+  getByGenre,
 } from '@/src/app/[lang]/(protected)/lib';
 import { Locale } from '@/src/types';
 
@@ -34,6 +35,15 @@ const SeriesPage: React.FC<Props> = async ({ params: { lang } }) => {
         lang={lang}
         title='On Air Series'
       />
+
+      {genres?.map(({ id, name }) => (
+        <Section
+          key={id}
+          fetchDataFn={() => getByGenre('tv', lang, id)}
+          lang={lang}
+          title={name}
+        />
+      ))}
     </>
   );
 };
