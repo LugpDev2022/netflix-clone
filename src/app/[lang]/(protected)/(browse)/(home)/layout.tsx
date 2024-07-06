@@ -9,10 +9,7 @@ interface Props {
   };
 }
 
-const ExploreLayout: React.FC<Props> = async ({
-  children,
-  params: { lang },
-}) => {
+const HomeLayout: React.FC<Props> = async ({ children, params: { lang } }) => {
   const [err, sliderData] = await getSliderData('mixed', lang);
 
   if (err || !sliderData) throw err;
@@ -25,4 +22,4 @@ const ExploreLayout: React.FC<Props> = async ({
   );
 };
 
-export default ExploreLayout;
+export default HomeLayout;
