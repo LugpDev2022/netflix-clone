@@ -73,6 +73,15 @@
       "recommendations": "Recomendaciones",
       "season": "temporada"
     },
+    "browse": {
+      "sections": {
+        "series": {
+          "popular": "Series Populares",
+          "topRated": "Series Más Valoradas",
+          "onAir": "Series Al Aire"
+        }
+      }
+    },
     "searchPage": {
       "popularMovies": "Películas Populares",
       "popularSeries": "Series Populares",

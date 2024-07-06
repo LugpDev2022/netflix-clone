@@ -73,6 +73,15 @@
       "recommendations": "Recommendations",
       "season": "season"
     },
+    "browse": {
+      "sections": {
+        "series": {
+          "popular": "Popular Series",
+          "topRated": "Top Rated Series",
+          "onAir": "On Air Series"
+        }
+      }
+    },
     "searchPage": {
       "popularMovies": "Popular Movies",
       "popularSeries": "Popular Series",

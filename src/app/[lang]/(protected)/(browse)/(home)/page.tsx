@@ -10,6 +10,8 @@ interface Props {
 }
 
 const HomePage: React.FC<Props> = async ({ params: { lang } }) => {
+  //TODO: Translate sections titles
+
   return (
     <>
       <Section fetchDataFn={getAllPopular} lang={lang} title='Popular' />
