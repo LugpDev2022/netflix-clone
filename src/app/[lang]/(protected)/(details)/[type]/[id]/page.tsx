@@ -18,9 +18,9 @@ const DetailsPage: React.FC<Props> = async ({ params: { id, lang, type } }) => {
   const dict = await getDictionary(lang);
   const [err, details] = await searchById(type, parseInt(id), lang);
 
-  //TODO: Improve error handling
-  if (err) return <></>;
-  if (!details) return <></>;
+  if (err) throw err;
+
+  if (!details) throw new Error('Not Found');
 
   const releaseYear = new Date(details.release_date).getFullYear();
 
