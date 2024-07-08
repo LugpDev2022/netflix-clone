@@ -17,7 +17,7 @@ const Footer: React.FC<Props> = async ({ lang }) => {
   const dict = await getDictionary(lang);
 
   return (
-    <footer className='text-center sm:text-left px-6 pb-6 md:px-10'>
+    <footer className='text-center sm:text-left p-6 md:px-10'>
       <h4 className='footer-subtitle'>{dict.footer.subtitle1}</h4>
       <p className='text-pretty'>{dict.footer.information}</p>
 

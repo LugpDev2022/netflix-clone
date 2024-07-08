@@ -21,6 +21,7 @@ const ProtectedLayout: React.FC<Props> = async ({
     <div className='min-h-screen bg-black text-white'>
       <Navbar lang={lang} dict={dict} />
       {children}
+      <hr className='h-2.5 bg-[#232323] border-none' />
       <Footer lang={lang} />
     </div>
   );
