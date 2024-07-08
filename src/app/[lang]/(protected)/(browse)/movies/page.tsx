@@ -23,17 +23,17 @@ const SeriesPage: React.FC<Props> = async ({ params: { lang } }) => {
       <Section
         fetchDataFn={getPopularMovies}
         lang={lang}
-        title={dict.app.browse.sections.series.popular}
+        title={dict.app.browse.sections.movies.popular}
       />
       <Section
         fetchDataFn={() => fetchTMDB(lang, '/movie/top_rated', 'movie')}
         lang={lang}
-        title={dict.app.browse.sections.series.topRated}
+        title={dict.app.browse.sections.movies.topRated}
       />
       <Section
         fetchDataFn={() => fetchTMDB(lang, '/movie/upcoming', 'movie')}
         lang={lang}
-        title={dict.app.browse.sections.series.onAir}
+        title={dict.app.browse.sections.movies.upcoming}
       />
 
       {genres?.map(({ id, name }) => (

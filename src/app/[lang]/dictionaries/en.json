@@ -79,6 +79,11 @@
           "popular": "Popular Series",
           "topRated": "Top Rated Series",
           "onAir": "On Air Series"
+        },
+        "movies": {
+          "popular": "Popular Movies",
+          "topRated": "Top Rated Movies",
+          "upcoming": "Upcoming Movies"
         }
       }
     },

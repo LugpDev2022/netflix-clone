@@ -79,6 +79,11 @@
           "popular": "Series Populares",
           "topRated": "Series Más Valoradas",
           "onAir": "Series Al Aire"
+        },
+        "movies": {
+          "popular": "Películas Populares",
+          "topRated": "Películas Más Valoradas",
+          "upcoming": "Próximos estrenos"
         }
       }
     },
