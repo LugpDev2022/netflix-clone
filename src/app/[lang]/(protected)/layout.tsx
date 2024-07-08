@@ -2,6 +2,7 @@ import { Locale } from '@/src/types';
 import { getDictionary } from '../dictionaries';
 import Navbar from './components/Navbar';
 import './protected.css';
+import Footer from './components/Footer';
 
 interface Props {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ const ProtectedLayout: React.FC<Props> = async ({
     <div className='min-h-screen bg-black text-white'>
       <Navbar lang={lang} dict={dict} />
       {children}
+      <Footer lang={lang} />
     </div>
   );
 };
