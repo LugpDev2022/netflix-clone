@@ -1,9 +1,9 @@
 import Section from '@/src/app/[lang]/(protected)/(browse)/components/Section';
 import {
-  getPopularSeries,
   fetchTMDB,
   getGenresId,
   getByGenre,
+  getPopularMovies,
 } from '@/src/app/[lang]/(protected)/lib';
 import { getDictionary } from '@/src/app/[lang]/dictionaries';
 import { Locale } from '@/src/types';
@@ -16,22 +16,22 @@ interface Props {
 
 const SeriesPage: React.FC<Props> = async ({ params: { lang } }) => {
   const dict = await getDictionary(lang);
-  const [errs, genres] = await getGenresId('tv', lang);
+  const [errs, genres] = await getGenresId('movie', lang);
 
   return (
     <>
       <Section
-        fetchDataFn={getPopularSeries}
+        fetchDataFn={getPopularMovies}
         lang={lang}
         title={dict.app.browse.sections.series.popular}
       />
       <Section
-        fetchDataFn={() => fetchTMDB(lang, '/tv/top_rated', 'tv')}
+        fetchDataFn={() => fetchTMDB(lang, '/movie/top_rated', 'movie')}
         lang={lang}
         title={dict.app.browse.sections.series.topRated}
       />
       <Section
-        fetchDataFn={() => fetchTMDB(lang, '/tv/on_the_air', 'tv')}
+        fetchDataFn={() => fetchTMDB(lang, '/movie/upcoming', 'movie')}
         lang={lang}
         title={dict.app.browse.sections.series.onAir}
       />
@@ -39,7 +39,7 @@ const SeriesPage: React.FC<Props> = async ({ params: { lang } }) => {
       {genres?.map(({ id, name }) => (
         <Section
           key={id}
-          fetchDataFn={() => getByGenre('tv', lang, id)}
+          fetchDataFn={() => getByGenre('movie', lang, id)}
           lang={lang}
           title={name}
         />
