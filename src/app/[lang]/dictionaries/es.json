@@ -75,6 +75,9 @@
     },
     "browse": {
       "sections": {
+        "home": {
+          "popular": "Popular"
+        },
         "series": {
           "popular": "Series Populares",
           "topRated": "Series Más Valoradas",
