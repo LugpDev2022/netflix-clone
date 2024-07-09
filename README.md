@@ -6,6 +6,8 @@ This project is a Netflix Clone built for educational purposes.
 
 - [Getting Started](#getting-started)
   - [Setup](#setup)
+  - [Configuring Environment Variables](#configuring-environment-variables)
+  - [Configuring Prisma](#configuring-prisma)
   - [Development](#development)
   - [Linting](#linting)
   - [Building Preview](#building-preview)
@@ -23,6 +25,28 @@ git clone https://github.com/your-username/netflix-clone.git
 # Install Dependencies
 cd netflix-clone
 npm install
+```
+
+### Configuring environment variables
+
+Create a .env file in the project root and add the following variables:
+
+- NEXTAUTH_SECRET: Secret used for authentication
+- NEXTAUTH_URL: Current project URL
+- DATABASE_URL: Database URL
+- TMDB_API_KEY: Your "The Movie Data Base" API key
+
+```sh
+# Create the file
+touch .env
+```
+
+### Configuring prisma
+
+Create a prisma migration:
+
+```sh
+npx prisma migrate dev --name init
 ```
 
 ### Development
