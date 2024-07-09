@@ -83,6 +83,14 @@ npm run start
 
 ## Technologies
 
+- Nextjs
+- Prisma
+- NextAuth.js
+- Tailwindcss
+- Formik
+- Yup
+- Shadcn
+
 ## Demo
 
 ![Page Screenshot](./demo.png)
