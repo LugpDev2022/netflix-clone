@@ -1,7 +1,7 @@
 'use server';
 
-import { User } from '@prisma/client';
-import { prisma } from '../lib/prisma';
+import prisma from '@/src/db';
+import { User } from '@prisma/client/edge';
 
 export const createUser = async (
   email: string,

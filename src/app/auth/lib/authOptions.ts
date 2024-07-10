@@ -1,7 +1,8 @@
 import { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { prisma } from '../../lib/prisma';
+
 import { compareEncryptedText } from '../../actions/compareEncryptedText';
+import prisma from '@/src/db';
 
 export const authOptions: AuthOptions = {
   session: {

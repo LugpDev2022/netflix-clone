@@ -59,7 +59,7 @@ const ConfirmBtn: React.FC<Props> = ({ dict, lang }) => {
     }
 
     deleteCookie('sign-up-cookie');
-    router.push('/');
+    return router.push('/');
   };
 
   return (
