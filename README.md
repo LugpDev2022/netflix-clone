@@ -33,7 +33,8 @@ Create a .env file in the project root and add the following variables:
 
 - NEXTAUTH_SECRET: Secret used for authentication
 - NEXTAUTH_URL: Current project URL
-- DATABASE_URL: Database URL
+- DATABASE_URL: Database URL used by prisma
+- DIRECT_URL: Direct database URL used by prisma to make migrations
 - TMDB_API_KEY: Your "The Movie Data Base" API key
 
 ```sh
