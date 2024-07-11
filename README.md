@@ -42,14 +42,6 @@ Create a .env file in the project root and add the following variables:
 touch .env
 ```
 
-### Configuring prisma
-
-Create a prisma migration:
-
-```sh
-npx prisma migrate dev --name init
-```
-
 ### Development
 
 To start the development server, run:
